@@ -1,6 +1,7 @@
 [Appearance]
 ColorScheme=Sweet
 Font=Monospace,10,-1,5,50,0,0,0,0,0
+UseFontLineChararacters=false
 
 [Cursor Options]
 CursorShape=0
