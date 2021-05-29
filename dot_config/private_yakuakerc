@@ -1,0 +1,14 @@
+[Appearance]
+Skin=breath2_dark
+
+[FileDialogSize]
+DP-2 DP-0 Height 2560x1440=784
+DP-2 DP-0 Width 2560x1440=1300
+
+[KFileDialog Settings]
+detailViewIconSize=16
+
+[Window]
+KeepAbove=false
+KeepOpen=false
+ToggleToFocus=true
