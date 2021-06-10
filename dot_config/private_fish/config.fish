@@ -63,6 +63,16 @@ function spark -d "sparkline generator"
         }
     '
 end
+
+function sparkwave 
+       for i in (seq 100)
+               for j in (seq (math $COLUMNS - 1))
+                       math "ceil(6 * cos(($i + $j) * pi / 5))"
+       end | spark | read spark | lolcat
+       echo -n $sparks\r && sleep .1
+       end
+end
+
 ### END OF SPARK ###
 
 # Changing "ls" to "exa"
