@@ -147,6 +147,7 @@ function in_font --description "installs a font file"
 end
 
 #chezmoi helpers
+alias cm='chezmoi'
 alias fishconfig='nano ~/.config/fish/config.fish'
 alias chezrl='chezmoi managed | chezmoi re-add'
 
