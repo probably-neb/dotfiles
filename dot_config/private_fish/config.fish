@@ -9,7 +9,7 @@ set -U fish_user_paths $HOME/.local/bin $HOME/Applications $HOME/.cargo/bin/ $fi
 set -x GPG_TTY (tty)
 
 #custom completions
-complete -xc chezmoi -n "not __fish_seen_subcommand_from edit" -a "(chezmoi managed)"
+complete -xc chezmoi -n " __fish_seen_subcommand_from edit" -a "(chezmoi managed)"
 
 ### SPARK ###
 set -g spark_version 1.0.0
@@ -146,8 +146,9 @@ function in_font --description "installs a font file"
   fc-cache -f -v
 end
 
-alias fishconfig='chezmoi edit ~/.config/fish/config.fish'
+alias fishconfig='nano ~/.config/fish/config.fish'
 alias chezrl='chezmoi managed | chezmoi re-add'
+
 #function bwu --description 'Sets bitwarden session var after successful login'
   #  bash -c '
  #   BW_SESSION="$(bw unlock --raw)"'
