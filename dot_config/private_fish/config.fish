@@ -8,6 +8,9 @@ set -U fish_user_paths $HOME/.local/bin $HOME/Applications $HOME/.cargo/bin/ $fi
 #fix gpg
 set -x GPG_TTY (tty)
 
+#custom completions
+complete -xc chezmoi -n "not __fish_seen_subcommand_from edit" -a "(chezmoi managed)"
+
 ### SPARK ###
 set -g spark_version 1.0.0
 
