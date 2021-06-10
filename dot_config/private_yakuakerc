@@ -1,6 +1,9 @@
 [Appearance]
 Skin=breath2_dark
 
+[Desktop Entry]
+DefaultProfile=main.profile
+
 [FileDialogSize]
 DP-2 DP-0 Height 2560x1440=784
 DP-2 DP-0 Width 2560x1440=1300

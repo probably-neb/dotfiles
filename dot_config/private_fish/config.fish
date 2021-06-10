@@ -8,49 +8,6 @@ set -U fish_user_paths $HOME/.local/bin $HOME/Applications $HOME/.cargo/bin/ $fi
 #fix gpg
 set -x GPG_TTY (tty)
 
-#blue "6088ff"
-#cyan "78dce8"
-#gray "6c6c6c"
-#a9dc76
-#green ( "61b948")
-#peach ( "ffbe63")
-#red ( "fe6188")
-#yellow ( "ffd866")
-#cyan1 (  "2cc6b5")
-#yellow1 (  "fcb726")
-#neutral_red (  "e64569")
-#blue1 (  "079ce0")
-#green1 ( "ffd952")
-#normal_pink ( "ff89c6")
-#pink ( "f47693")
-#light_grey_autocorrect ( "7d7d7d")
-#-gx commandtan ( "d6ccb0")
-#blue_param ( "eda2d1")
-#dark tan b6ad84
-
-set blue (set_color '6088ff') #blue
-set red (set_color 'e64569') #neutral red
-set pink (set_color 'cyan') # pink
-set -U fish_color_autosuggestion brred
-set -U fish_color_normal brgreen
-set -U fish_color_param bryellow
-set -U fish_color_search_match white --background=magenta
-set -U fish_color_operator normal
-set -U fish_color_valid_path normal
-set -U fish_pager_color_progress white --background=cyan
-set -U fish_pager_color_description normal
-set -U fish_pager_color_prefix cyan #blue param
-set -U fish_color_description normal
-set -U fish_color_selection brred --bold --background=black
-set -U fish_color_comment brblack
-set -U fish_color_escape brblack
-set -U fish_color_user green
-set -U fish_color_match bryellow
-set -U fish_color_operator brblack
-set -U fish_color_quote brblack
-set -U fish_color_redirection green
-
-
 ### SPARK ###
 set -g spark_version 1.0.0
 
@@ -186,7 +143,11 @@ function in_font --description "installs a font file"
   fc-cache -f -v
 end
 
-alias fishconfig='cd ~/.config/fish/'
+alias fishconfig='nano ~/.config/fish/config.fish'
+
+function "chezmoi cd"
+     cd /home/neb/.local/share/chezmoi/
+end
 
 #function bwu --description 'Sets bitwarden session var after successful login'
   #  bash -c '
