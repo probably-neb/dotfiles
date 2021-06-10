@@ -63,7 +63,7 @@ function spark -d "sparkline generator"
         }
     '
 end
-### END OF SPARK ###f
+### END OF SPARK ###
 
 # Changing "ls" to "exa"
 alias ls='exa -a --color=always --group-directories-first --no-user' # my preferred listing
@@ -146,6 +146,7 @@ function in_font --description "installs a font file"
   fc-cache -f -v
 end
 
+#chezmoi helpers
 alias fishconfig='nano ~/.config/fish/config.fish'
 alias chezrl='chezmoi managed | chezmoi re-add'
 
