@@ -145,10 +145,6 @@ end
 
 alias fishconfig='nano ~/.config/fish/config.fish'
 
-function "chezmoi cd"
-     cd /home/neb/.local/share/chezmoi/
-end
-
 #function bwu --description 'Sets bitwarden session var after successful login'
   #  bash -c '
  #   BW_SESSION="$(bw unlock --raw)"'
