@@ -147,7 +147,7 @@ function in_font --description "installs a font file"
 end
 
 alias fishconfig='chezmoi edit ~/.config/fish/config.fish'
-
+alias chezrl='chezmoi managed | chezmoi re-add'
 #function bwu --description 'Sets bitwarden session var after successful login'
   #  bash -c '
  #   BW_SESSION="$(bw unlock --raw)"'
