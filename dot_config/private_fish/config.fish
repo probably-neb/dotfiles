@@ -143,7 +143,7 @@ function in_font --description "installs a font file"
   fc-cache -f -v
 end
 
-alias fishconfig='nano ~/.config/fish/config.fish'
+alias fishconfig='chezmoi edit ~/.config/fish/config.fish'
 
 #function bwu --description 'Sets bitwarden session var after successful login'
   #  bash -c '
