@@ -1,5 +1,6 @@
 ### fish config for neb ###
 
+
 set fish_greeting
 set TERM "xterm-256color"
 set -e fish_user_paths
