@@ -162,7 +162,7 @@ end
 #chezmoi helpers
 alias cm='chezmoi'
 alias fishconfig='nano ~/.config/fish/config.fish'
-alias chezrl='chezmoi managed | chezmoi re-add -v'
+alias chezrl='chezmoi managed | chezmoi re-add'
 
 #function bwu --description 'Sets bitwarden session var after successful login'
   #  bash -c '
