@@ -1,0 +1,21 @@
+<keymap version="1" name="XWin Proper Redo" parent="Default for XWin">
+  <action id="$Redo">
+    <keyboard-shortcut first-keystroke="shift ctrl z" />
+    <keyboard-shortcut first-keystroke="shift alt back_space" />
+    <keyboard-shortcut first-keystroke="ctrl y" />
+  </action>
+  <action id="BuildArtifact">
+    <keyboard-shortcut first-keystroke="shift alt y" />
+  </action>
+  <action id="EditorCloneCaretAbove">
+    <keyboard-shortcut first-keystroke="ctrl alt open_bracket" />
+  </action>
+  <action id="EditorCloneCaretBelow">
+    <keyboard-shortcut first-keystroke="ctrl alt close_bracket" />
+  </action>
+  <action id="EditorDeleteLine">
+    <keyboard-shortcut first-keystroke="alt d" second-keystroke="d" />
+  </action>
+  <action id="NextProjectWindow" />
+  <action id="PreviousProjectWindow" />
+</keymap>

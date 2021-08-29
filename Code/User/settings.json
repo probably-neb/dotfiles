@@ -1,0 +1,9 @@
+{
+    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "terminal.integrated.copyOnSelection": true,
+    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+    "security.workspace.trust.untrustedFiles": "open",
+    "security.workspace.trust.emptyWindow": false,
+    "security.workspace.trust.enabled": false
+}

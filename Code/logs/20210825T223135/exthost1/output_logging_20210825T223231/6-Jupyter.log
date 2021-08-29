@@ -1,0 +1,17 @@
+User belongs to experiment group 'jupyterTestcf'
+User belongs to experiment group 'jupyterEnhancedDataViewer'
+Info 2021-08-25 22:32:31: ZMQ install verified.
+Info 2021-08-25 22:32:31: id is c14eb325-689a-47af-b847-2ef38a4303e0
+Info 2021-08-26 12:12:22: Process Execution: > ~/Dropbox/pie/flac_fixer/venv/bin/python -m pip list
+> ~/Dropbox/pie/flac_fixer/venv/bin/python -m pip list
+Info 2021-08-26 14:42:00: Shutting down notebooks for 17850ee7-c290-43e1-b3e2-aca0bae4846d
+Info 2021-08-26 14:42:00: Disposing HostJupyterExecution 05d9dcb6-1789-406d-a93b-6eac02c8de17
+Info 2021-08-26 14:42:00: Disposing super HostJupyterExecution 05d9dcb6-1789-406d-a93b-6eac02c8de17
+Info 2021-08-26 14:42:00: Disposing HostJupyterExecution 05d9dcb6-1789-406d-a93b-6eac02c8de17
+Info 2021-08-26 14:42:00: Finished disposing HostJupyterExecution  05d9dcb6-1789-406d-a93b-6eac02c8de17
+Info 2021-08-26 14:42:00: Disposing HostJupyterExecution 05d9dcb6-1789-406d-a93b-6eac02c8de17
+Info 2021-08-26 14:42:00: Finished disposing HostJupyterExecution  05d9dcb6-1789-406d-a93b-6eac02c8de17
+Info 2021-08-26 14:42:00: Getting live share API during dispose HostJupyterExecution 05d9dcb6-1789-406d-a93b-6eac02c8de17
+Info 2021-08-26 14:42:00: Detaching HostJupyterExecution 05d9dcb6-1789-406d-a93b-6eac02c8de17
+Info 2021-08-26 14:42:00: Cleaning up server cache 05d9dcb6-1789-406d-a93b-6eac02c8de17
+Info 2021-08-26 14:42:00: Finished disposing HostJupyterExecution  05d9dcb6-1789-406d-a93b-6eac02c8de17

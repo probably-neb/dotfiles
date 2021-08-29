@@ -1,0 +1,322 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <e n="$Cut">
+      <i c="1" l="1629255781589" />
+    </e>
+    <e n="$Delete">
+      <i c="5" l="1629260160490" />
+    </e>
+    <e n="$Redo">
+      <i c="25" l="1629513015897" />
+    </e>
+    <e n="$SelectAll">
+      <i c="3" l="1629511437217" />
+    </e>
+    <e n="$Undo">
+      <i c="177" l="1629513012633" />
+    </e>
+    <e n="ActivateTerminalToolWindow">
+      <i c="3" l="1629257494363" />
+    </e>
+    <e n="AddFrameworkSupport">
+      <i c="1" l="1629239050937" />
+    </e>
+    <e n="BraceOrQuoteOut">
+      <i c="1" l="1629305948826" />
+    </e>
+    <e n="BuildArtifact">
+      <i c="11" l="1629334183888" />
+    </e>
+    <e n="CommentByLineComment">
+      <i c="8" l="1629506821034" />
+    </e>
+    <e n="CompileDirty">
+      <i c="7" l="1629259392131" />
+    </e>
+    <e n="ConfigureIcs">
+      <i c="1" l="1629478410539" />
+    </e>
+    <e n="CopyATAction">
+      <i c="1" l="1629330838960" />
+    </e>
+    <e n="EditorBackSpace">
+      <i c="2459" l="1629519771796" />
+    </e>
+    <e n="EditorChooseLookupItem">
+      <i c="25" l="1629518719449" />
+    </e>
+    <e n="EditorChooseLookupItemReplace">
+      <i c="389" l="1629519773779" />
+    </e>
+    <e n="EditorCloneCaretAbove">
+      <i c="2" l="1629504480948" />
+    </e>
+    <e n="EditorCloneCaretBelow">
+      <i c="3" l="1629505672256" />
+    </e>
+    <e n="EditorCopy">
+      <i c="25" l="1629559883311" />
+    </e>
+    <e n="EditorCut">
+      <i c="19" l="1629559973150" />
+    </e>
+    <e n="EditorDelete">
+      <i c="6" l="1629497986822" />
+    </e>
+    <e n="EditorDeleteLine">
+      <i c="2" l="1629508139951" />
+    </e>
+    <e n="EditorDeleteToWordStart">
+      <i c="10" l="1629511433247" />
+    </e>
+    <e n="EditorDown">
+      <i c="21" l="1629512788222" />
+    </e>
+    <e n="EditorDuplicate">
+      <i c="1" l="1629511448661" />
+    </e>
+    <e n="EditorEnter">
+      <i c="421" l="1629519748093" />
+    </e>
+    <e n="EditorLeft">
+      <i c="45" l="1629513017099" />
+    </e>
+    <e n="EditorLeftWithSelection">
+      <i c="7" l="1629508733275" />
+    </e>
+    <e n="EditorNextWord">
+      <i c="19" l="1629505659256" />
+    </e>
+    <e n="EditorNextWordWithSelection">
+      <i c="5" l="1629400686734" />
+    </e>
+    <e n="EditorPaste">
+      <i c="51" l="1629559921296" />
+    </e>
+    <e n="EditorPreviousWord">
+      <i c="15" l="1629508729727" />
+    </e>
+    <e n="EditorRight">
+      <i c="57" l="1629513018066" />
+    </e>
+    <e n="EditorRightWithSelection">
+      <i c="3" l="1629245613234" />
+    </e>
+    <e n="EditorStartNewLine">
+      <i c="7" l="1629504998525" />
+    </e>
+    <e n="EditorTab">
+      <i c="124" l="1629519327029" />
+    </e>
+    <e n="EditorUp">
+      <i c="19" l="1629508659935" />
+    </e>
+    <e n="Exit">
+      <i c="1" l="1629243522573" />
+    </e>
+    <e n="ExternalSystem.ProjectRefreshAction">
+      <i c="34" l="1629260939250" />
+    </e>
+    <e n="Find">
+      <i c="3" l="1629323244165" />
+    </e>
+    <e n="Git.Reset">
+      <i c="1" l="1622320221110" />
+    </e>
+    <e n="Github.Share">
+      <i c="1" l="1629513072602" />
+    </e>
+    <e n="GotoAction">
+      <i c="1" l="1622320229192" />
+    </e>
+    <e n="GotoDeclaration">
+      <i c="6" l="1629511720740" />
+    </e>
+    <e n="ImportProject">
+      <i c="2" l="1629237577119" />
+    </e>
+    <e n="InvalidateCaches">
+      <i c="5" l="1629256669087" />
+    </e>
+    <e n="Kotlin.NewFile">
+      <i c="1" l="1629306295231" />
+    </e>
+    <e n="Maven.AddFileAsMavenProject">
+      <i c="1" l="1629243859571" />
+    </e>
+    <e n="Maven.DownloadAllGroupPopup">
+      <i c="9" l="1629256448189" />
+    </e>
+    <e n="Maven.DownloadAllSources">
+      <i c="1" l="1629243959500" />
+    </e>
+    <e n="Maven.DownloadAllSourcesAndDocs">
+      <i c="13" l="1629256449757" />
+    </e>
+    <e n="Maven.DownloadSelectedSources">
+      <i c="3" l="1629257577956" />
+    </e>
+    <e n="Maven.DownloadSelectedSourcesAndDocs">
+      <i c="2" l="1629255368730" />
+    </e>
+    <e n="Maven.ExecuteGoal">
+      <i c="14" l="1629559872583" />
+    </e>
+    <e n="Maven.OpenProfilesXml">
+      <i c="1" l="1629240912948" />
+    </e>
+    <e n="Maven.Reimport">
+      <i c="6" l="1629256875425" />
+    </e>
+    <e n="Maven.ReimportProject">
+      <i c="3" l="1629240821360" />
+    </e>
+    <e n="Maven.ShowEffectivePom">
+      <i c="2" l="1629240426150" />
+    </e>
+    <e n="Maven.ShowSettingsGroup">
+      <i c="2" l="1629239604778" />
+    </e>
+    <e n="Maven.UpdateFolders">
+      <i c="6" l="1629256884285" />
+    </e>
+    <e n="Maven.UpdateFoldersForProject">
+      <i c="5" l="1629242893692" />
+    </e>
+    <e n="Move">
+      <i c="202" l="1629497054063" />
+    </e>
+    <e n="MoveLineDown">
+      <i c="3" l="1629504436175" />
+    </e>
+    <e n="MoveLineUp">
+      <i c="3" l="1629504436736" />
+    </e>
+    <e n="NewClass">
+      <i c="3" l="1629307952484" />
+    </e>
+    <e n="NewDir">
+      <i c="1" l="1629261617724" />
+    </e>
+    <e n="NewProject">
+      <i c="1" l="1629253836766" />
+    </e>
+    <e n="NextTemplateVariable">
+      <i c="22" l="1629519125163" />
+    </e>
+    <e n="OpenFile">
+      <i c="1" l="1629244893654" />
+    </e>
+    <e n="RenameElement">
+      <i c="13" l="1629497051407" />
+    </e>
+    <e n="Rerun">
+      <i c="1" l="1629258685105" />
+    </e>
+    <e n="Run">
+      <i c="3" l="1629514319698" />
+    </e>
+    <e n="SaveAll">
+      <i c="6" l="1629240896296" />
+    </e>
+    <e n="SearchEverywhere">
+      <i c="4" l="1629511438857" />
+    </e>
+    <e n="SettingsEntryPoint">
+      <i c="1" l="1622320191171" />
+    </e>
+    <e n="ShowIntentionActions">
+      <i c="1" l="1629504429005" />
+    </e>
+    <e n="ShowProjectStructureSettings">
+      <i c="18" l="1629333589193" />
+    </e>
+    <e n="ShowSettings">
+      <i c="10" l="1629246367637" />
+    </e>
+    <e n="Stop">
+      <i c="2" l="1629514341693" />
+    </e>
+    <e n="UnmarkRoot">
+      <i c="1" l="1629260189409" />
+    </e>
+    <e n="WelcomeScreen.Configure.Import">
+      <i c="2" l="1622320026497" />
+    </e>
+    <e n="WelcomeScreen.OpenProject">
+      <i c="1" l="1622320056232" />
+    </e>
+    <e n="com.intellij.find.editorHeaderActions.NextOccurrenceAction">
+      <i c="1" l="1629250123036" />
+    </e>
+    <e n="com.intellij.ide.ReopenProjectAction">
+      <i c="2" l="1629259981100" />
+    </e>
+    <e n="com.intellij.ide.actions.SettingsEntryPointAction$2">
+      <i c="1" l="1622320193477" />
+    </e>
+    <e n="com.intellij.ide.projectView.actions.MarkSourceRootAction">
+      <i c="5" l="1629559909995" />
+    </e>
+    <e n="com.intellij.notification.NotificationAction$Simple">
+      <i c="10" l="1629478371391" />
+    </e>
+    <e n="com.intellij.openapi.editor.impl.EditorMarkupModelImpl$StatusAction">
+      <i c="4" l="1629511666376" />
+    </e>
+    <e n="com.intellij.openapi.fileEditor.impl.tabActions.CloseTab">
+      <i c="6" l="1629511726859" />
+    </e>
+    <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
+      <i c="11" l="1629508111410" />
+    </e>
+    <e n="com.intellij.openapi.roots.ui.configuration.artifacts.ArtifactsStructureConfigurable$AddArtifactAction">
+      <i c="3" l="1629333604365" />
+    </e>
+    <e n="com.intellij.openapi.roots.ui.configuration.artifacts.actions.RemovePackagingElementAction">
+      <i c="1" l="1629333686656" />
+    </e>
+    <e n="com.intellij.openapi.roots.ui.configuration.artifacts.sourceItems.actions.PutSourceItemIntoDefaultLocationAction">
+      <i c="4" l="1629333700495" />
+    </e>
+    <e n="com.intellij.openapi.roots.ui.configuration.classpath.ClasspathPanelImpl$6">
+      <i c="3" l="1629256345721" />
+    </e>
+    <e n="com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryRootsComponent$2">
+      <i c="1" l="1629256376933" />
+    </e>
+    <e n="com.intellij.openapi.roots.ui.configuration.projectRoot.BaseStructureConfigurable$MyRemoveAction">
+      <i c="1" l="1629255962095" />
+    </e>
+    <e n="com.intellij.openapi.roots.ui.configuration.projectRoot.ModuleStructureConfigurable$AddModuleAction">
+      <i c="2" l="1629256737579" />
+    </e>
+    <e n="com.intellij.openapi.updateSettings.impl.UpdateChecker$showNotification$1">
+      <i c="1" l="1629477664943" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.ToolWindowHeader$HideAction">
+      <i c="50" l="1629559893092" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.ToolWindowHeader$ShowOptionsAction">
+      <i c="2" l="1629254773492" />
+    </e>
+    <e n="com.intellij.ui.AnActionButton$AnActionButtonWrapper">
+      <i c="6" l="1629333600265" />
+    </e>
+    <e n="com.intellij.ui.CommonActionsPanel$AddButton">
+      <i c="10" l="1629333191138" />
+    </e>
+    <e n="com.intellij.ui.CommonActionsPanel$DownButton">
+      <i c="1" l="1629257200677" />
+    </e>
+    <e n="com.intellij.ui.CommonActionsPanel$RemoveButton">
+      <i c="6" l="1629257903231" />
+    </e>
+    <e n="com.intellij.ui.CommonActionsPanel$UpButton">
+      <i c="2" l="1629257198718" />
+    </e>
+    <e n="editRunConfigurations">
+      <i c="4" l="1629557883227" />
+    </e>
+  </component>
+</application>

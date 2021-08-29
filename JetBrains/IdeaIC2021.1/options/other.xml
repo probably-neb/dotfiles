@@ -1,0 +1,89 @@
+<application>
+  <component name="JdkInstallerHistory">
+    <option name="installedItems">
+      <installed-jdk>
+        <option name="fullText" value="AdoptOpenJDK (OpenJ9) 1.8.0_292" />
+        <option name="installDir" value="$USER_HOME$/.jdks/adopt-openj9-1.8.0_292" />
+        <option name="javaHomeDir" value="$USER_HOME$/.jdks/adopt-openj9-1.8.0_292" />
+        <option name="sha256" value="06d6c9421778575cf59d50f69b7ac6a7bb237485b3a3c2f89cfb61a056c7b2de" />
+        <option name="url" value="https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10_openj9-0.26.0/OpenJDK8U-jdk_x64_linux_openj9_8u292b10_openj9-0.26.0.tar.gz" />
+        <option name="versionText" value="1.8.0_292" />
+      </installed-jdk>
+    </option>
+  </component>
+  <component name="ProjectPluginTrackerManager">
+    <trackers>
+      <map>
+        <entry key="1srnstJwcyf5LhjsElsoMPiRtrt">
+          <value>
+            <ProjectPluginTracker />
+          </value>
+        </entry>
+        <entry key="1wsBvatVjS9Ng17IAfkvwH3blxk">
+          <value>
+            <ProjectPluginTracker />
+          </value>
+        </entry>
+        <entry key="1wsOMQtYC7gge1TDxTVYjOKOE6J">
+          <value>
+            <ProjectPluginTracker />
+          </value>
+        </entry>
+        <entry key="1wsjFYODS51k6pvbQg5Eo4uyaFW">
+          <value>
+            <ProjectPluginTracker />
+          </value>
+        </entry>
+      </map>
+    </trackers>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ExpandBeforeRunStepsPanel" value="true" />
+    <property name="ExpandRunDashboardTypesPanel" value="false" />
+    <property name="FindSplitterProportion" value="0.5486827" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="NonModalCommitCustomization.IsApplied" value="true" />
+    <property name="SettingsSearchHistory" value="maven" />
+    <property name="appcds.runOnSecondStart" value="IC-211.7142.45-c791ca2817bb29233a90671bd98887b84ba56549df318b4bc5a2dbe2948ee365" />
+    <property name="ask.about.ctrl.y.shortcut.v2" value="true" />
+    <property name="build.toolwindow.Build Output.selection.state" value="com.intellij.build.BuildTreeConsoleView" />
+    <property name="build.toolwindow.Sync.selection.state" value="com.intellij.build.BuildTreeConsoleView" />
+    <property name="build.toolwindow.run.selection.state" value="com.intellij.build.BuildTreeConsoleView" />
+    <property name="com.intellij.openapi.roots.ui.configuration.TabbedModuleEditor.selectedEditor" value="Dependencies" />
+    <property name="create.project.preferred.importer" value="Existing sources" />
+    <property name="decompiler.legal.notice.accepted" value="true" />
+    <property name="defaultJdkConfigured" value="true" />
+    <property name="file.chooser.recent.files" value="$USER_HOME$/Dropbox/McServer/plugins&#10;/home/neb/Dropbox/McServer/spigot-1.16.5.jar&#10;/home/neb/Dropbox/Coc/Squares&#10;/home/neb/Dropbox/Coc/BoardGames&#10;/home/neb/Dropbox/Coc/BoardGames/BoardGames&#10;/home/neb/Dropbox/Coc/Squares/src/main/resources/BoardGames/BoardGames&#10;/home/neb/Dropbox/Coc/Squares/src/main/resources/BoardGames&#10;/home/neb/Dropbox/Coc/Cameras&#10;/home/neb/Dropbox/Coc/XCJukeBox&#10;/home/neb/Dropbox/settings.zip" />
+    <property name="file.gist.reindex.count" value="811" />
+    <property name="fileTypeChangedCounter" value="10" />
+    <property name="fileTypeDetectors" value="com.android.tools.idea.fileTypes.profiler.MemoryCaptureFileType$Detector:com.android.tools.idea.sqlite.fileType.SqliteFileTypeDetector:com.demonwav.mcdev.nbt.filetype.NbtFileTypeDetector:com.intellij.ide.scratch.ScratchFileServiceImpl$Detector" />
+    <property name="got.it.tooltip.cwm.invitation.notification" value="1" />
+    <property name="got.it.tooltip.reader.mode.got.it" value="1" />
+    <property name="ide.memory.adjusted" value="true" />
+    <property name="ide.updates.previous.build.number" value="IC-211.7142.45" />
+    <property name="ide.updates.whats.new.shown.for" value="211" />
+    <property name="installed.kotlin.plugin.version" value="211-1.5.10-release-891-IJ7142.45" />
+    <property name="jdk.selected.JAVA_MODULE" value="adopt-openj9-1.8" />
+    <property name="kotlin.plugin.releaseDate" value="211-1.5.10-release-891-IJ7142.45:2021-05-24" />
+    <property name="last.imported.location" value="$USER_HOME$/Dropbox/Coc/BoardGames" />
+    <property name="lastSeenTip" value="neue-OverrideImplementMethods.html" />
+    <property name="lastTimeTipsWereShown" value="1629478356885" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Dropbox/Coc/Cameras" />
+    <property name="log.trace.categories" value="#com.jetbrains.rdserver.requests&#10;#com.jetbrains.rd.ide.document&#10;#com.jetbrains.rdserver.document&#10;#com.jetbrains.rdserver.editors&#10;#com.jetbrains.rdserver.actions" />
+    <property name="packagesearch.endpoint.url.fulltext" value="https://package-search.services.jetbrains.com/api/search/idea/fulltext" />
+    <property name="packagesearch.endpoint.url.suggest" value="https://package-search.services.jetbrains.com/api/search/idea/suggest" />
+    <property name="packagesearch.status.updated.ts" value="1629237312816" />
+    <property name="project.wizard.group" value="MINECRAFT_MODULE" />
+    <property name="seenTips" value="neue-ContextActions.html,neue-RefactorThis.html,neue-OverrideImplementMethods.html" />
+    <property name="tasks.pass.word.conversion.enforced" value="true" />
+  </component>
+  <component name="TerminalCommandHistoryManager">
+    <command-history-files>
+      <command-history-file filename="Cameras-history" project-path="$USER_HOME$/Dropbox/Coc/Cameras" last-access-time="1629244976112" />
+    </command-history-files>
+  </component>
+  <component name="ToolbarSettingsService">
+    <option name="NEW_TOOLBAR_SETTINGS" value="OLD_NAVBAR" />
+  </component>
+</application>

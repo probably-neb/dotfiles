@@ -1,0 +1,146 @@
+<project version="4">
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="-1">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/CupOfCode/JukeBox.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-308">
+              <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="JukeBox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XCJukeBox" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JukeBox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XCJukeBox" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JukeBox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XCJukeBox" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JukeBox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XCJukeBox" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="CupOfCode" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="ToolWindowManager">
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23233333" />
+      <window_info id="Structure" order="1" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Commit" order="3" />
+      <window_info id="Learn" order="4" />
+      <window_info id="Pull Requests" order="5" />
+      <window_info id="Space Code Reviews" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" />
+      <window_info anchor="bottom" id="TODO" order="4" />
+      <window_info anchor="bottom" id="Problems View" order="5" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Services" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Build" order="10" />
+      <window_info anchor="right" id="Space Automation" order="0" />
+      <window_info anchor="right" id="Maven" order="1" />
+      <window_info anchor="right" id="Layout Validation" order="2" />
+      <window_info anchor="right" id="Key Promoter X" order="3" />
+    </layout>
+    <recentWindows>
+      <value>Project</value>
+    </recentWindows>
+  </component>
+  <component name="Trusted.Project.Settings" hasCheckedIfOldProject="true" trusted="YES" />
+  <component name="WindowStateProjectService">
+    <state x="344" y="108" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1622320196410">
+      <screen x="0" y="0" width="1500" height="966" />
+    </state>
+    <state x="344" y="108" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1500.966@0.0.1500.966" timestamp="1622320196410" />
+    <state x="528" y="76" key="FileChooserDialogImpl" timestamp="1629244900522">
+      <screen x="0" y="0" width="1500" height="966" />
+    </state>
+    <state x="528" y="76" key="FileChooserDialogImpl/0.0.1500.966@0.0.1500.966" timestamp="1629244900522" />
+    <state x="371" y="137" key="NewModule_or_Project.wizard" timestamp="1629237646143">
+      <screen x="0" y="0" width="1500" height="966" />
+    </state>
+    <state x="371" y="137" key="NewModule_or_Project.wizard/0.0.1500.966@0.0.1500.966" timestamp="1629237646143" />
+    <state x="243" y="28" key="SettingsEditor" timestamp="1622320282140">
+      <screen x="0" y="0" width="1500" height="966" />
+    </state>
+    <state x="243" y="28" key="SettingsEditor/0.0.1500.966@0.0.1500.966" timestamp="1622320282140" />
+    <state x="535" y="319" key="git4idea.ui.GitResetDialog" timestamp="1622320223312">
+      <screen x="0" y="0" width="1500" height="966" />
+    </state>
+    <state x="535" y="319" key="git4idea.ui.GitResetDialog/0.0.1500.966@0.0.1500.966" timestamp="1622320223312" />
+    <state x="413" y="189" width="672" height="687" key="search.everywhere.popup" timestamp="1622320232763">
+      <screen x="0" y="0" width="1500" height="966" />
+    </state>
+    <state x="413" y="189" width="672" height="687" key="search.everywhere.popup/0.0.1500.966@0.0.1500.966" timestamp="1622320232763" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/net/CupOfCode/JukeBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-308">
+          <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

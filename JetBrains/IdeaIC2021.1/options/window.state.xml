@@ -1,0 +1,37 @@
+<application>
+  <component name="DimensionService">
+    <size key="GridCell.Tab.0.left.0.0.3000.2000@192dpi" width="2908" height="560" />
+    <size key="GridCell.Tab.0.center.0.0.3000.2000@192dpi" width="2908" height="560" />
+    <size key="GridCell.Tab.0.right.0.0.3000.2000@192dpi" width="2908" height="560" />
+    <size key="GridCell.Tab.0.bottom.0.0.3000.2000@192dpi" width="2908" height="560" />
+  </component>
+  <component name="WindowManager">
+    <frame x="0" y="-30" width="1500" height="996" extendedState="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+    </layout>
+  </component>
+  <component name="WindowStateApplicationService">
+    <state x="496" y="215" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1622320045448">
+      <screen x="0" y="0" width="1500" height="966" />
+    </state>
+    <state x="496" y="215" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1500.966" timestamp="1622320045448" />
+    <state x="511" y="27" width="432" height="520" key="FileChooserDialogImpl" timestamp="1622320062535">
+      <screen x="0" y="0" width="1500" height="966" />
+    </state>
+    <state x="511" y="27" width="432" height="520" key="FileChooserDialogImpl/0.0.1500.966" timestamp="1622320062535" />
+    <state x="922" y="734" width="300" height="200" key="ProcessPopupWindow" timestamp="1629239481655">
+      <screen x="0" y="0" width="1500" height="966" />
+    </state>
+    <state x="922" y="734" width="300" height="200" key="ProcessPopupWindow/0.0.1500.966" timestamp="1629239481655" />
+    <state x="748" y="392" width="800" height="600" key="WELCOME_SCREEN" timestamp="1622320052169">
+      <screen x="0" y="0" width="1500" height="966" />
+    </state>
+    <state x="748" y="392" width="800" height="600" key="WELCOME_SCREEN/0.0.1500.966" timestamp="1622320052169" />
+  </component>
+</application>
