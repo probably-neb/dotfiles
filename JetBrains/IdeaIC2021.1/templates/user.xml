@@ -1,7 +1,0 @@
-<templateSet group="user">
-  <template name="bbm" value="Bukkit.getLogger().info($END$);" description="" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="JAVA_CODE" value="true" />
-    </context>
-  </template>
-</templateSet>
