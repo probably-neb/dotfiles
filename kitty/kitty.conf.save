@@ -818,7 +818,7 @@ dim_opacity 0.75
 
 #: How much to dim text that has the DIM/FAINT attribute set. One
 #: means no dimming and zero means fully dimmed (i.e. invisible).
-
+selection_back
 # selection_foreground #000000
 
 #: The foreground for text selected with the mouse. A value of none
