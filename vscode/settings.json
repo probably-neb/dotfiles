@@ -1,9 +1,32 @@
 {
     "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
-    "terminal.integrated.defaultProfile.linux": "fish",
+    "terminal.integrated.defaultProfile.linux": "fish (2)",
     "terminal.integrated.copyOnSelection": true,
     "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
     "security.workspace.trust.untrustedFiles": "open",
     "security.workspace.trust.emptyWindow": false,
-    "security.workspace.trust.enabled": false
+    "security.workspace.trust.enabled": false,
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh"
+        },
+        "fish": {
+            "path": "fish"
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        },
+        "fish (2)": {
+            "path": "/bin/fish"
+        }
+    }
 }
