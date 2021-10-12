@@ -1,5 +1,11 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export BROWSER:brave
+SETUVAR --export CONFIGFISH:/home/neb/\x2econfig/fish/config\x2efish
+SETUVAR --export INITVIM:/home/neb/\x2econfig/nvim/init\x2evim
+SETUVAR --export KITTYCONF:/home/neb/\x2econfig/kitty/kitty\x2econf
+SETUVAR --export STARSHIPTOML:/home/neb/\x2econfig/starship\x2etoml
+SETUVAR --export VIMRC:/home/neb/\x2econfig/nvim/init\x2evim
 SETUVAR __fish_initialized:3100
 SETUVAR fish_color_autosuggestion:brred
 SETUVAR fish_color_cancel:\x2dr
