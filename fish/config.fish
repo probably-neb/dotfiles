@@ -8,6 +8,14 @@ set -U fish_user_paths $HOME/.local/bin $HOME/Applications $HOME/.cargo/bin/ $fi
 
 #fix gpg
 set -x GPG_TTY (tty)
+set -Ux INITVIM '/home/neb/.config/nvim/init.vim'
+set -Ux CONFIGFISH '/home/neb/.config/fish/config.fish'
+set -Ux KITTYCONF '/home/neb/.config/kitty/kitty.conf'
+set -Ux STARSHIPTOML '/home/neb/.config/starship.toml'
+set -Ux BROWSER brave
+abbr --add --global q1 'cd ~/Dropbox/poly/q1_2021/'
+abbr --add --global wp 'cd ~/Pictures/wallpapers/'
+abbr --add --global nebsite 'cd ~/Dropbox/nebsite/'
 
 #custom completions
 complete -xc chezmoi -n " __fish_seen_subcommand_from edit" -a "(chezmoi managed)"
@@ -172,11 +180,8 @@ function in_font --description "installs a font file"
   fc-cache -f -v
 end
 
-#chezmoi helpers
-alias cm='chezmoi'
 alias fishconfig='vim ~/.config/fish/config.fish'
-alias chezrl='chezmoi managed | chezmoi re-add'
-alias alaconfig='code ~/.config/alacritty/alacritty.yml'
+alias vimconfig='vim ~/.config/nvim/init.vim'
 alias img='kitty +kitten icat'
 alias vim='nvim'
 
