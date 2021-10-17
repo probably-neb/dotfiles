@@ -1,28 +1,50 @@
 " nebvim
 
+" colors "{{{
+" ---------------------------------------------------------------------
 if (has("termguicolors"))
 	set termguicolors
+	set t_Co=256
+	set background=dark
+	syntax enable
+	set pumblend=5
+	set wildoptions=pum	
+	set winblend=0
+	colorscheme monokai_pro
 endif
+"}}}
 
-set t_Co=256
-colorscheme monokai_pro
-set background=dark
-set smartcase
-set incsearch
+" preferences "{{{
+" ---------------------------------------------------------------------
+" indents
+filetype plugin indent on
 set smartindent
+set smarttab
 set breakindent
-set number relativenumber
 set tabstop=4
 set shiftwidth=4
+set ai
+set si
+
+set path+=**
+set smartcase
+set incsearch
+set number relativenumber
 set clipboard=unnamedplus
 setlocal spell
 set spelllang=en_us
-syntax enable
-filetype plugin indent on
-set clipboard=unnamedplus
 let g:python_highlight_all = 1
+set scrolloff=10
+set shell=fish
+set 
+" incremental substitution (neovim)
+if has('nvim')
+	set inccommand=split
+endif
+"}}}
 
-" " keymaps
+" keymaps "{{{
+" ---------------------------------------------------------------------
 :imap ii <Esc>
 " spell correction
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
@@ -34,33 +56,11 @@ nnoremap j gj
 nnoremap gj j
 nnoremap k gk
 nnoremap gk k
+"}}}
 
-" " plugged
-call plug#begin('/home/neb/.config/nvim/plugged')
+" imports "{{{
+" ---------------------------------------------------------------------
+runtime ./plug.vim
+"}}}
 
-Plug 'lervag/vimtex'
-	let g:tex_flavor='latex'
-	let g:vimtex_view_method='zathura'
-	let g:vimtex_quickfix_mode=0
-
-Plug 'KeitaNakamura/tex-conceal.vim'
-	set conceallevel=1
-	let g:tex_conceal='abdmg'
-
-Plug 'sirver/ultisnips'
-	let g:UltiSnipsExpandTrigger = '<tab>'
-	let g:UltiSnipsJumpForwardTrigger = '<tab>'
-	let g:UltiSnipsJumpBackwardTrigger = 's-tab'
-	let g:UltiSnipsSnippetDirectories=["snips"]
-
-Plug 'dag/vim-fish'
-	autocmd FileType fish compiler fish
-	autocmd FileType fish setlocal textwidth=79
-	autocmd FileType fish setlocal foldmethod=expr
-
-Plug 'vim-python/python-syntax'
-Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-Plug 'godlygeek/tabular'
-call plug#end()
+" vim: set foldmethod=marker foldlevel=0:

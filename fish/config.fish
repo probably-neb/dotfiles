@@ -1,24 +1,29 @@
 ### fish config for neb ###
 
-
-set fish_greeting
+set -U fish_greeting
 set TERM "xterm-256color"
+set -g theme_color_scheme terminal-dark
 set -e fish_user_paths
 set -U fish_user_paths $HOME/.local/bin $HOME/Applications $HOME/.cargo/bin/ $fish_user_paths
 
 #fix gpg
 set -x GPG_TTY (tty)
+
+#universal variables for fast vim editing of frequent config files
 set -Ux INITVIM '/home/neb/.config/nvim/init.vim'
 set -Ux CONFIGFISH '/home/neb/.config/fish/config.fish'
 set -Ux KITTYCONF '/home/neb/.config/kitty/kitty.conf'
-set -Ux STARSHIPTOML '/home/neb/.config/starship.toml'
+
+#preferences
 set -Ux BROWSER brave
+set -Ux EDITOR nvim
 abbr --add --global q1 'cd ~/Dropbox/poly/q1_2021/'
 abbr --add --global wp 'cd ~/Pictures/wallpapers/'
 abbr --add --global nebsite 'cd ~/Dropbox/nebsite/'
 
-#custom completions
-complete -xc chezmoi -n " __fish_seen_subcommand_from edit" -a "(chezmoi managed)"
+#save a character when using nvim because why not
+alias vim='nvim'
+alias img='kitty +kitten icat'
 
 ### SPARK ###
 set -g spark_version 1.0.0
@@ -180,14 +185,10 @@ function in_font --description "installs a font file"
   fc-cache -f -v
 end
 
-alias fishconfig='vim ~/.config/fish/config.fish'
-alias vimconfig='vim ~/.config/nvim/init.vim'
-alias img='kitty +kitten icat'
-alias vim='nvim'
 
 #function bwu --description 'Sets bitwarden session var after successful login'
   #  bash -c '
  #   BW_SESSION="$(bw unlock --raw)"'
 #end
 
-starship init fish | source
+
