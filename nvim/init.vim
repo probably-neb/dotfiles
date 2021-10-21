@@ -61,6 +61,7 @@ nnoremap gk k
 " imports "{{{
 " ---------------------------------------------------------------------
 runtime ./plug.vim
+runtime ./lsp.vim
 "}}}
 
 " vim: set foldmethod=marker foldlevel=0:

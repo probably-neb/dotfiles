@@ -25,6 +25,9 @@ abbr --add --global nebsite 'cd ~/Dropbox/nebsite/'
 alias vim='nvim'
 alias img='kitty +kitten icat'
 
+function pdf-jpg 
+	convert -density 200 $argv'.pdf' -quality 150 $argv'.jpg'
+end
 ### SPARK ###
 set -g spark_version 1.0.0
 
