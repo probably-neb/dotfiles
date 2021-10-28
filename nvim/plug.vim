@@ -1,10 +1,9 @@
 call plug#begin('/home/neb/.config/nvim/plugged')
 
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 Plug 'vim-python/python-syntax'
 Plug 'godlygeek/tabular'
 Plug 'cohama/lexima.vim'
+Plug 'tpope/vim-commentary'
 
 " latex
 Plug 'lervag/vimtex'

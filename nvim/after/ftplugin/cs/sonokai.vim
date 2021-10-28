@@ -1,0 +1,20 @@
+if !exists('g:colors_name') || g:colors_name !=# 'sonokai'
+    finish
+endif
+if index(g:sonokai_loaded_file_types, 'cs') ==# -1
+    call add(g:sonokai_loaded_file_types, 'cs')
+else
+    finish
+endif
+" ft_begin: cs {{{
+" builtin: https://github.com/nickspoons/vim-cs{{{
+highlight! link csUnspecifiedStatement Red
+highlight! link csStorage Red
+highlight! link csClass Red
+highlight! link csNewType BlueItalic
+highlight! link csContextualStatement Red
+highlight! link csInterpolationDelimiter Purple
+highlight! link csInterpolation Purple
+highlight! link csEndColon Fg
+" }}}
+" ft_end

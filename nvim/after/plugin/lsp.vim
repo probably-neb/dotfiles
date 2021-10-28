@@ -32,17 +32,65 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
-end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'pyright'}
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
+  require'completion'.on_attach(client, bufnr)
+
+  --protocol.SymbolKind = { }
+  protocol.CompletionItemKind = {
+    '', -- Text
+    '', -- Method
+    '', -- Function
+    '', -- Constructor
+    '', -- Field
+    '', -- Variable
+    '', -- Class
+    'ﰮ', -- Interface
+    '', -- Module
+    '', -- Property
+    '', -- Unit
+    '', -- Value
+    '', -- Enum
+    '', -- Keyword
+    '﬌', -- Snippet
+    '', -- Color
+    '', -- File
+    '', -- Reference
+    '', -- Folder
+    '', -- EnumMember
+    '', -- Constant
+    '', -- Struct
+    '', -- Event
+    'ﬦ', -- Operator
+    '', -- TypeParameter
   }
 end
+
+local coq = require'coq'.lsp_ensure_capabilities
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = {'pyright'}
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+	coq {
+      on_attach = on_attach,
+	  flags = {
+      debounce_text_changes = 150,
+      }
+	}
+  }
+end
+
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+nvim_lsp.jsonls.setup {
+  coq {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {"vscode-json-language-server", "--stdio"},
+    filetypes = {"json"},
+    init_options = { provideFormatter = true }
+  }
+}
 EOF

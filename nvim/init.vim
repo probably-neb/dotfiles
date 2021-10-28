@@ -10,10 +10,13 @@ if (has("termguicolors"))
 	set pumblend=5
 	set wildoptions=pum	
 	set winblend=0
-	colorscheme monokai_pro
 endif
 "}}}
-
+let g:sonokai_style = 'andromeda'
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 1
+let g:sonokai_better_performance = 1
+colorscheme sonokai
 " preferences "{{{
 " ---------------------------------------------------------------------
 " indents
@@ -36,7 +39,7 @@ set spelllang=en_us
 let g:python_highlight_all = 1
 set scrolloff=10
 set shell=fish
-set 
+
 " incremental substitution (neovim)
 if has('nvim')
 	set inccommand=split
