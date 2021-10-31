@@ -1,6 +1,5 @@
 call plug#begin('/home/neb/.config/nvim/plugged')
 
-Plug 'vim-python/python-syntax'
 Plug 'godlygeek/tabular'
 Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-commentary'
@@ -20,7 +19,6 @@ if has("nvim")
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'neovim/nvim-lspconfig'
   Plug 'glepnir/lspsaga.nvim'
-  Plug 'folke/lsp-colors.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'nvim-lua/popup.nvim'

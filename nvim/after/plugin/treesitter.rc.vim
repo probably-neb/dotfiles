@@ -20,9 +20,12 @@ require'nvim-treesitter.configs'.setup {
     "php",
     "json",
     "yaml",
-    "swift",
     "html",
-    "scss"
+	"python",
+	"vim",
+	"lua",
+	"latex",
+	"bash"
   },
 }
 
