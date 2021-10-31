@@ -1,5 +1,12 @@
 " nebvim
 
+" shell "{{{
+" ---------------------------------------------------------------------
+if &shell =~# 'fish$'
+	set shell=sh
+endif
+"}}}
+
 " colors "{{{
 " ---------------------------------------------------------------------
 if (has("termguicolors"))
@@ -17,7 +24,7 @@ let g:sonokai_enable_italic = 1
 let g:sonokai_disable_italic_comment = 1
 let g:sonokai_better_performance = 1
 colorscheme sonokai
-" preferences "{{{
+"  preferences "{{{
 " ---------------------------------------------------------------------
 " indents
 filetype plugin indent on
@@ -34,11 +41,8 @@ set smartcase
 set incsearch
 set number relativenumber
 set clipboard=unnamedplus
-setlocal spell
-set spelllang=en_us
-let g:python_highlight_all = 1
+" setlocal spell spelllang=en_us
 set scrolloff=10
-set shell=fish
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -64,7 +68,6 @@ nnoremap gk k
 " imports "{{{
 " ---------------------------------------------------------------------
 runtime ./plug.vim
-runtime ./lsp.vim
 "}}}
 
 " vim: set foldmethod=marker foldlevel=0:
