@@ -1,7 +1,7 @@
 let g:coq_settings = { 'auto_start': 'shut-up'}
 
 lua << EOF
-require ("coq")
+require ("coq") {}
 require("coq_3p") {
 	{ src = "bc", short_name = "MATH", precision = 6 },
 	{ src = "nvimlua", short_name = "nLUA", conf_only = true },
