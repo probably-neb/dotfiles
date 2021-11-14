@@ -6,4 +6,4 @@ if index(g:sonokai_loaded_file_types, 'text') ==# -1
 else
     finish
 endif
-let g:sonokai_last_modified = 'Tue Oct 12 11:59:01 UTC 2021'
+let g:sonokai_last_modified = 'Thu Nov 11 07:35:15 AM UTC 2021'

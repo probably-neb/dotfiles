@@ -73,5 +73,7 @@ nnoremap gk k
 " ---------------------------------------------------------------------
 runtime ./plug.vim
 "}}}
-
+if has('nvim') && !empty($CONDA_PREFIX)
+	let g:python3_host_prog = '/home/neb/anaconda3/envs/cp-knowledge-graph/bin/python'
+endif"
 " vim: set foldmethod=marker foldlevel=0:
