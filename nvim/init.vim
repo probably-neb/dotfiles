@@ -6,24 +6,26 @@ if &shell =~# 'fish$'
 	set shell=sh
 endif
 "}}}
-
+"
 " colors "{{{
 " ---------------------------------------------------------------------
 if (has("termguicolors"))
 	set termguicolors
 	set t_Co=256
-	set background=dark
+	let &t_ut=''
 	syntax enable
 	set pumblend=5
 	set wildoptions=pum	
 	set winblend=0
 endif
-"}}}
 let g:sonokai_style = 'andromeda'
 let g:sonokai_enable_italic = 1
 let g:sonokai_disable_italic_comment = 1
 let g:sonokai_better_performance = 1
 colorscheme sonokai
+set background=dark
+"}}}
+"
 "  preferences "{{{
 " ---------------------------------------------------------------------
 " indents
@@ -31,11 +33,12 @@ filetype plugin indent on
 set smartindent
 set smarttab
 set breakindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set ai
 set si
-
+" shada file
+set shada
 set path+=**
 set smartcase
 set incsearch
@@ -48,8 +51,9 @@ set scrolloff=10
 if has('nvim')
 	set inccommand=split
 endif
+let g:coq_settings = { 'auto_start': 'shut-up'}
 "}}}
-
+"
 " keymaps "{{{
 " ---------------------------------------------------------------------
 :imap ii <Esc>
@@ -64,7 +68,7 @@ nnoremap gj j
 nnoremap k gk
 nnoremap gk k
 "}}}
-
+"
 " imports "{{{
 " ---------------------------------------------------------------------
 runtime ./plug.vim
