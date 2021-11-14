@@ -32,6 +32,13 @@ end
 function pdf-jpg 
 	convert -density 200 $argv'.pdf' -quality 150 $argv'.jpg'
 end
+
+function 202-test
+	coverage run $argv
+	mypy --disallow-untyped-defs $argv
+	coverage report -m
+end
+
 ### SPARK ###
 set -g spark_version 1.0.0
 
