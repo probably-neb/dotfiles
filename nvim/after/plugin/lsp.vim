@@ -86,7 +86,6 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
   filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'markdown', 'pandoc' },

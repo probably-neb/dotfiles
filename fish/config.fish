@@ -33,10 +33,24 @@ function pdf-jpg
 	convert -density 200 $argv'.pdf' -quality 150 $argv'.jpg'
 end
 
-function 202-test
+function 2test
 	coverage run $argv
 	mypy --disallow-untyped-defs $argv
 	coverage report -m
+end
+
+function cleanswap
+	set -l path /home/neb/.local/share/nvim/swap/*
+	rm $path
+end
+
+function spaces_to_underlines 
+	for arg in $argv
+		set -l argcopy (echo $arg)
+		set -l newname (string replace -a " " "_" $arg)
+		set -l newfile (string join '/' $pwd $newname)
+		mv $argcopy $newfile 
+	end
 end
 
 ### SPARK ###

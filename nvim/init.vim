@@ -76,4 +76,6 @@ runtime ./plug.vim
 if has('nvim') && !empty($CONDA_PREFIX)
 	let g:python3_host_prog = '/home/neb/anaconda3/envs/cp-knowledge-graph/bin/python'
 endif"
+" use directory for shared ft specific binds and then use runtime /blah.vim in
+" each ft plugin to share binds
 " vim: set foldmethod=marker foldlevel=0:

@@ -26,8 +26,4 @@ highlight! link NvimTreeGitMerge Orange
 highlight! link NvimTreeGitRenamed Purple
 highlight! link NvimTreeGitNew Green
 highlight! link NvimTreeGitDeleted Red
-highlight! link NvimTreeLspDiagnosticsError RedSign
-highlight! link NvimTreeLspDiagnosticsWarning YellowSign
-highlight! link NvimTreeLspDiagnosticsInformation BlueSign
-highlight! link NvimTreeLspDiagnosticsHint GreenSign
 " ft_end
