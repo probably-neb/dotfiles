@@ -21,6 +21,7 @@ highlight! link shFunctionOne Green
 highlight! link shFunctionKey Red
 " }}}
 " ft_end
+" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker fmr={{{,}}}:
 " ft_begin: zsh {{{
 " builtin: https://github.com/chrisbra/vim-zsh{{{
 highlight! link zshOption BlueItalic
@@ -28,3 +29,4 @@ highlight! link zshSubst Orange
 highlight! link zshFunction Green
 " }}}
 " ft_end
+" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker fmr={{{,}}}:

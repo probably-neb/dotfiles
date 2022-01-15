@@ -37,6 +37,7 @@ highlight! link cssVendor Grey
 highlight! link cssNoise Grey
 " }}}
 " ft_end
+" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker fmr={{{,}}}:
 " ft_begin: scss {{{
 " scss-syntax: https://github.com/cakebaker/scss-syntax.vim{{{
 highlight! link scssMixinName Orange
@@ -53,3 +54,4 @@ highlight! link scssVariable Fg
 highlight! link scssAmpersand Purple
 " }}}
 " ft_end
+" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker fmr={{{,}}}:

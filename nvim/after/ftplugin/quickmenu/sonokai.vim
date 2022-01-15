@@ -18,6 +18,7 @@ highlight! link StartifySection Blue
 highlight! link StartifyHeader Red
 highlight! link StartifySpecial Grey
 " ft_end
+" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker fmr={{{,}}}:
 " ft_begin: quickmenu {{{
 " https://github.com/skywind3000/quickmenu.vim
 highlight! link QuickmenuOption Green
@@ -27,3 +28,4 @@ highlight! link QuickmenuHelp Blue
 highlight! link QuickmenuSpecial Grey
 highlight! link QuickmenuHeader Purple
 " ft_end
+" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker fmr={{{,}}}:

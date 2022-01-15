@@ -25,9 +25,9 @@ abbr --add --global nebsite 'cd ~/Dropbox/nebsite/'
 alias vim='nvim'
 alias img='kitty +kitten icat'
 
-function fish_user_key_bindings
-	fzf_key_bindings
-end
+# function fish_user_key_bindings
+# 	fzf_key_bindings
+# end
 
 function pdf-jpg 
 	convert -density 200 $argv'.pdf' -quality 150 $argv'.jpg'

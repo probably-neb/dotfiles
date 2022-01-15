@@ -1,0 +1,171 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.033  000.033: --- NVIM STARTING ---
+000.983  000.950: locale set
+001.941  000.958: inits 1
+001.997  000.056: window checked
+014.768  012.771: parsing arguments
+014.991  000.224: expanding arguments
+015.060  000.068: inits 2
+016.891  001.831: init highlight
+016.900  000.009: waiting for UI
+019.228  002.328: done waiting for UI
+019.282  000.054: init screen for UI
+019.341  000.059: init default mappings
+019.630  000.288: init default autocommands
+019.880  000.048  000.048: sourcing /usr/share/nvim/archlinux.vim
+019.899  000.162  000.114: sourcing /etc/xdg/nvim/sysinit.vim
+022.368  000.323  000.323: sourcing /usr/share/nvim/runtime/syntax/synload.vim
+045.138  000.052  000.052: sourcing /usr/share/vim/vimfiles/ftdetect/PKGBUILD.vim
+045.326  000.102  000.102: sourcing /usr/share/vim/vimfiles/ftdetect/meson.vim
+045.494  000.106  000.106: sourcing /usr/share/vim/vimfiles/ftdetect/nginx.vim
+045.873  023.366  023.106: sourcing /usr/share/nvim/runtime/filetype.vim
+051.892  001.153  001.153: sourcing /usr/share/nvim/runtime/syntax/javascript.vim
+060.510  008.175  008.175: sourcing /usr/share/nvim/runtime/syntax/vb.vim
+076.382  015.587  015.587: sourcing /usr/share/nvim/runtime/syntax/css.vim
+079.775  031.919  007.003: sourcing /usr/share/nvim/runtime/syntax/html.vim
+081.379  033.693  001.774: sourcing /usr/share/nvim/runtime/syntax/markdown.vim
+083.210  063.013  005.631: sourcing /usr/share/nvim/runtime/syntax/syntax.vim
+084.005  000.372  000.372: sourcing /usr/share/nvim/runtime/autoload/sonokai.vim
+102.560  000.089  000.089: sourcing /home/neb/.config/nvim/after/ftplugin/text/sonokai.vim
+102.623  019.123  018.662: sourcing /usr/share/nvim/runtime/pack/sonokai/start/sonokai/colors/sonokai.vim
+116.387  000.143  000.143: sourcing /home/neb/.config/nvim/after/ftplugin/text/sonokai.vim
+116.456  013.655  013.512: sourcing /usr/share/nvim/runtime/pack/sonokai/start/sonokai/colors/sonokai.vim
+116.649  000.046  000.046: sourcing /usr/share/nvim/runtime/filetype.vim
+117.030  000.224  000.224: sourcing /usr/share/nvim/runtime/ftplugin.vim
+117.370  000.158  000.158: sourcing /usr/share/nvim/runtime/indent.vim
+123.394  005.129  005.129: sourcing /home/neb/.local/share/nvim/site/autoload/plug.vim
+129.478  002.260  002.260: sourcing /usr/share/nvim/runtime/syntax/nosyntax.vim
+130.142  000.356  000.356: sourcing /usr/share/nvim/runtime/syntax/synload.vim
+134.198  000.934  000.934: sourcing /usr/share/nvim/runtime/syntax/javascript.vim
+142.541  007.903  007.903: sourcing /usr/share/nvim/runtime/syntax/vb.vim
+170.329  027.516  027.516: sourcing /usr/share/nvim/runtime/syntax/css.vim
+174.806  044.071  007.719: sourcing /usr/share/nvim/runtime/syntax/html.vim
+176.021  045.438  001.367: sourcing /usr/share/nvim/runtime/syntax/markdown.vim
+176.439  049.349  001.296: sourcing /usr/share/nvim/runtime/syntax/syntax.vim
+182.509  001.450  001.450: sourcing /usr/share/nvim/runtime/ftoff.vim
+184.926  000.061  000.061: sourcing /home/neb/.config/nvim/plugged/ultisnips/ftdetect/snippets.vim
+204.726  000.143  000.143: sourcing /home/neb/.config/nvim/plugged/vim-fish/ftdetect/fish.vim
+204.966  000.065  000.065: sourcing /home/neb/.config/nvim/plugged/vimtex/ftdetect/cls.vim
+205.079  000.060  000.060: sourcing /home/neb/.config/nvim/plugged/vimtex/ftdetect/tex.vim
+205.185  000.057  000.057: sourcing /home/neb/.config/nvim/plugged/vimtex/ftdetect/tikz.vim
+206.049  000.073  000.073: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/elixir.vim
+206.143  000.042  000.042: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/fennel.vim
+206.266  000.060  000.060: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/fish.vim
+206.358  000.042  000.042: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/fusion.vim
+206.455  000.045  000.045: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/gdresource.vim
+206.549  000.041  000.041: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/gdscript.vim
+206.739  000.042  000.042: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/glimmer.vim
+206.896  000.098  000.098: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/glsl.vim
+206.985  000.035  000.035: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/gomod.vim
+207.073  000.035  000.035: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/gowork.vim
+207.190  000.062  000.062: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/graphql.vim
+207.305  000.061  000.061: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/hcl.vim
+207.407  000.050  000.050: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/heex.vim
+207.501  000.038  000.038: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/hjson.vim
+207.589  000.035  000.035: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/json5.vim
+207.686  000.044  000.044: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/julia.vim
+207.796  000.055  000.055: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/ledger.vim
+207.884  000.034  000.034: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/nix.vim
+207.971  000.034  000.034: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/prisma.vim
+208.058  000.034  000.034: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/pug.vim
+208.175  000.052  000.052: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/ql.vim
+208.293  000.063  000.063: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/query.vim
+208.393  000.043  000.043: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/surface.vim
+208.481  000.040  000.040: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/teal.vim
+208.565  000.032  000.032: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/tlaplus.vim
+208.652  000.034  000.034: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/yang.vim
+208.757  000.046  000.046: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/ftdetect/zig.vim
+209.012  000.041  000.041: sourcing /home/neb/.config/nvim/plugged/coq_nvim/ftdetect/coq-snip.vim
+209.367  000.038  000.038: sourcing /usr/share/vim/vimfiles/ftdetect/PKGBUILD.vim
+209.476  000.060  000.060: sourcing /usr/share/vim/vimfiles/ftdetect/meson.vim
+209.627  000.093  000.093: sourcing /usr/share/vim/vimfiles/ftdetect/nginx.vim
+210.378  020.830  019.005: sourcing /usr/share/nvim/runtime/filetype.vim
+210.705  000.038  000.038: sourcing /usr/share/nvim/runtime/ftplugin.vim
+210.998  000.029  000.029: sourcing /usr/share/nvim/runtime/indent.vim
+211.110  092.971  016.085: sourcing /home/neb/.config/nvim/./plug.vim
+211.178  191.193  002.002: sourcing /home/neb/.config/nvim/init.vim
+211.190  000.205: sourcing vimrc file(s)
+248.355  035.452  035.452: sourcing /home/neb/.config/nvim/plugin/coq.vim
+248.828  000.302  000.302: sourcing /home/neb/.config/nvim/plugin/fugitive.rc.vim
+257.186  008.244  008.244: sourcing /home/neb/.config/nvim/plugin/lsp.vim
+257.334  000.065  000.065: sourcing /home/neb/.config/nvim/plugin/lspsaga.rc.vim
+257.465  000.071  000.071: sourcing /home/neb/.config/nvim/plugin/telescope.rc.vim
+271.696  014.167  014.167: sourcing /home/neb/.config/nvim/plugin/treesitter.rc.vim
+271.847  000.063  000.063: sourcing /home/neb/.config/nvim/plugin/web-devicons.rc.vim
+273.487  001.163  001.163: sourcing /home/neb/.config/nvim/plugged/lexima.vim/plugin/lexima.vim
+274.314  000.545  000.545: sourcing /home/neb/.config/nvim/plugged/vim-commentary/plugin/commentary.vim
+274.743  000.137  000.137: sourcing /home/neb/.config/nvim/plugged/vimtex/plugin/vimtex.vim
+275.291  000.268  000.268: sourcing /home/neb/.config/nvim/plugged/nvim-lspconfig/plugin/lspconfig.vim
+276.463  000.915  000.915: sourcing /home/neb/.config/nvim/plugged/lspsaga.nvim/plugin/lspsaga.vim
+278.970  002.219  002.219: sourcing /home/neb/.config/nvim/plugged/nvim-treesitter/plugin/nvim-treesitter.vim
+279.419  000.153  000.153: sourcing /home/neb/.config/nvim/plugged/nvim-web-devicons/plugin/nvim-web-devicons.vim
+280.205  000.354  000.354: sourcing /home/neb/.config/nvim/plugged/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+280.540  000.083  000.083: sourcing /home/neb/.config/nvim/plugged/coq_nvim/plugin/coq.vim
+280.802  000.028  000.028: sourcing /home/neb/.config/nvim/plugged/coq.artifacts/plugin/coq.artifacts.vim
+281.049  000.031  000.031: sourcing /home/neb/.config/nvim/plugged/coq.thirdparty/plugin/coq_3p.vim
+282.978  000.940  000.940: sourcing /usr/share/nvim/runtime/plugin/gzip.vim
+283.107  000.046  000.046: sourcing /usr/share/nvim/runtime/plugin/health.vim
+283.576  000.406  000.406: sourcing /usr/share/nvim/runtime/plugin/man.vim
+285.828  000.714  000.714: sourcing /usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+286.268  002.630  001.916: sourcing /usr/share/nvim/runtime/plugin/matchit.vim
+286.881  000.546  000.546: sourcing /usr/share/nvim/runtime/plugin/matchparen.vim
+288.724  001.762  001.762: sourcing /usr/share/nvim/runtime/plugin/netrwPlugin.vim
+292.574  000.713  000.713: sourcing /usr/share/nvim/runtime/autoload/remote/host.vim
+293.904  000.687  000.687: sourcing /usr/share/nvim/runtime/autoload/remote/define.vim
+294.205  004.818  003.418: sourcing /home/neb/.local/share/nvim/rplugin.vim
+294.228  005.388  000.569: sourcing /usr/share/nvim/runtime/plugin/rplugin.vim
+294.799  000.456  000.456: sourcing /usr/share/nvim/runtime/plugin/shada.vim
+295.006  000.104  000.104: sourcing /usr/share/nvim/runtime/plugin/spellfile.vim
+295.721  000.628  000.628: sourcing /usr/share/nvim/runtime/plugin/tarPlugin.vim
+296.137  000.296  000.296: sourcing /usr/share/nvim/runtime/plugin/tohtml.vim
+296.333  000.083  000.083: sourcing /usr/share/nvim/runtime/plugin/tutor.vim
+297.177  000.762  000.762: sourcing /usr/share/nvim/runtime/plugin/zipPlugin.vim
+310.355  012.463  012.463: sourcing /home/neb/.config/nvim/plugin/autopairs.rc.lua
+313.327  002.827  002.827: sourcing /home/neb/.config/nvim/plugin/lualine.rc.lua
+315.497  010.711: loading rtp plugins
+316.286  000.789: loading packages
+320.928  004.021  004.021: sourcing /home/neb/.config/nvim/after/plugin/coq.vim
+321.310  000.141  000.141: sourcing /home/neb/.config/nvim/after/plugin/fugitive.rc.vim
+326.502  005.104  005.104: sourcing /home/neb/.config/nvim/after/plugin/lsp.vim
+331.666  005.047  005.047: sourcing /home/neb/.config/nvim/after/plugin/lspsaga.rc.vim
+331.817  000.049  000.049: sourcing /home/neb/.config/nvim/after/plugin/telescope.rc.vim
+404.807  053.447  053.447: sourcing /home/neb/.config/nvim/ftplugin/markdown/markdown.vim
+408.084  003.083  003.083: sourcing /home/neb/.config/nvim/ftplugin/markdown/sonokai.vim
+411.019  001.310  001.310: sourcing /home/neb/.config/nvim/ftplugin/html/sonokai.vim
+413.618  001.069  001.069: sourcing /usr/share/nvim/runtime/autoload/htmlcomplete.vim
+413.918  001.879  000.810: sourcing /usr/share/nvim/runtime/ftplugin/html.vim
+415.444  000.080  000.080: sourcing /home/neb/.config/nvim/after/ftplugin/html/sonokai.vim
+415.988  006.790  003.521: sourcing /usr/share/nvim/runtime/ftplugin/markdown.vim
+417.817  000.320  000.320: sourcing /home/neb/.config/nvim/after/ftplugin/markdown/markdown.vim
+417.975  000.071  000.071: sourcing /home/neb/.config/nvim/after/ftplugin/markdown/sonokai.vim
+427.998  000.925  000.925: sourcing /usr/share/nvim/runtime/syntax/javascript.vim
+436.890  008.238  008.238: sourcing /usr/share/nvim/runtime/syntax/vb.vim
+467.319  029.941  029.941: sourcing /usr/share/nvim/runtime/syntax/css.vim
+472.781  048.423  009.319: sourcing /usr/share/nvim/runtime/syntax/html.vim
+474.308  050.281  001.858: sourcing /usr/share/nvim/runtime/syntax/markdown.vim
+480.881  000.920  000.920: sourcing /usr/share/nvim/runtime/syntax/javascript.vim
+489.308  007.784  007.784: sourcing /usr/share/nvim/runtime/syntax/vb.vim
+519.075  029.270  029.270: sourcing /usr/share/nvim/runtime/syntax/css.vim
+524.519  047.155  009.181: sourcing /usr/share/nvim/runtime/syntax/html.vim
+525.948  048.926  001.771: sourcing /usr/share/nvim/runtime/syntax/markdown.vim
+580.197  248.205  085.286: sourcing /home/neb/.config/nvim/after/plugin/treesitter.rc.vim
+585.406  004.979  004.979: sourcing /home/neb/.config/nvim/after/plugin/web-devicons.rc.vim
+592.026  005.865  005.865: sourcing /home/neb/.config/nvim/after/plugin/autopairs.rc.lua
+592.593  000.396  000.396: sourcing /home/neb/.config/nvim/after/plugin/lualine.rc.lua
+592.725  002.631: loading after plugins
+592.787  000.062: inits 3
+606.356  013.569: reading ShaDa
+606.388  000.033: opening buffers
+606.762  000.373: BufEnter autocommands
+606.774  000.012: editing files in windows
+607.108  000.334: VimEnter autocommands
+607.118  000.010: UIEnter autocommands
+608.304  000.823  000.823: sourcing /usr/share/nvim/runtime/autoload/provider/clipboard.vim
+608.338  000.397: before starting main loop
+35935.472  35327.134: first screen update
+35935.484  000.012: --- NVIM STARTED ---

@@ -26,4 +26,9 @@ highlight! link NvimTreeGitMerge Orange
 highlight! link NvimTreeGitRenamed Purple
 highlight! link NvimTreeGitNew Green
 highlight! link NvimTreeGitDeleted Red
+highlight! link NvimTreeLspDiagnosticsError RedSign
+highlight! link NvimTreeLspDiagnosticsWarning YellowSign
+highlight! link NvimTreeLspDiagnosticsInformation BlueSign
+highlight! link NvimTreeLspDiagnosticsHint GreenSign
 " ft_end
+" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker fmr={{{,}}}:

@@ -52,6 +52,7 @@ highlight! link mkdDelimiter Grey
 highlight! link mkdId Yellow
 " }}}
 " ft_end
+" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker fmr={{{,}}}:
 let s:configuration = sonokai#get_configuration()
 let s:palette = sonokai#get_palette(s:configuration.style)
 " ft_begin: html/markdown/javascriptreact/typescriptreact {{{
@@ -80,3 +81,4 @@ highlight! link htmlSpecialTagName RedItalic
 highlight! link htmlString Green
 " }}}
 " ft_end
+" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker fmr={{{,}}}:
