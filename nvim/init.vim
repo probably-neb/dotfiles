@@ -6,7 +6,7 @@ if &shell =~# 'fish$'
 	set shell=sh
 endif
 "}}}
-"
+
 " colors "{{{
 " ---------------------------------------------------------------------
 if (has("termguicolors"))
@@ -19,17 +19,18 @@ if (has("termguicolors"))
 	set winblend=0
 endif
 let g:sonokai_style = 'andromeda'
-let g:sonokai_enable_italic = 1
+let g:sonokai_enable_italic = 0
 let g:sonokai_disable_italic_comment = 1
 let g:sonokai_better_performance = 1
 colorscheme sonokai
 set background=dark
 "}}}
-"
+
 "  preferences "{{{
 " ---------------------------------------------------------------------
 " indents
 filetype plugin indent on
+
 set smartindent
 set smarttab
 set breakindent
@@ -53,9 +54,10 @@ if has('nvim')
 endif
 let g:coq_settings = { 'auto_start': 'shut-up'}
 "}}}
-"
+
 " keymaps "{{{
 " ---------------------------------------------------------------------
+" ii for quick escape
 :imap ii <Esc>
 " spell correction
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
@@ -63,19 +65,28 @@ inoremap <C-k> <C-x><C-k>
 " newlines w/o insert mode
 nnoremap <C-Enter> moO<Esc>`o
 nnoremap <Enter> moo<Esc>`o
+" visual up down with wrapped lines
 nnoremap j gj
 nnoremap gj j
 nnoremap k gk
 nnoremap gk k
+command TexHeader e ~/Dropbox/poly/preamble.tex
 "}}}
-"
+
 " imports "{{{
 " ---------------------------------------------------------------------
 runtime ./plug.vim
 "}}}
+
+" fix conda "{{{
+" ---------------------------------------------------------------------
 if has('nvim') && !empty($CONDA_PREFIX)
 	let g:python3_host_prog = '/home/neb/anaconda3/envs/cp-knowledge-graph/bin/python'
-endif"
+else
+	let g:python3_host_prog = '/usr/bin/python'
+endif
+"}}}
+
 " use directory for shared ft specific binds and then use runtime /blah.vim in
 " each ft plugin to share binds
 " vim: set foldmethod=marker foldlevel=0:

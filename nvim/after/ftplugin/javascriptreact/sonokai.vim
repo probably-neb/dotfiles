@@ -34,6 +34,7 @@ highlight! link htmlSpecialTagName RedItalic
 highlight! link htmlString Green
 " }}}
 " ft_end
+" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker fmr={{{,}}}:
 " ft_begin: javascript/javascriptreact {{{
 " builtin: http://www.fleiner.com/vim/syntax/javascript.vim{{{
 highlight! link javaScriptNull OrangeItalic
@@ -228,3 +229,4 @@ highlight! link jsxEscapeJs Purple
 highlight! link jsxAttrib Blue
 " }}}
 " ft_end
+" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker fmr={{{,}}}:
