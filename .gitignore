@@ -1,6 +1,10 @@
+nvim/plugged/
 
 *.aux 
 *.fls 
 *.fdb_latexmk 
 *.log 
 *.synctex.gz
+nvim/plugged/*
+fish/fish_variables
+fish_variables
