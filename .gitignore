@@ -1,2 +1,6 @@
-fish/fish_variables
-nvim/plugged/
+
+*.aux 
+*.fls 
+*.fdb_latexmk 
+*.log 
+*.synctex.gz

@@ -1,3 +1,4 @@
+%Credit to Gilles Castel for 90% of these settings [https://github.com/gillescastel?tab=repositories] 
 % Some basic packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -257,6 +258,9 @@
 \newcommand{\incfig}[1]{%
     \def\svgwidth{\columnwidth}
     \import{./figures/}{#1.pdf_tex}
+}
+\newcommand{\incpng}[2][scale=1.0]{%
+    \includegraphics[#1]{./figures/#2.png}
 }
 
 % Fix some stuff
