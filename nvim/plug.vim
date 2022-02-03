@@ -1,9 +1,12 @@
 call plug#begin('/home/neb/.config/nvim/plugged')
 
+Plug 'sainnhe/sonokai'
+
 "Plug 'godlygeek/tabular'
 Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-commentary'
 Plug 'dag/vim-fish', {'for' : 'fish'}
+Plug 'tpope/vim-surround'
 
 " latex
 Plug 'SirVer/ultisnips', {'for': 'tex'}
@@ -28,7 +31,8 @@ if has("nvim")
   " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'neovim/nvim-lspconfig'
   Plug 'glepnir/lspsaga.nvim'
-	Plug 'nvim-treesitter/nvim-treesitter', {'commit': '8ada8faf2fd5a74cc73090ec856fa88f34cd364b', 'do': ':TSUpdate'}
+	" Plug 'nvim-treesitter/nvim-treesitter', {'commit': '8ada8faf2fd5a74cc73090ec856fa88f34cd364b', 'do': ':TSUpdate'}
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'nvim-lua/popup.nvim'
   " Plug 'nvim-lua/plenary.nvim'
