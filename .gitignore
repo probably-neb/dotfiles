@@ -1,5 +1,4 @@
 nvim/plugged/
-
 *.aux 
 *.fls 
 *.fdb_latexmk 
@@ -8,3 +7,6 @@ nvim/plugged/
 nvim/plugged/*
 fish/fish_variables
 fish_variables
+__fzf*.fish 
+__z*.fish
+_tide*.fish
