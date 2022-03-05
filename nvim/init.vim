@@ -43,7 +43,7 @@ set shada
 set path+=**
 set smartcase
 set incsearch
-set number relativenumber
+set number 
 set clipboard=unnamedplus
 " setlocal spell spelllang=en_us
 set scrolloff=10

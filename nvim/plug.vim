@@ -1,5 +1,4 @@
 call plug#begin('/home/neb/.config/nvim/plugged')
-
 Plug 'sainnhe/sonokai'
 
 "Plug 'godlygeek/tabular'
