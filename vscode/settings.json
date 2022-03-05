@@ -29,6 +29,13 @@
             "path": "/bin/fish"
         }
     },
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["zf"],
+            "commands": ["editor.fold"]
+        }
+
+    ],
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
