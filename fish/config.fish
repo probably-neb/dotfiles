@@ -13,6 +13,7 @@ set -x GPG_TTY (tty)
 set -Ux INITVIM '/home/neb/.config/nvim/init.vim'
 set -Ux CONFIGFISH '/home/neb/.config/fish/config.fish'
 set -Ux KITTYCONF '/home/neb/.config/kitty/kitty.conf'
+set -Ux bear 'ʕ·ᴥ·ʔ'
 
 #preferences
 set -Ux BROWSER brave
@@ -20,6 +21,7 @@ set -Ux EDITOR nvim
 abbr --add --global q2 'cd ~/Dropbox/poly/q1_2022/'
 abbr --add --global wp 'cd ~/Pictures/wallpapers/'
 abbr --add --global nebsite 'cd ~/Dropbox/nebsite/'
+abbr --add --global cleanswap 'rm /home/neb/.local/share/nvim/swap/'
 
 #save a character when using nvim because why not
 alias vim='nvim'
@@ -40,10 +42,10 @@ function 2test
 	coverage report -m
 end
 
-function cleanswap
-	set -l path /home/neb/.local/share/nvim/swap/*
-	rm $path
-end
+# function cleanswap
+# 	set -l path /home/neb/.local/share/nvim/swap/*
+# 	rm $path
+# end
 
 function spaces_to_underlines 
 	for arg in $argv

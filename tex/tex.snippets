@@ -68,6 +68,10 @@ $4
 \end{document}
 endsnippet
 
+snippet href "link with description" A
+\\href{$1}{$2} $0
+endsnippet
+
 snippet box "Box"
 `!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
 │ $1 │
@@ -116,11 +120,11 @@ snippet enum "Enumerate" bA
 \end{enumerate}
 endsnippet
 
-snippet item "Itemize" bA
-\begin{itemize}
-\item $0
-\end{itemize}
-endsnippet
+# snippet item "Itemize" bA
+# \begin{itemize}
+# \item $0
+# \end{itemize}
+# endsnippet
 
 snippet desc "Description" b
 \begin{description}
@@ -337,6 +341,11 @@ endsnippet
 context "math()"
 snippet srt "\sqrt{}" iA
 \sqrt{${1:${VISUAL}}} $0
+endsnippet
+
+context "math()"
+snippet lm "\lambda" iA
+\lambda
 endsnippet
 
 context "math()"
@@ -693,7 +702,23 @@ snippet letw "let omega" iA
 Let $\Omega \subset \C$ be open.
 endsnippet
 
+snippet lrarr "longrightarrow"
+\longrightarrow
+endsnippet
 
+snippet llarr "longleftarrow"
+\longleftarrow
+endsnippet
+
+snippet larr "leftarrow"
+\leftarrow
+endsnippet
+
+snippet rarr "rightarrow"
+\rightarrow
+endsnippet
+
+context "math()"
 snippet HH "H" iA
 \mathbb{H}
 endsnippet

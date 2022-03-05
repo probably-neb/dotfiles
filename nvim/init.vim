@@ -58,7 +58,8 @@ let g:coq_settings = { 'auto_start': 'shut-up'}
 " keymaps "{{{
 " ---------------------------------------------------------------------
 " ii for quick escape
-:imap ii <Esc>
+" :imap ii <Esc>
+inoremap <Up> <Esc>
 " spell correction
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 inoremap <C-k> <C-x><C-k>
@@ -70,7 +71,19 @@ nnoremap j gj
 nnoremap gj j
 nnoremap k gk
 nnoremap gk k
+nnoremap <C-/> gcc
+
+" leader binds "{{{
+let mapleader = ' '
+nmap <Leader>tc :VimtexCompile
+nmap <Leader>te :VimtexErrors
+"}}}
+"}}}
+
+" commands "{{{
 command TexHeader e ~/Dropbox/poly/preamble.tex
+command Gruvbox set background=light | let g:gruvbox_contrast_light= 'hard' | colorscheme gruvbox
+command Sonokai set background=dark | colorscheme sonokai
 "}}}
 
 " imports "{{{
