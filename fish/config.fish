@@ -5,6 +5,7 @@ set TERM "xterm-256color"
 # set -g theme_color_scheme terminal-dark
 set -e fish_user_paths
 set -U fish_user_paths $HOME/.local/bin $HOME/Applications $HOME/.cargo/bin/ $fish_user_paths
+set -aU fish_function_path $HOME/.config/fish/functions/tide/ $HOME/.config/fish/functions/z/ $HOME/.config/fish/functions/fzf/ 
 
 #fix gpg
 set -x GPG_TTY (tty)
