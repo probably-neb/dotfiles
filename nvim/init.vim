@@ -52,7 +52,8 @@ set scrolloff=10
 if has('nvim')
 	set inccommand=split
 endif
-let g:coq_settings = { 'auto_start': 'shut-up'}
+set completeopt=menu,menuone,noselect
+" let g:coq_settings = { 'auto_start': 'shut-up'}
 "}}}
 
 " keymaps "{{{
@@ -77,6 +78,11 @@ nnoremap <C-/> gcc
 let mapleader = ' '
 nmap <Leader>tc :VimtexCompile
 nmap <Leader>te :VimtexErrors
+nmap <Leader>c gcc
+vmap <Leader>c gc
+" move left and right buffers with  h l
+nmap <Leader>l :bn<Enter>
+nmap <Leader>h :bp<Enter>
 "}}}
 "}}}
 

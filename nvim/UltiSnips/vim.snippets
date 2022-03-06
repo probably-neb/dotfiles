@@ -1,0 +1,10 @@
+snippet box "Box"
+`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+│ $1 │
+`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
+endsnippet
+
+snippet date-time "Today's date and Current Time"
+`date "+%b %d %Y %a (%H:%M:%S)"`
+endsnippet
