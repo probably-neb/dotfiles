@@ -14,7 +14,7 @@ local npairs = require('nvim-autopairs')
 
 npairs.setup({ map_bs = false, map_cr = false })
 
-vim.g.coq_settings = { keymap = { recommended = false } }
+-- vim.g.coq_settings = { keymap = { recommended = false } }
 
 -- skip it, if you use another global object
 _G.MUtils= {}

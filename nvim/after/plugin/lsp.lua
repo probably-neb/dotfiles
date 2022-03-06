@@ -1,4 +1,4 @@
-lua << EOF
+-- lua << EOF
 
 local nvim_lsp = require('lspconfig')
 
@@ -67,24 +67,24 @@ local on_attach = function(client, bufnr)
 end
 
 --Enable (broadcasting) snippet capability for completion
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local coq = require('coq').lsp_ensure_capabilities
+-- local coq = require('coq').lsp_ensure_capabilities
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {'pyright', 'bashls', 'html', 'jsonls', 'cssls'}
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-		coq {
-				on_attach = on_attach,
-			flags = {
-				debounce_text_changes = 150,
-				},
-			capabilities = capabilities
-		}
-  }
-end
+-- local servers = {'pyright', 'bashls', 'html', 'jsonls', 'cssls'}
+-- for _, lsp in ipairs(servers) do
+--   nvim_lsp[lsp].setup {
+-- 		-- coq {
+-- 			on_attach = on_attach,
+-- 			flags = {
+-- 				debounce_text_changes = 150,
+-- 			},
+-- 			capabilities = capabilities
+-- 		-- }
+--   }
+-- end
 
 -- nvim_lsp.diagnosticls.setup {
 	-- coq {
@@ -132,9 +132,7 @@ end
 		-- },
 		-- formatFiletypes = {
 			-- css = 'prettier',
-			-- javascript = 'eslint_d',
-			-- javascriptreact = 'eslint_d',
-			-- json = 'prettier',
+			-- javascript = 'eslint_d', javascriptreact = 'eslint_d', json = 'prettier',
 			-- scss = 'prettier',
 			-- less = 'prettier',
 			-- typescript = 'eslint_d',
@@ -159,4 +157,4 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 		update_in_insert = true
   }
 )
-EOF
+-- EOF
