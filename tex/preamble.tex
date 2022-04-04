@@ -172,6 +172,17 @@
     % \marginpar{\small\textsf{\mbox{#2}}}
 }
 
+\newcommand{\docheader}[3]{
+    \ifthenelse{\isempty{#3}}{%
+        \def\@leftsideheader{#1}%
+    }{%
+        \def\@leftsideheader{#1 #3}%
+    }%
+		\def\@rightsideheader{\@author \: #2}%
+    %\subsection*{\@lecture}
+    % \marginpar{\small\textsf{\mbox{#2}}}
+}
+
 \def\@homework{}%
 \newcommand{\homework}[3]{
     \ifthenelse{\isempty{#3}}{%

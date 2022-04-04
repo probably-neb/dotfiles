@@ -90,10 +90,6 @@ snippet ... "ldots" iA
 \ldots
 endsnippet
 
-snippet date-time "Today's date and Current Time"
-`date "+%b %d %Y %a (%H:%M:%S)"`
-endsnippet
-
 snippet table "Table environment" b
 \begin{table}[${1:htpb}]
 \centering
@@ -120,11 +116,11 @@ snippet enum "Enumerate" bA
 \end{enumerate}
 endsnippet
 
-# snippet item "Itemize" bA
-# \begin{itemize}
-# \item $0
-# \end{itemize}
-# endsnippet
+snippet item "Itemize" bA
+\begin{itemize}
+\item $0
+\end{itemize}
+endsnippet
 
 snippet desc "Description" b
 \begin{description}

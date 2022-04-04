@@ -72,17 +72,21 @@ endsnippet
 snippet Inc "#include <...>"
 #include <${1:stdio}.h>
 endsnippet
+
 snippet inc "#include"
 #include "${1:`!v Filename("$1")`}.h"
 endsnippet
+
 snippet Def "#ifndef ... #define ... #endif"
 #ifndef $1
 #define ${1:SYMBOL} ${2:value}
 #endif
 endsnippet
+
 snippet def "#define"
 #define 
 endsnippet
+
 snippet ifdef "#ifdef"
 #ifdef ${1}
 ${VISUAL}${0}
@@ -109,6 +113,9 @@ ${VISUAL}${0}
 
 #endif /* TAJGA_$1_ */
 
+endsnippet
+snippet // "comment" A
+/*$1*/
 endsnippet
 snippet if "If Condition"
 if (${1}) {
