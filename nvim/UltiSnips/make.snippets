@@ -1,0 +1,7 @@
+snippet template "Usual stuff"
+CC = gcc
+CFLAGS = -Wall -Werror -ansi -pedantic -g
+
+$1: $2
+	$(CC) $(CFLAGS) -o $@ $^
+endsnippet

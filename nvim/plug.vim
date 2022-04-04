@@ -6,8 +6,10 @@ Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-commentary'
 Plug 'dag/vim-fish', {'for' : 'fish'}
 Plug 'tpope/vim-surround'
+
 Plug 'morhetz/gruvbox'
 let g:gruvbox_contrast_light='hard'
+
 Plug 'dhruvasagar/vim-table-mode'
 let g:table_mode_corner='|'
 

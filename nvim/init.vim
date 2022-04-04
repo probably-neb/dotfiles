@@ -1,5 +1,12 @@
 " nebvim
 
+let mapleader = ' '
+
+" imports "{{{
+" ---------------------------------------------------------------------
+runtime ./plug.vim
+"}}}
+
 " shell "{{{
 " ---------------------------------------------------------------------
 if &shell =~# 'fish$'
@@ -12,18 +19,17 @@ endif
 if (has("termguicolors"))
 	set termguicolors
 	set t_Co=256
+	syntax on
 	let &t_ut=''
 	syntax enable
 	set pumblend=5
 	set wildoptions=pum	
 	set winblend=0
 endif
-let g:sonokai_style = 'andromeda'
-let g:sonokai_enable_italic = 0
-let g:sonokai_disable_italic_comment = 1
-let g:sonokai_better_performance = 1
-colorscheme sonokai
-set background=dark
+" set color scheme
+let s:theme_name = readfile('/home/neb/dotfiles/.theme')[0]
+let s:theme_path = printf("source /home/neb/dotfiles/nvim/.%s", s:theme_name)
+execute s:theme_path
 "}}}
 
 "  preferences "{{{
@@ -72,29 +78,31 @@ nnoremap j gj
 nnoremap gj j
 nnoremap k gk
 nnoremap gk k
-nnoremap <C-/> gcc
+nnoremap <C-Bslash> gcc
+" xnoremap <C-Bslash> gc
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
-" leader binds "{{{
-let mapleader = ' '
-nmap <Leader>tc :VimtexCompile
-nmap <Leader>te :VimtexErrors
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
+" leader binds 
+nmap <Leader>tc :VimtexCompile<CR>
+nmap <Leader>te :VimtexErrors<CR>
 nmap <Leader>c gcc
-vmap <Leader>c gc
+xmap <Leader>c gc
 " move left and right buffers with  h l
-nmap <Leader>l :bn<Enter>
-nmap <Leader>h :bp<Enter>
-"}}}
+nmap <Leader>l :bn<CR>
+nmap <Leader>h :bp<CR>
+xnoremap <Leader>j :g/^\s*$/d - <CR>:noh<CR>:call clearmatches()<CR>
 "}}}
 
 " commands "{{{
+command InitVim e ~/dotfiles/nvim/init.vim
 command TexHeader e ~/Dropbox/poly/preamble.tex
-command Gruvbox set background=light | let g:gruvbox_contrast_light= 'hard' | colorscheme gruvbox
-command Sonokai set background=dark | colorscheme sonokai
-"}}}
-
-" imports "{{{
-" ---------------------------------------------------------------------
-runtime ./plug.vim
+command Gruvbox :source /home/neb/dotfiles/nvim/.gruvbox
+command Sonokai :source /home/neb/dotfiles/nvim/.sonokai
 "}}}
 
 " fix conda "{{{
