@@ -2,15 +2,13 @@ DP-2 DP-0 Height 2560x1440=1045
 DP-2 DP-0 Width 2560x1440=1494
 DP-2 DP-0 XPosition 2560x1440=1678
 DP-2 DP-0 YPosition 2560x1440=508
-MenuBar=Disabled
 State=AAAA/wAAAAD9AAAAAwAAAAAAAAC4AAAD4/wCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAAA/////wAAAAoBAAAD+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAAAyAAAD4wAAAF0BAAADAAAAAQAAAAAAAAAA/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAAAAAAD/////AAAACgEAAAMAAAADAAAAAAAAAAD8AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawAAAAAA/////wAAAAoBAAADAAAFHQAAA+MAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
 
-[CompactMode]
-FontWeight=50
+[$Version]
+update_info=dolphin_detailsmodesettings.upd:rename-leading-padding
 
 [DetailsMode]
 DirectorySizeCount=false
-FontWeight=50
 RecursiveDirectorySizeLimit=20
 
 [ExtractDialog]
@@ -21,14 +19,15 @@ eDP-1 Width 1500x1000=1000
 [General]
 BrowseThroughArchives=true
 ShowFullPathInTitlebar=true
-Version=201
+Version=202
 ViewPropsTimestamp=2021,5,24,15,7,18.711
 
 [IconsMode]
-FontWeight=50
 PreviewSize=80
 
 [KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
 Recent Files[$e]=file:///usr/share/icons,file:$HOME/.icons
 Recent URLs[$e]=file:///usr/share/icons/,file:$HOME/.icons/
 detailViewIconSize=16
@@ -38,10 +37,12 @@ DP-2 DP-0 Height 1080x1920=600
 DP-2 DP-0 Height 2560x1440=502
 DP-2 DP-0 Width 1080x1920=510
 DP-2 DP-0 Width 2560x1440=437
+eDP-1 DP-2 Height 1280x720=458
+eDP-1 DP-2 Width 1280x720=391
 eDP-1 Height 1333x889=458
-eDP-1 Height 1500x1000=624
+eDP-1 Height 1500x1000=472
 eDP-1 Width 1333x889=424
-eDP-1 Width 1500x1000=495
+eDP-1 Width 1500x1000=470
 
 [MainWindow]
 DP-0 DP-2 XPosition 2560x1440=1886
@@ -86,19 +87,22 @@ eDP-1 DP-1 YPosition 1500x1000=2192
 eDP-1 DP-1 YPosition 1920x1080=0
 eDP-1 DP-1 YPosition 455x341=30
 eDP-1 DP-2 Height 1500x1000=255
-eDP-1 DP-2 Width 1500x1000=750
-eDP-1 DP-2 XPosition 1500x1000=374
+eDP-1 DP-2 Width 1500x1000=760
+eDP-1 DP-2 XPosition 1280x720=417
+eDP-1 DP-2 XPosition 1500x1000=533
 eDP-1 DP-2 XPosition 1920x1080=0
-eDP-1 DP-2 YPosition 1500x1000=2160
+eDP-1 DP-2 YPosition 1280x720=36
+eDP-1 DP-2 YPosition 1500x1000=1794
 eDP-1 DP-2 YPosition 1920x1080=0
 eDP-1 Height 1333x889=828
 eDP-1 Height 1500x1000=975
 eDP-1 Width 1333x889=667
 eDP-1 Width 1500x1000=750
+eDP-1 Window-Maximized 1500x1000=true
 eDP-1 XPosition 1333x889=667
-eDP-1 XPosition 1500x1000=750
+eDP-1 XPosition 1500x1000=260
 eDP-1 YPosition 1333x889=31
-eDP-1 YPosition 1500x1000=0
+eDP-1 YPosition 1500x1000=720
 
 [Open-with settings]
 CompletionMode=1

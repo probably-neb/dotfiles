@@ -4,4 +4,14 @@ CFLAGS = -Wall -Werror -ansi -pedantic -g
 
 $1: $2
 	$(CC) $(CFLAGS) -o $@ $^
+
+clean: 
+	$3
+
+verify:
+	grep -n '.\{79\}' {*.c,*.h} || true
+endsnippet
+
+snippet show-macros "Show All macros defined for c file including compiler macros"
+gcc -dM -E $1.c
 endsnippet

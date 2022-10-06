@@ -14,6 +14,7 @@ function _hydro_pwd --on-variable PWD
             string replace --regex -- '([^/]+)$' "\x1b[1m\$1\x1b[22m" |
             string replace --regex --all -- '(?!^/$)/' "\x1b[2m/\x1b[22m"
         )
+				set --global _hydro_pwd $hydro_color_path$_hydro_pwd
     else
         set --local root (command git rev-parse --show-toplevel 2>/dev/null |
             string replace --all --regex -- "^.*/" "")
@@ -108,7 +109,8 @@ function _hydro_uninstall --on-event hydro_uninstall
     functions --erase (functions --all | string match --entire --regex "^_?hydro_")
 end
 
-set --global hydro_color_normal (set_color normal)
+set --global hydro_color_normal (set_color green)
+set --global hydro_color_path (set_color red)
 
 for color in hydro_color_{pwd,git,error,prompt,duration}
     function $color --on-variable $color --inherit-variable color
@@ -129,4 +131,4 @@ set --query hydro_symbol_prompt || set --global hydro_symbol_prompt ❱
 set --query hydro_symbol_git_dirty || set --global hydro_symbol_git_dirty •
 set --query hydro_symbol_git_ahead || set --global hydro_symbol_git_ahead ↑
 set --query hydro_symbol_git_behind || set --global hydro_symbol_git_behind ↓
-set --query hydro_multiline || set --global hydro_multiline false
+set --query hydro_multiline || set --global hydro_multiline true

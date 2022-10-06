@@ -7,3 +7,5 @@ nvim/plugged/
 nvim/plugged/*
 fish/fish_variables
 fish_variables
+sonokai
+fish/fishd.tmp*

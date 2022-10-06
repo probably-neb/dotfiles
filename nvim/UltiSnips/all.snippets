@@ -9,3 +9,39 @@ endsnippet
 snippet current-time "current time"
 `date "+%H:%M:%S"`
 endsnippet
+
+snippet box "Box" w
+`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+│ $1 │
+`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
+endsnippet
+
+#::Text
+#::Method
+#::Function
+#::Constructor
+#::Field
+#::Variable
+#::Class
+#ﰮ::Interface
+#::Module
+#::Property
+#::Unit
+#::Value
+#::Enum
+#::Keyword
+#﬌::Snippet
+#::Color
+#::File
+#::Reference
+#::Folder
+#::EnumMember
+#::Constant
+#::Struct
+#::Event
+#ﬦ::Operator
+#::TypeParameter
+snippet \lambda "type lambda" i
+ﬦ
+endsnippet

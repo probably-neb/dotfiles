@@ -1,6 +1,6 @@
 {
     "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
-    "terminal.integrated.defaultProfile.linux": "fish (2)",
+    "terminal.integrated.defaultProfile.linux": "bash",
     "terminal.integrated.copyOnSelection": true,
     "workbench.iconTheme": "Monokai Pro (Filter Octagon) Icons",
     "security.workspace.trust.untrustedFiles": "open",
@@ -27,13 +27,25 @@
         },
         "fish (2)": {
             "path": "/bin/fish"
+        },
+        "sh": {
+            "path": "/bin/sh"
         }
     },
     "vim.normalModeKeyBindings": [
         {
-            "before": ["zf"],
+            "before": ["zc"],
             "commands": ["editor.fold"]
-        }
+        },
+        {
+            "before":["zo"],
+            "commands": ["editor.unfold"]
+        },
+        // {
+        //     "before": [" rn"],
+        //     "commands": ["editor.action.rename"]
+        // }
+
 
     ],
     "editor.suggestSelection": "first",
@@ -45,5 +57,25 @@
         "**/.settings": true,
         "**/.factorypath": true
     },
-    "editor.unicodeHighlight.invisibleCharacters": false
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "tabnine.experimentalAutoImports": true,
+    "github.copilot.enable": {
+        
+        "*": true,
+        "yaml": true,
+        "plaintext": true,
+        "markdown": true,
+        "python": true
+    },
+    "vim.commandLineModeKeyBindings": [
+    
+    ],
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.advanced": {
+    
+    },
+    "haskell.manageHLS": "GHCup",
+    "haskell.formattingProvider": "stylish-haskell",
+    "haskell.ghcupExecutablePath": "/home/neb/.ghcup/bin/ghcup",
+    "hoogle-vscode.verbose": true
 }

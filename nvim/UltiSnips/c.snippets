@@ -18,22 +18,94 @@ endglobal
 
 priority -50
 
-post_jump "printf_expand_args(snip)"
-snippet "pf" "printf with auto-expand args" wr
-printf("$1\n"$2);
+snippet Inc "#include <...>"
+#include <${1}.h>
+endsnippet
+
+snippet inc "#include"
+#include "$1.h"
+endsnippet
+
+snippet once "Include header once only guard"
+#ifndef ${1:`!p
+if not snip.c:
+	import string
+	snip.rv = re.sub(r'[^A-Za-z0-9]+','_', path).upper()
+	i = snip.rv.find("_SRC_")
+	if i != -1:
+		snip.rv = snip.rv[i+5:]
+else:
+	snip.rv = snip.c`}
+#define $1
+${VISUAL}${0}
+#endif /* $1 */
+
+endsnippet
+
+snippet incif "Include header once only guard"
+#ifndef ${1/([^a-zA-Z]*)([a-zA-Z]+)([^a-zA-Z]*)/(?1:_)\U$2\E(?3:_)/g}_H
+#define ${1/([^a-zA-Z]*)([a-zA-Z]+)([^a-zA-Z]*)/(?1:_)\U$2\E(?3:_)/g}_H
+#include "${1}.h"
+#endif /* ${1/([^a-zA-Z]*)([a-zA-Z]+)([^a-zA-Z]*)/(?1:_)\U$2\E(?3:_)/g}_H */
+endsnippet
+
+#fix regex for this to exclude #Include "\(.*.h\)"
+#snippet incif "Include header once only guard"
+##ifndef 
+##define 
+#${1:${VISUAL}}`!p 
+#imp = snip.v.text.split("<")
+#if len(imp) == 1:
+#	imp = snip.v.text.split("\"")
+#	file = imp[1]
+#else:
+#	 file = imp[1].split(">")[0]
+#snip.v.text = file `
+##endif /* 
+#endsnippet
+
+snippet ifdef "#ifdef"
+#ifdef ${1}
+${VISUAL}${0}
+#endif /* $1 */
+endsnippet
+
+snippet incerr "include stuff for errors"
+#include <errno.h>
+#include <error.h>
+#include <stdio.h> 
+endsnippet
+
+snippet incfile "include stuff for reading writing"
+#include <fcntl.h>
+#include <unistd.h>
+endsnippet
+
+snippet defif "#ifndef ... #define ... #endif"
+#ifndef $1
+#define ${1:SYMBOL} ${2:value}
+#endif /* $1 */
+endsnippet
+
+snippet def "#define"
+#define 
+endsnippet
+
+
+snippet ifdeb "ifdef debug - endif"
+#ifdef DEBUG
+	${VISUAL}${0}
+#endif
+endsnippet
+
+snippet #if "#if"
+#if ${1}
+${VISUAL}${0}
+#endif /* $1 */
 endsnippet
 
 snippet main "main()"
 int main(int argc, char * argv[])
-{
-	${VISUAL}${0}
-	return 0;
-}
-
-endsnippet
-snippet winmain "WinMain()"
-int WINAPI WinMain(HINSTANCE instance, HINSTANCE prev_instance,
-		char * cmd_param, int cmd_show)
 {
 	${VISUAL}${0}
 	return 0;
@@ -51,82 +123,43 @@ if len(t[1]) > 0:
 } /* for ($1; $2; `!p if len(t[1]) > 0: snip.rv = t[1].split('=')[0].split()[-1]`++) */
 endsnippet
 
-snippet dllmain "DllMain()"
-BOOL APIENTRY DllMain(HANDLE module, DWORD reason_for_call, LPVOID reserved)
-{
-	switch (reason_for_call)
-	{
-	case DLL_PROCESS_ATTACH:${0}
-		break;
-	case DLL_THREAD_ATTACH:
-		break;
-	case DLL_THREAD_DETACH:
-		break;
-	case DLL_PROCESS_DETACH:
-		break;
-	}
-	return TRUE;
-}
-
-endsnippet
-snippet Inc "#include <...>"
-#include <${1:stdio}.h>
+post_jump "printf_expand_args(snip)"
+snippet "pf" "printf with auto-expand args" wr
+printf("$1\n"$2);
 endsnippet
 
-snippet inc "#include"
-#include "${1:`!v Filename("$1")`}.h"
+snippet erral "error_at_line" 
+error_at_line(${1:0}, ${2:errno}, __func__, __LINE__, "${3:%s\n}");
 endsnippet
 
-snippet Def "#ifndef ... #define ... #endif"
-#ifndef $1
-#define ${1:SYMBOL} ${2:value}
-#endif
-endsnippet
-
-snippet def "#define"
-#define 
-endsnippet
-
-snippet ifdef "#ifdef"
-#ifdef ${1}
-${VISUAL}${0}
-#endif /* $1 */
-endsnippet
-snippet #if "#if"
-#if ${1}
-${VISUAL}${0}
-#endif /* $1 */
-endsnippet
-snippet once "Include header once only guard"
-#ifndef TAJGA_${1:`!p
-if not snip.c:
-	import string
-	snip.rv = re.sub(r'[^A-Za-z0-9]+','_', path).upper()
-	i = snip.rv.find("_SRC_")
-	if i != -1:
-		snip.rv = snip.rv[i+5:]
-else:
-	snip.rv = snip.c`}_
-#define TAJGA_$1_
-
-${VISUAL}${0}
-
-#endif /* TAJGA_$1_ */
-
-endsnippet
 snippet // "comment" A
-/*$1*/
+/* $1 */
 endsnippet
+
+snippet /* "multiline comment" A
+/* 
+ * $1
+*/
+endsnippet
+
+snippet iffail "if call in visual fails"
+if ((${VISUAL:/(.*);/$1/}) == ${1:-1}) {
+	${2:return ${3:-1};}
+}
+endsnippet
+
 snippet if "If Condition"
 if (${1}) {
 	${VISUAL}${0}
 }
 endsnippet
+
 snippet el "Else"
 else {
 	${VISUAL}${0}
 }
 endsnippet
+
 snippet t "Ternary conditional"
 ${1} ? ${2:a} : ${3:b}
 endsnippet
@@ -137,20 +170,20 @@ do {
 } while (${1});
 endsnippet
 
-snippet wh "While Loop"
+snippet while "While Loop"
 while (${1}) {
 	${VISUAL}${0}
 }
 endsnippet
 
 snippet for "For Loop"
-for (int ${2:i} = 0; $2 < ${1:count}; ${3:++}$2) {
+for (${2:i} = 0; $2 < ${1:count}; ${3:++}$2) {
 	${VISUAL}${0}
 }
 endsnippet
 
 snippet forr "Custom For Loop"
-for (int ${1:i} = ${2:0}; ${3:$1 < 10}; ${4:++}$1) {
+for (${1:i} = ${2:0}; ${3:$1 < 10}; ${4:++}$1) {
 	${VISUAL}${0}
 }
 endsnippet
@@ -168,6 +201,12 @@ endsnippet
 
 snippet td "Typedef"
 typedef ${1:int} ${2:MyCustomType};
+endsnippet
+
+snippet typst "Typedef struct"
+typedef struct ${1} {
+	$2
+} $1;
 endsnippet
 
 snippet st "Struct"
@@ -188,4 +227,23 @@ endsnippet
 
 snippet fpr "fprintf"
 fprintf(${1:stderr}, "${2:%s}\n"${2/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$3${2/([^%]|%%)*(%.)?.*/(?2:\);)/}
+endsnippet
+
+snippet dllmain "DllMain()"
+BOOL APIENTRY DllMain(HANDLE module, DWORD reason_for_call, LPVOID reserved)
+{
+	switch (reason_for_call)
+	{
+	case DLL_PROCESS_ATTACH:${0}
+		break;
+	case DLL_THREAD_ATTACH:
+		break;
+	case DLL_THREAD_DETACH:
+		break;
+	case DLL_PROCESS_DETACH:
+		break;
+	}
+	return TRUE;
+}
+
 endsnippet

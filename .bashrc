@@ -135,3 +135,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+#[ -f "/home/neb/.ghcup/env" ] && source "/home/neb/.ghcup/env" # ghcup-env
+[ -f "/home/neb/.ghcup/env" ] && source "/home/neb/.ghcup/env" # ghcup-env

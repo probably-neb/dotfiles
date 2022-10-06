@@ -1,0 +1,12 @@
+---
+easel:
+    domain: canvas.calpoly.edu
+    token: 15279~W39YUfU43gQkLIaWLw7kept9tckZxuGBoB4dt4YTaCRNUpDVUUD2ub8m1sffhg5E
+
+hooks:
+    get_courses: 
+        prefix: "course"
+        register_hooks:
+            - "~/Dropbox/code/py/easel/scripts/chem_hook.py"
+
+    # get_assignments: "get_assignments"

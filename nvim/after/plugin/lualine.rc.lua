@@ -11,19 +11,22 @@ lualine.setup {
   },
   sections = {
     lualine_a = {'mode'},
-	--lualine_b = {'branch'},
+    -- lualine_b = {'branch'}
+    lualine_b = {"require'lsp-status'.status()"},
     lualine_c = {{
       'filename',
       file_status = true, -- displays file status (readonly status, modified status)
-      path = 0 -- 0 = just filename, 1 = relative path, 2 = absolute path
+      path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
     }},
-    lualine_x = {
-      { 'diagnostics', sources = {'nvim_diagnostic'}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
-      'encoding',
-      'filetype'
-    },
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    -- lualine_x = {
+      -- { 'diagnostics', sources = {'nvim_diagnostic'}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
+      -- 'encoding',
+      -- 'filetype'
+    -- },
+    lualine_x = {'location'},
+    -- lualine_y = {'progress'},
+    lualine_y = {"os.date('%a, %b %d %Y')"},
+    lualine_z = {{"os.date('%_I:%M')", color='MiniStatusLineModeCommand'}}
   },
   inactive_sections = {
     lualine_a = {},
@@ -34,8 +37,8 @@ lualine.setup {
       path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
     }},
     lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
+    lualine_y = {"require('lsp-status').status()"},
+    lualine_z = {"os.date('%a')"}
   },
   tabline = {},
   --extensions = {'fugitive'}

@@ -1,0 +1,45 @@
+snippet undef "undefined" A
+undefined
+endsnippet
+
+snippet < "left arrow"
+<- 
+endsnippet
+
+snippet > "right arrow"
+-> 
+endsnippet
+
+snippet shouldSatisfy "add ` to shouldSatisfy" A
+\`shouldSatisfy\`
+endsnippet
+
+snippet shouldBe "add ` to shouldBe" A
+\`shouldBe\`
+endsnippet
+
+snippet "import qual" "qualifed import "
+import qualified $1 as $2
+endsnippet
+
+snippet impqual "qualifed and specified import" A
+import ${1} ($2)
+import qualified $1 as $3
+endsnippet
+
+snippet F "False shortcut"
+False
+endsnippet
+
+snippet T "True shortcut"
+True
+endsnippet
+
+snippet sB "shouldBe"
+\`shouldBe\` 
+endsnippet
+
+snippet it "hspec it"
+it "$1" $ do
+	$2
+endsnippet

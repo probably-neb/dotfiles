@@ -72,12 +72,6 @@ snippet href "link with description" A
 \\href{$1}{$2} $0
 endsnippet
 
-snippet box "Box"
-`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
-│ $1 │
-`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
-$0
-endsnippet
 
 snippet beg "begin{} / end{}" bA
 \\begin{$1}
