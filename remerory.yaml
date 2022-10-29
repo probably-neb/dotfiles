@@ -1,0 +1,104 @@
+fun:
+  programs:
+    - bat
+    - thefuck (except maybe it sucks)
+    - bat
+    - ripgrep
+    - sl
+
+COLORS FOR EVERYTHING!!!:
+  flavours: 
+    uses: base16 (can also support 256 colors)
+    data: ~/.local/share/flavours/
+    WARNINGS: overwrites custom schemes/templates on `update`. And can't find things in .config dir
+
+my-programs:
+  local-installs (git clones, etc): ~/.local/neb
+  my-scripts: ~/dotfiles/scripts/
+  binaries: ~/.local/bin
+
+huawei-wmi:
+  is: controls battery charge thresholds on lappytop
+  tags: battery
+  link: https://github.com/aymanbagabas/Huawei-WMI
+  notes: 
+    - already in kernel
+    - applet/easy taskbar can be setup with matebook-applet (https://github.com/nekr0z/matebook-applet)
+  config (appear to mirror each other): 
+    - /sys/devices/platform/huawei-wmi/charge_control_thresholds
+    - /sys/class/power_supply/BAT0/charge_control_{start,end}_threshold
+  generic:
+    https://github.com/qu1x/huawei-wmi.git:
+      in: ~/.local/neb/huawei-wmi/generic
+      should: 
+        - makes configs writeable to me 
+        - created systemd timers to reinstate battery charge thresholds?
+
+rclone:
+  is: sync to and from (pretty much) any cloud hosting service
+  relevant services: 
+    - google photos
+    - dropbox
+  can: 
+    - mount (very slow)
+    - sync
+    - clone
+    - move (copy & delete local)
+
+autowallpaper:
+  ~/.config/systemd/user/wallpaper...:
+    .timer: timer runs wallpaper changing script every minute
+      - enabled using `systemctl --user enable wallpaper.timer`
+    .service: service runs actual wallpaper changing script
+      - can be run once using `systemctl --user start wallpaper.service`
+  random_wallpaper.sh: path `~/dotfiles/scripts/random_wallpaper.sh`
+    - uses wallpapers in ~/Pictures/wallpapers/*
+  notes: 
+    - for second monitor possibly another service/timer combo will have to be enabled and for sure setting of wp on monitor will have to be configured
+    - wallpapers are set using `feh`
+    - timer is enabled in i3 config
+    - to not have black screen on login random_wallpaper.sh is run once in i3 config before enabling timer
+xset:
+  is: commandline utility used to set keyboard info and other stuff
+  usage: xset r rate {delay} {repeat delay}
+    - currently 
+      delay=150
+      repeat delay=50
+
+xdg-utils:
+  urls:
+    - https://wiki.archlinux.org/title/Xdg-utils
+    - https://wiki.archlinux.org/title/XDG_MIME_Applications#mimeapps.list
+  xdg-open:
+    use: opening files based on mime types
+    by: used by fish shell in `open` command
+  xdg-mime:
+    use: query and set default filetype applications
+    commands:
+      query:
+        default [mime type]: returns default handler for type
+        filetype [file path]: returns mime type of file
+      default [application.desktop] [mime type]: sets default handler for mime type (mimeapps.list preffered over this)
+    NOTE: mime types can be modified in ~/.config/mimeapps.list
+
+
+screenshots:
+  using:
+    - shotgun: takes screenshots
+    - hacksaw: uses selections
+  bash script: in dotfiles/scripts and hard linked to .local/bin/ asks for selection, adds to clipboard and saves to photos
+
+gnome-keyring:
+  for: installed to allow github copilot to remember me on vscode
+
+lightdm:
+  path: /etc/lightdm/slick-greeter.conf 
+  has fields: 
+      - background=/usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
+      - draw-user-backgrounds=false
+      - draw-grid=true
+      - theme-name=Arc-Dark
+      - icon-theme-name=Qogir
+      - show-a11y=false
+      - show-power=false
+      - background-color=#ffffff

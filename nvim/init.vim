@@ -1,4 +1,5 @@
-" vim: set foldmethod=marker foldlevel=0:
+" vim: foldmethod=marker 
+" vim: foldlevel=0
 " nebvim
 
 let mapleader = ' '
@@ -12,8 +13,14 @@ syntax enable
 "
 call plug#begin('/home/neb/.config/nvim/plugged')
 
+Plug 'ThePrimeagen/vim-be-good'
+" colors
+" Plug 'bradcush/base16-nvim'
 Plug 'sainnhe/sonokai'
 Plug 'morhetz/gruvbox'
+Plug 'unikmask/iroh-vim'
+Plug 'fcpg/vim-fahrenheit'
+Plug 'adigitoleo/vim-mellow'
 let g:gruvbox_contrast_light='hard'
 
 Plug 'dag/vim-fish', {'for' : 'fish'}
@@ -73,6 +80,7 @@ if has("nvim")
   Plug 'hrsh7th/nvim-cmp'
   Plug 'quangnguyen30192/cmp-nvim-ultisnips'
   Plug 'uga-rosa/cmp-dictionary'
+  Plug 'simrat39/rust-tools.nvim'
   Plug 'zbirenbaum/copilot.lua'
   " find way to load after
   Plug 'zbirenbaum/copilot-cmp'
@@ -84,8 +92,8 @@ if has("nvim")
   Plug 'BurntSushi/ripgrep'
   Plug 'nvim-telescope/telescope.nvim'
 
-	Plug 'kyazdani42/nvim-web-devicons'
-	Plug 'nvim-lua/popup.nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'nvim-lua/popup.nvim'
   Plug 'windwp/nvim-autopairs'
 
   " Plug 'nvim-orgmode/orgmode'
@@ -175,13 +183,50 @@ if (has("termguicolors"))
 	set winblend=0
 endif
 " set color scheme
-let s:theme_name = readfile('/home/neb/dotfiles/.theme')[0]
-let s:theme_path = printf("source /home/neb/dotfiles/nvim/.%s", s:theme_name)
-execute s:theme_path
-" hi Visual term=reverse cterm=reverse guibg=Grey
-" call s:HL('Visual',    s:none,  s:bg3, s:invert_selection)
-" hi Visual guibg=inverse
-" hi! link VisualNOS Visual
+" let s:theme_name = readfile('/home/neb/dotfiles/.theme')[0]
+" let s:theme_path = printf("source /home/neb/dotfiles/nvim/.%s", s:theme_name)
+" let s:iroh_filetypes = ['rust']
+" iroh highlight func "{{{
+
+
+function! s:Highlight(group, fg, ...)
+	" Assign foreground
+	let fg = a:fg
+
+	" If more than 1 extra arg, set extra as background.
+	if a:0 >=1
+		let bg = a:1
+	else
+		let bg = s:none
+	endif
+
+	" Add emphasis to the highlight for extra possibilities like inverse
+	if a:0 >= 2 && strlen(a:2)
+		let emstr = a:2
+	else
+		let emstr = 'NONE,'
+	endif
+
+	" Do highlight string 
+	let hlstr = ['hi', a:group,
+			\ 'guifg=' . fg[0], 'ctermfg=' . fg[1],
+			\ 'guibg=' . bg[0], 'ctermbg=' . bg[1],
+			\ 'gui=' . emstr[:-2], 'cterm=' . emstr[:-2]
+			\ ]
+
+	execute join(hlstr, ' ')
+endfunction
+" }}}
+" if index(s:iroh_filetypes, &filetype) != -1
+"    colorscheme iroh
+   " extracted from iroh to set background
+   " let s:bg 	=  ['#2e2b2a', 236]
+   " let s:none = ['NONE', 'NONE']
+   " call s:Highlight('IrohBg', s:none, s:bg)
+" else
+colorscheme base16
+" endif
+
 let g:rainbow_active = 1
 "}}}
 
@@ -195,17 +240,17 @@ set updatetime=100
 set smartindent
 set smarttab
 set breakindent
-set tabstop=2
-set shiftwidth=2
+set tabstop=3
+set shiftwidth=3
 set expandtab
 set ai
 set si
 " shada file
-" set shada
+set shada
 " set path+=**
 set smartcase
 set incsearch
-set number 
+set relativenumber 
 set ruler
 set clipboard=unnamedplus
 " setlocal spell spelllang=en_us
@@ -273,4 +318,3 @@ else
 	let g:python3_host_prog = '/usr/bin/python'
 endif
 "}}}
-

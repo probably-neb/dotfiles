@@ -1,0 +1,52 @@
+shell = "bash -c '{}'"
+# templates = "~/.config/flavours/templates"
+# schemes = "~/.config/flavours/schemes"
+
+[[items]] #i3 =
+hook = 'i3-msg restart'
+file = "~/.config/i3/config"
+start = '# <<<<<<<<<<'
+end = '# >>>>>>>>>>'
+template = "i3"
+subtemplate = "nebi3"
+
+[[items]] #nvim
+file = "~/.config/nvim/colors/base16.lua"
+template = "nvim"
+rewrite = true
+
+[[items]] #kitty
+file = "~/.config/kitty/colorscheme.conf"
+hook = "kitty @set-colors --all --configured ~/.config/kitty/colorscheme.conf"
+rewrite = true
+template = "kitty"
+# start = '# <<<<<<<<<<'
+# end = '# >>>>>>>>>>'
+
+# # Commands go through bash
+# shell = "bash -c '{}'"
+
+# # Sway supports the default '#' comments, so it can be ommited
+# # 'rewrite' is also ommited, as it defaults to false
+# [[items]]
+# file = "~/.config/sway/config"
+# template = "sway"
+# subtemplate = "colors"
+# hook = "swaymsg reload"
+# # Swaymsg reload temporarily freezes input, so it's marked as not light
+# light = false
+
+# # This one uses waybar 'default' subtemplate, so it can be ommited
+# [[items]]
+# file = "~/.config/waybar/colors.css"
+# template = "waybar"
+# # Waybar uses a separate color file, so we can safely rewrite the whole file
+# rewrite = true
+
+# [[items]]
+# file = "~/.config/beautifuldiscord/style.css"
+# template = "styles"
+# subtemplate = "css-variables"
+# # What if the configuration doesn't support '#' comments? Just change them!
+# start= "/* Start flavours */"
+# end = "/* End flavours */"

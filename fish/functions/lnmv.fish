@@ -1,25 +1,31 @@
 function lnmv --description 'move [file...] to [dest] and create a soft link'
-    set -f len_argv (count $argv)
-    if test $len_argv -ft 2
+    set -l len_argv (count $argv)
+    if test $len_argv -lt 2
       echo "lnmv [file...] [dest]"
+      return 1
     end
-    set -f dest $argv[-1]
     # dont link more than one file to dest if dest is file 
-    if test -f dest and test $len_argv -gt 2
-      echo "dest is file, only one file arg allowed. Set dest to dir and try again"
+    if test $len_argv -gt 2
+      echo "only one source file allowed"
+      return 1
     end
-    set -f files $argv[1..-2]
 
-    for f in $files
-        set -f b (basename $f)
-        #if dest is dir
-        if test -d $dest
-          set -f f_dest $dest/$b
-        else
-          set -f f_dest $dest
-        end
-        mv $f $f_dest
-        ln -s $f_dest $f
-        echo "$f -> $f_dest"
+   set -l dest (realpath $argv[2])
+   if test ! $status
+      echo "fail dest"
+      return 1
     end
+    set -l source $argv[1]
+    if test ! $status
+       echo "fail source"
+       return 1
+    end
+    set -l b (basename $source)
+    #if dest is dir
+    if test -d $dest
+       set dest (path normalize "$dest/$b")
+    end
+    mv $source $dest
+    ln -s $dest $source
+    echo "$source -> $dest"
 end

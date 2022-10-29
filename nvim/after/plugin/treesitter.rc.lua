@@ -1,4 +1,3 @@
-lua <<EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
@@ -24,7 +23,9 @@ require'nvim-treesitter.configs'.setup {
   "org",
 	--"latex",
 	"bash",
-	--"markdown"
+  "rust",
+  "haskell",
+  "go",
+	-- "markdown"
   },
 }
-EOF

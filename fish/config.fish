@@ -1,8 +1,8 @@
 # set -U fish_function_path "~/dotfiles/fish/functions/{,z/} /usr/share/fish/functions/ "
-if not contains /home/neb/dotfiles/fish/functions/z $fish_function_path
-  echo "adding z path"
-  set -a fish_function_path ~/dotfiles/fish/functions/z
-end
+# if not contains /home/neb/dotfiles/fish/functions/z $fish_function_path
+#  echo "adding z path"
+#  set -a fish_function_path ~/dotfiles/fish/functions/z
+# end
 ### fish config for neb ###
 set -U fish_greeting (fortune)
 # set fish_greeting (checkupdates || true && yay -Qua)
@@ -22,18 +22,18 @@ set -g fish_key_bindings fish_vi_key_bindings
 set -g hydro_color_normal (set_color green)
 set -g hydro_color_path (set_color magenta)
 
-function nebtheme -a theme -d "change kitty and nvim color schemes"
-	set -l theme_path "/home/neb/dotfiles/kitty/themes/"$theme".conf"
-	set -l image_path "/home/neb/dotfiles/kitty/"$theme".png"
-  kitty @ --to=$KITTY_LISTEN_ON set-colors --all --configured $theme_path
-	# why set-background-image no work?
-	kitty @ --to=$KITTY_LISTEN_ON set-background-image none
-	#set theme in global theme file
-	echo $theme > /home/neb/dotfiles/.theme
-end
+#function nebtheme -a theme -d "change kitty and nvim color schemes"
+#	set -l theme_path "/home/neb/dotfiles/kitty/themes/"$theme".conf"
+#	set -l image_path "/home/neb/dotfiles/kitty/"$theme".png"
+#  kitty @ --to=$KITTY_LISTEN_ON set-colors --all --configured $theme_path
+#	# why set-background-image no work?
+#	kitty @ --to=$KITTY_LISTEN_ON set-background-image none
+#	#set theme in global theme file
+#	echo $theme > /home/neb/dotfiles/.theme
+#end
 
 # set theme from global theme file
-eval nebtheme (tr '[:upper:]' '[:lower:]' < /home/neb/dotfiles/.theme)
+# eval nebtheme (tr '[:upper:]' '[:lower:]' < /home/neb/dotfiles/.theme)
 
 #fix gpg
 set -x GPG_TTY (tty)
@@ -43,11 +43,13 @@ set -Ux INITVIM '/home/neb/.config/nvim/init.vim'
 set -Ux CONFIGFISH '/home/neb/.config/fish/config.fish'
 set -Ux KITTYCONF '/home/neb/.config/kitty/kitty.conf'
 set -Ux bear 'ʕ·ᴥ·ʔ'
-set -Ux unix1 'bkunkle@unix1.csc.calpoly.edu'
+# set -Ux unix1 'bkunkle@unix1.csc.calpoly.edu'
+set -gx charge_control_thresholds '/sys/devices/platform/huawei-wmi/charge_control_thresholds'
 
 #preferences
 set -Ux BROWSER brave
-set -Ux EDITOR nvim
+set -gx EDITOR nvim
+
 abbr --add wp 'cd ~/Pictures/wallpapers/'
 abbr --add nebsite 'cd ~/Dropbox/nebsite/'
 abbr --add cleanswap 'rm /home/neb/.local/share/nvim/swap/'

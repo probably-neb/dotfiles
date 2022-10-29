@@ -27,11 +27,11 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', '<C-b>', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<space>=', '<cmd>lua vim.lsp.buf.format {async = true}<CR>', opts)
 
 
   -- require'completion'.on_attach(client, bufnr)
@@ -77,7 +77,7 @@ local protocol_capabilities = vim.lsp.protocol.make_client_capabilities()
 local capabilities = require('cmp_nvim_lsp').update_capabilities(protocol_capabilities)
 
 
-local servers = {'clangd', 'pyright', 'hls'}
+local servers = {'clangd', 'hls'}
 for _, lsp in pairs(servers) do
   nvim_lsp[lsp].setup {
   -- server:on_ready(function(server)
@@ -96,6 +96,34 @@ nvim_lsp.pyright.setup({
     debounce_text_changes = 50
   },
   single_file_support = true
+})
+
+local rt = require("rust-tools")
+rt.setup({
+  server = {
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+      on_attach(client,bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+    end,
+    flags = {
+      debounce_text_changes = 50
+    },
+    settings = {
+      ['rust-analyzer'] = {
+        checkOnSave = {
+          allFeatures = true,
+          overrideCommand = {
+            'cargo', 'clippy', '--workspace', '--message-format=json',
+            '--all-targets', '--all-features', '--', '-A', 'clippy::needless_return'
+          }
+        }
+      }
+    }
+  },
 })
 
 nvim_lsp.sumneko_lua.setup({
