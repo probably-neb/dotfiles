@@ -98,10 +98,10 @@ cmp.setup({
 		-- end, {"i","s","c",}),
 	},
 	sources = {
-    { name = "copilot" },
-		{ name = 'nvim_lsp' },
-		{ name = 'ultisnips' }, -- For ultisnips users.
-		{ name = 'buffer' },
+    -- { name = "copilot" },
+    { name = 'nvim_lsp' },
+    { name = 'ultisnips' }, -- For ultisnips users.
+    { name = 'buffer' },
     { name = 'path' },
     { name = 'nvim_lsp_signature_help' },
     { name = 'dictionary', keyword_length = 2},

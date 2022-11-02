@@ -36,34 +36,6 @@ local on_attach = function(client, bufnr)
 
   -- require'completion'.on_attach(client, bufnr)
 
-  -- protocol.SymbolKind = { }
-  -- protocol.CompletionItemKind = {
-  --   '', -- Text
-  --   '', -- Method
-  --   '', -- Function
-  --   '', -- Constructor
-  --   '', -- Field
-  --   '', -- Variable
-  --   '', -- Class
-  --   'ﰮ', -- Interface
-  --   '', -- Module
-  --   '', -- Property
-  --   '', -- Unit
-  --   '', -- Value
-  --   '', -- Enum
-  --   '', -- Keyword
-  --   '﬌', -- Snippet
-  --   '', -- Color
-  --   '', -- File
-  --   '', -- Reference
-  --   '', -- Folder
-  --   '', -- EnumMember
-  --   '', -- Constant
-  --   '', -- Struct
-  --   '', -- Event
-  --   'ﬦ', -- Operator
-  --   '', -- TypeParameter
-  -- }
 end
 
 --Enable (broadcasting) snippet capability for completion
@@ -97,6 +69,23 @@ nvim_lsp.pyright.setup({
   },
   single_file_support = true
 })
+
+nvim_lsp.gopls.setup{
+	-- cmd = {'gopls'},
+	-- for postfix snippets and analyzers
+	on_attach = on_attach,
+	capabilities = capabilities,
+    settings = {
+      gopls = {
+         experimentalPostfixCompletions = true,
+         analyses = {
+           unusedparams = true,
+           shadow = true,
+        },
+        staticcheck = true,
+       },
+    },
+}
 
 local rt = require("rust-tools")
 rt.setup({

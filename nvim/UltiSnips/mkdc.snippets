@@ -6,6 +6,16 @@ snippet "-]" "github checkbox"
 - [ ] $1
 endsnippet
 
+snippet bt "backticks"
+\`${1:${VISUAL}}\`
+endsnippet
+
+snippet btt "many backticks"
+\`\`\`$1
+${2:${VISUAL}}
+\`\`\`
+endsnippet
+
 # snippet "(#*)" "make thing a header" r
 # `!p snip.rv = match.group(1)` ${VISUAL}
 # endsnippet

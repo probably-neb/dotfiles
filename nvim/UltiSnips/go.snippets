@@ -1,0 +1,23 @@
+
+snippet :: "make := easier" iA
+:= 
+endsnippet
+
+snippet ie "if error" 
+if err != nil {
+	${1:log.Fatal(err)}
+}
+endsnippet
+
+snippet ie; "if err; err " iA
+if $1, err := $2; err ${3:== nil} {
+
+} ${4:else}
+endsnippet
+
+
+snippet vie; "if err; err " iA
+if ${VISUAL}; err ${3:== nil} {
+
+} ${4:else}
+endsnippet

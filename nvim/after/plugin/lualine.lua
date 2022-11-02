@@ -1,10 +1,56 @@
 local status, lualine = pcall(require, "lualine")
 if (not status) then return end
 
+local colors = vim.g.colors
+
+local function setup(theme_colors)
+  local theme = {
+    normal = {
+      a = { fg = theme_colors.bg, bg = theme_colors.normal },
+      b = { fg = theme_colors.light_fg, bg = theme_colors.alt_bg },
+      c = { fg = theme_colors.fg, bg = theme_colors.bg },
+    },
+    replace = {
+      a = { fg = theme_colors.bg, bg = theme_colors.replace },
+      b = { fg = theme_colors.light_fg, bg = theme_colors.alt_bg },
+    },
+    insert = {
+      a = { fg = theme_colors.bg, bg = theme_colors.insert },
+      b = { fg = theme_colors.light_fg, bg = theme_colors.alt_bg },
+    },
+    visual = {
+      a = { fg = theme_colors.bg, bg = theme_colors.visual },
+      b = { fg = theme_colors.light_fg, bg = theme_colors.alt_bg },
+    },
+    inactive = {
+      a = { fg = theme_colors.dark_fg, bg = theme_colors.bg },
+      b = { fg = theme_colors.dark_fg, bg = theme_colors.bg },
+      c = { fg = theme_colors.dark_fg, bg = theme_colors.bg },
+    },
+  }
+
+  theme.command = theme.normal
+  theme.terminal = theme.insert
+
+  return theme
+end
+
+local base16 = setup({
+    bg = colors.Base00,
+    alt_bg = colors.Base02,
+    dark_fg = colors.Base03,
+    fg = colors.Base04,
+    light_fg = colors.Base05,
+    normal = colors.Base0D,
+    insert = colors.Base0B,
+    visual = colors.Base0E,
+    replace = colors.Base09,
+})
+
 lualine.setup {
   options = {
     icons_enabled = true,
-    theme = 'sonokai',
+    theme = base16,
     section_separators = {'', ''},
     component_separators = {'', ''},
     disabled_filetypes = {}
