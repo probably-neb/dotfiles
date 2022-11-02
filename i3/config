@@ -177,12 +177,11 @@ bindsym $mod+Return exec kitty
 # firefox
 bindsym $mod+w exec /usr/bin/firefox
 # bitwarden
-bindsym $mod+b exec /usr/bin/bitwarden-desktop
+# bindsym $mod+b exec /usr/bin/bitwarden-desktop
 
 bindsym $mod+g exec /usr/bin/gimp
 # kill focused window
 bindsym $mod+q kill
-
 
 # exit-menu
 bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
@@ -283,7 +282,10 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+p exec xcolor | xclip -sel clip
 
 # screenshot
-bindsym $mod+s exec /home/neb/.local/bin/screenshot.sh
+bindsym $mod+s exec ~/dotfiles/scripts/screenshot.sh
+
+# rofi-rbw
+bindsym $mod+b exec rofi-rbw
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles

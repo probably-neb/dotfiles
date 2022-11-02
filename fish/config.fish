@@ -59,6 +59,7 @@ abbr --add v 'nvim'
 abbr --add cerrcodes 'sqlite3 ~/Documents/csc/errcodes.sqlite'
 abbr --add scpvim 'nvim scp://$unix1/'
 
+alias t='kitty @ launch --cwd=current --type=tab'
 #save a character when typing nvim because why not
 alias vim='nvim'
 #load images in terminal
@@ -71,9 +72,6 @@ alias rigpgrep='rg'
 alias clone='clone-in-kitty'
 
 alias hx='helix'
-
-# ssh servers
-set arm "bkunkle@arm.csc.calpoly.edu"
 
 
 # function spaces_to_underlines 
