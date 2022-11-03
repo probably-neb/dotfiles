@@ -46,7 +46,7 @@ require("nvim-lsp-installer").setup {}
 -- Setup lspconfig.
 local lspconfig = require 'lspconfig'
 local protocol_capabilities = vim.lsp.protocol.make_client_capabilities()
-local capabilities = require('cmp_nvim_lsp').update_capabilities(protocol_capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities(protocol_capabilities)
 
 
 local servers = {'clangd', 'hls'}

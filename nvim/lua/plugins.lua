@@ -9,6 +9,10 @@ return require('packer').startup(
   function(use)
     use 'wbthomason/packer.nvim'
 
+    use_rocks 'htmlparser'
+
+    use '/home/neb/code/nvim-rustdocs'
+
     use {'morhetz/gruvbox', config = function() vim.g.gruvbox_contrast_light='hard' end, opt=true}
 
     use {'dag/vim-fish', ft={'fish'}}

@@ -156,6 +156,11 @@ _G.packer_plugins = {
     path = "/home/neb/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-rustdocs"] = {
+    loaded = true,
+    path = "/home/neb/.local/share/nvim/site/pack/packer/start/nvim-rustdocs",
+    url = "/home/neb/code/nvim-rustdocs"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/neb/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
