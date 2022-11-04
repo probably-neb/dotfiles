@@ -116,6 +116,12 @@ _G.packer_plugins = {
     path = "/home/neb/.local/share/nvim/site/pack/packer/opt/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
   },
+  ["indent-blankline.nvim"] = {
+    config = { "\27LJ\2\n”\2\0\0\6\0\14\0\0296\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\3\0'\2\4\0B\0\2\0029\0\5\0005\2\6\0B\0\2\0016\0\0\0009\0\a\0009\0\b\0009\0\t\0006\1\0\0009\1\n\1'\3\v\0\18\4\0\0'\5\f\0&\3\5\3B\1\2\0016\1\0\0009\1\n\1'\3\r\0\18\4\0\0'\5\f\0&\3\5\3B\1\2\1K\0\1\0.highlight IndentBlanklineSpaceChar guifg=\19 gui=nocombine)highlight IndentBlanklineChar guifg=\bcmd\vbase02\vcolors\6g\1\0\2\25space_char_blankline\6 #show_trailing_blankline_indent\1\nsetup\21indent_blankline\frequire\tlist\bopt\bvim\0" },
+    loaded = true,
+    path = "/home/neb/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
   ["lexima.vim"] = {
     loaded = true,
     path = "/home/neb/.local/share/nvim/site/pack/packer/start/lexima.vim",
@@ -130,11 +136,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/neb/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/glepnir/lspsaga.nvim"
-  },
-  ["lualine.nvim"] = {
-    loaded = true,
-    path = "/home/neb/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-    url = "https://github.com/hoob3rt/lualine.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -238,6 +239,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+try_loadstring("\27LJ\2\n”\2\0\0\6\0\14\0\0296\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\3\0'\2\4\0B\0\2\0029\0\5\0005\2\6\0B\0\2\0016\0\0\0009\0\a\0009\0\b\0009\0\t\0006\1\0\0009\1\n\1'\3\v\0\18\4\0\0'\5\f\0&\3\5\3B\1\2\0016\1\0\0009\1\n\1'\3\r\0\18\4\0\0'\5\f\0&\3\5\3B\1\2\1K\0\1\0.highlight IndentBlanklineSpaceChar guifg=\19 gui=nocombine)highlight IndentBlanklineChar guifg=\bcmd\vbase02\vcolors\6g\1\0\2\25space_char_blankline\6 #show_trailing_blankline_indent\1\nsetup\21indent_blankline\frequire\tlist\bopt\bvim\0", "config", "indent-blankline.nvim")
+time([[Config for indent-blankline.nvim]], false)
 -- Config for: ultisnips
 time([[Config for ultisnips]], true)
 try_loadstring("\27LJ\2\n’\3\0\0\3\0\t\0\0296\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\0016\0\0\0009\0\1\0'\2\4\0B\0\2\0016\0\0\0009\0\1\0'\2\5\0B\0\2\0016\0\0\0009\0\1\0'\2\6\0B\0\2\0016\0\0\0009\0\1\0'\2\a\0B\0\2\0016\0\0\0009\0\1\0'\2\b\0B\0\2\1K\0\1\0002 let g:UltiSnipsRemoveSelectModeMappings = 0 1 let g:UltiSnipsListSnippets = '<c-x><c-s>' 5 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>' 2 let g:UltiSnipsJumpForwardTrigger = '<tab>' - let g:UltiSnipsExpandTrigger = '<tab>' O let g:UltiSnipsSnippetDirectories=['/home/neb/dotfiles/nvim/UltiSnips/'] ( let g:UltiSnipsEnableSnipMate = 0 \bcmd\bvim\0", "config", "ultisnips")
