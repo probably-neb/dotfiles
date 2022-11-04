@@ -117,7 +117,7 @@ _G.packer_plugins = {
     url = "https://github.com/morhetz/gruvbox"
   },
   ["indent-blankline.nvim"] = {
-    config = { "\27LJ\2\n”\2\0\0\6\0\14\0\0296\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\3\0'\2\4\0B\0\2\0029\0\5\0005\2\6\0B\0\2\0016\0\0\0009\0\a\0009\0\b\0009\0\t\0006\1\0\0009\1\n\1'\3\v\0\18\4\0\0'\5\f\0&\3\5\3B\1\2\0016\1\0\0009\1\n\1'\3\r\0\18\4\0\0'\5\f\0&\3\5\3B\1\2\1K\0\1\0.highlight IndentBlanklineSpaceChar guifg=\19 gui=nocombine)highlight IndentBlanklineChar guifg=\bcmd\vbase02\vcolors\6g\1\0\2\25space_char_blankline\6 #show_trailing_blankline_indent\1\nsetup\21indent_blankline\frequire\tlist\bopt\bvim\0" },
+    config = { "\27LJ\2\n”\2\0\0\6\0\14\0\0296\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\3\0'\2\4\0B\0\2\0029\0\5\0005\2\6\0B\0\2\0016\0\0\0009\0\a\0009\0\b\0009\0\t\0006\1\0\0009\1\n\1'\3\v\0\18\4\0\0'\5\f\0&\3\5\3B\1\2\0016\1\0\0009\1\n\1'\3\r\0\18\4\0\0'\5\f\0&\3\5\3B\1\2\1K\0\1\0.highlight IndentBlanklineSpaceChar guifg=\19 gui=nocombine)highlight IndentBlanklineChar guifg=\bcmd\vbase02\vcolors\6g\1\0\2#show_trailing_blankline_indent\1\25space_char_blankline\6 \nsetup\21indent_blankline\frequire\tlist\bopt\bvim\0" },
     loaded = true,
     path = "/home/neb/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
@@ -137,6 +137,17 @@ _G.packer_plugins = {
     path = "/home/neb/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/glepnir/lspsaga.nvim"
   },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/home/neb/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    config = { "\27LJ\2\në\1\0\0\4\0\n\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\a\0006\3\3\0009\3\4\0039\3\5\0039\3\6\3=\3\b\2B\0\2\0016\0\0\0'\2\t\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\20mason-lspconfig\14log_level\1\0\0\nDEBUG\vlevels\blog\bvim\nsetup\nmason\frequire\0" },
+    loaded = true,
+    path = "/home/neb/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/neb/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -147,10 +158,15 @@ _G.packer_plugins = {
     path = "/home/neb/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
-  ["nvim-lsp-installer"] = {
+  ["nvim-dap"] = {
     loaded = true,
-    path = "/home/neb/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
+    path = "/home/neb/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-lint"] = {
+    loaded = true,
+    path = "/home/neb/.local/share/nvim/site/pack/packer/start/nvim-lint",
+    url = "https://github.com/mfussenegger/nvim-lint"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -171,6 +187,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/neb/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  playground = {
+    loaded = true,
+    path = "/home/neb/.local/share/nvim/site/pack/packer/start/playground",
+    url = "https://github.com/nvim-treesitter/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -239,9 +260,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: mason.nvim
+time([[Config for mason.nvim]], true)
+try_loadstring("\27LJ\2\në\1\0\0\4\0\n\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\a\0006\3\3\0009\3\4\0039\3\5\0039\3\6\3=\3\b\2B\0\2\0016\0\0\0'\2\t\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\20mason-lspconfig\14log_level\1\0\0\nDEBUG\vlevels\blog\bvim\nsetup\nmason\frequire\0", "config", "mason.nvim")
+time([[Config for mason.nvim]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
-try_loadstring("\27LJ\2\n”\2\0\0\6\0\14\0\0296\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\3\0'\2\4\0B\0\2\0029\0\5\0005\2\6\0B\0\2\0016\0\0\0009\0\a\0009\0\b\0009\0\t\0006\1\0\0009\1\n\1'\3\v\0\18\4\0\0'\5\f\0&\3\5\3B\1\2\0016\1\0\0009\1\n\1'\3\r\0\18\4\0\0'\5\f\0&\3\5\3B\1\2\1K\0\1\0.highlight IndentBlanklineSpaceChar guifg=\19 gui=nocombine)highlight IndentBlanklineChar guifg=\bcmd\vbase02\vcolors\6g\1\0\2\25space_char_blankline\6 #show_trailing_blankline_indent\1\nsetup\21indent_blankline\frequire\tlist\bopt\bvim\0", "config", "indent-blankline.nvim")
+try_loadstring("\27LJ\2\n”\2\0\0\6\0\14\0\0296\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\3\0'\2\4\0B\0\2\0029\0\5\0005\2\6\0B\0\2\0016\0\0\0009\0\a\0009\0\b\0009\0\t\0006\1\0\0009\1\n\1'\3\v\0\18\4\0\0'\5\f\0&\3\5\3B\1\2\0016\1\0\0009\1\n\1'\3\r\0\18\4\0\0'\5\f\0&\3\5\3B\1\2\1K\0\1\0.highlight IndentBlanklineSpaceChar guifg=\19 gui=nocombine)highlight IndentBlanklineChar guifg=\bcmd\vbase02\vcolors\6g\1\0\2#show_trailing_blankline_indent\1\25space_char_blankline\6 \nsetup\21indent_blankline\frequire\tlist\bopt\bvim\0", "config", "indent-blankline.nvim")
 time([[Config for indent-blankline.nvim]], false)
 -- Config for: ultisnips
 time([[Config for ultisnips]], true)

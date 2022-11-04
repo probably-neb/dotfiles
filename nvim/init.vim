@@ -104,6 +104,7 @@ set completeopt=menu,menuone,noselect
 set modeline
 set modelines=5
 autocmd Bufread,BufNewFile *.h set filetype=c 
+" autocmd Bufread * execute helptags ALL
 "}}}
 
 " keymaps "{{{
@@ -133,8 +134,8 @@ endfunction
 
 " leader binds 
 nmap <Leader>tc :VimtexCompile<CR>
-nmap <Leader>te :VimtexErrors<CR>
-nmap <Leader>c gcc
+map <Leader>te :VimtexErrors<CR>
+map <Leader>c gcc
 xmap <Leader>c gc
 " move left and right buffers with  h l
 nmap <Leader>l :bn<CR>
@@ -149,11 +150,12 @@ command TexHeader e ~/Dropbox/poly/preamble.tex
 " command Sonokai :source /home/neb/dotfiles/nvim/.sonokai
 "}}}
 
-" fix conda "{{{
+" fix py "{{{
 " ---------------------------------------------------------------------
 " if has('nvim') && !empty($CONDA_PREFIX)
 " 	let g:python3_host_prog = '/home/neb/anaconda3/envs/cp-knowledge-graph/bin/python'
 " else
 " 	let g:python3_host_prog = '/usr/bin/python'
 " endif
+" let g:python3_host_prog = './nvimenv/bin/python3'
 "}}}

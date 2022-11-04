@@ -42,7 +42,7 @@ end
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-require("nvim-lsp-installer").setup {}
+-- require("nvim-lsp-installer").setup {}
 -- Setup lspconfig.
 local lspconfig = require 'lspconfig'
 local protocol_capabilities = vim.lsp.protocol.make_client_capabilities()
