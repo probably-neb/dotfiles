@@ -2,7 +2,7 @@ shell = "bash -c '{}'"
 # templates = "~/.config/flavours/templates"
 # schemes = "~/.config/flavours/schemes"
 
-[[items]] #i3 =
+[[item]] #i3 =
 hook = 'i3-msg restart'
 file = "~/.config/i3/config"
 start = '# <<<<<<<<<<'
@@ -10,18 +10,23 @@ end = '# >>>>>>>>>>'
 template = "i3"
 subtemplate = "nebi3"
 
-[[items]] #nvim
+[[item]] #nvim
 file = "~/.config/nvim/colors/base16.lua"
 template = "nvim"
 rewrite = true
 
-[[items]] #kitty
+[[item]] #kitty
 file = "~/.config/kitty/colorscheme.conf"
 hook = "kitty @set-colors --all --configured ~/.config/kitty/colorscheme.conf"
 rewrite = true
 template = "kitty"
 # start = '# <<<<<<<<<<'
 # end = '# >>>>>>>>>>'
+
+[[item]]
+file = "~/.config/qutebrowser/base16.py"
+rewrite = true
+template = "qutebrowser"
 
 # # Commands go through bash
 # shell = "bash -c '{}'"
