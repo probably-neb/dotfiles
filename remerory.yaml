@@ -102,3 +102,7 @@ lightdm:
       - show-a11y=false
       - show-power=false
       - background-color=#ffffff
+
+sl:
+  why: because it makes me smile every time
+  what it does: when I type `sl` instead of `ls` it makes a slow choo choo train cross the screen
