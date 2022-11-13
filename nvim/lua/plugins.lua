@@ -9,44 +9,7 @@ return require('packer').startup(function(use)
 
    use 'wbthomason/packer.nvim'
 
-
    use {'/home/neb/code/nvim-rustdocs', rocks='htmlparser' }
-
-
-   use {'morhetz/gruvbox',
-      config = function()
-        vim.g.gruvbox_contrast_light='hard'
-      end , opt=true
-   }
-
-   use {'dag/vim-fish', ft={'fish'}}
-
-   -- " tpope corner
-   use {
-      'tpope/vim-commentary',
-      'tpope/vim-surround',
-      'tpope/vim-abolish',
-   }
-
-   use {'SirVer/ultisnips', config = 
-     function()
-        vim.cmd([[ let g:UltiSnipsEnableSnipMate = 0 ]])
-        vim.cmd([[ let g:UltiSnipsSnippetDirectories=['/home/neb/dotfiles/nvim/UltiSnips/'] ]])
-        vim.cmd([[ let g:UltiSnipsExpandTrigger = '<tab>' ]])
-        vim.cmd([[ let g:UltiSnipsJumpForwardTrigger = '<tab>' ]])
-        vim.cmd([[ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>' ]])
-        vim.cmd([[ let g:UltiSnipsListSnippets = '<c-x><c-s>' ]])
-        vim.cmd([[ let g:UltiSnipsRemoveSelectModeMappings = 0 ]])
-     end
-   }
-
-   use 'cohama/lexima.vim'
-
-   -- use 'godlygeek/tabular'
-   -- let g:haskell_tabular = 1
-   -- vmap a= :Tabularize /=<CR>
-   -- vmap a; :Tabularize /::<CR>
-   -- vmap a- :Tabularize /-><CR> use 'dkarter/bullets.vim'
 
    -- lsp, mason?, lints, daps, oh my!
    use {
@@ -76,8 +39,29 @@ return require('packer').startup(function(use)
       'uga-rosa/cmp-dictionary',
    }
 
-   -- -- use {'simrat39/rust-tools.nvim', ft = {'rs'}}
-   use {'simrat39/rust-tools.nvim'}
+   use {'lukas-reineke/indent-blankline.nvim',
+      config = function()
+         vim.opt.list = true
+         -- vim.opt.listchars:append "space:⋅"
+         require('indent_blankline').setup {
+            -- char = "",
+            space_char_blankline = " ",
+            show_trailing_blankline_indent = false,
+         }
+
+         local color = vim.g.colors.base02
+         vim.cmd (
+            'highlight IndentBlanklineChar guifg='
+            .. color
+            .. " gui=nocombine"
+         )
+         vim.cmd (
+            'highlight IndentBlanklineSpaceChar guifg='
+            .. color
+            .. " gui=nocombine"
+         )
+      end
+   }
 
    -- use 'zbirenbaum/copilot.lua'
    -- -- find way to load after
@@ -102,42 +86,63 @@ return require('packer').startup(function(use)
 
    use 'wellle/targets.vim' -- god this plugin is fucking amazing
 
-   -- -- use 'kyazdani42/nvim-web-devicons'
-   use {'ThePrimeagen/vim-be-good', opt=true}
+   -- tpope corner
+   use {
+      'tpope/vim-commentary',
+      'tpope/vim-surround',
+      'tpope/vim-abolish',
+   }
 
-   use {'lukas-reineke/indent-blankline.nvim',
+   use {'morhetz/gruvbox',
       config = function()
-         vim.opt.list = true
-         -- vim.opt.listchars:append "space:⋅"
-         require('indent_blankline').setup {
-            -- char = "",
-            space_char_blankline = " ",
-            show_trailing_blankline_indent = false,
-         }
+        vim.g.gruvbox_contrast_light='hard'
+      end , opt=true
+   }
 
-         local color = vim.g.colors.base02
-         vim.cmd (
-            'highlight IndentBlanklineChar guifg='
-            .. color
-            .. " gui=nocombine"
-         )
-         vim.cmd (
-            'highlight IndentBlanklineSpaceChar guifg='
-            .. color
-            .. " gui=nocombine"
-         )
+   use {'dag/vim-fish', ft={'fish'}}
+
+   -- use {'simrat39/rust-tools.nvim', ft = {'rs'}}
+   use {'simrat39/rust-tools.nvim'}
+
+   use {'SirVer/ultisnips', config = 
+     function()
+        vim.cmd([[ let g:UltiSnipsEnableSnipMate = 0 ]])
+        vim.cmd([[ let g:UltiSnipsSnippetDirectories=['/home/neb/dotfiles/nvim/UltiSnips/'] ]])
+        vim.cmd([[ let g:UltiSnipsExpandTrigger = '<tab>' ]])
+        vim.cmd([[ let g:UltiSnipsJumpForwardTrigger = '<tab>' ]])
+        vim.cmd([[ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>' ]])
+        vim.cmd([[ let g:UltiSnipsListSnippets = '<c-x><c-s>' ]])
+        vim.cmd([[ let g:UltiSnipsRemoveSelectModeMappings = 0 ]])
+     end
+   }
+
+   use 'cohama/lexima.vim'
+
+   -- use 'godlygeek/tabular'
+   -- let g:haskell_tabular = 1
+   -- vmap a= :Tabularize /=<CR>
+   -- vmap a; :Tabularize /::<CR>
+   -- vmap a- :Tabularize /-><CR> use 'dkarter/bullets.vim'
+
+   -- -- use 'kyazdani42/nvim-web-devicons'
+
+   -- prime corner
+   use {'ThePrimeagen/vim-be-good', opt=true}
+   use {'ThePrimeagen/harpoon'}
+
+    use {'lervag/vimtex', 
+      config = function() 
+        vim.cmd [[ let g:tex_flavor='latex' ]]
+        vim.cmd [[ let g:vimtex_view_method='zathura' ]]
+        vim.cmd [[ let g:vimtex_quickfix_mode=1 ]]
       end
+-- use 'KeitaNakamura/tex-conceal.vim'
+--     let g:tex_conceal='abdmgs'
+--     hi Conceal ctermbg=none
    }
 end
 )
 
-    -- use 'lervag/vimtex' 
-  -- let g:tex_flavor='latex'
-  -- let g:vimtex_view_method='zathura'
-  -- let g:vimtex_quickfix_mode=0
--- " use 'KeitaNakamura/tex-conceal.vim'
--- "     let g:tex_conceal='abdmgs'
--- "     hi Conceal ctermbg=none
 
 -- vmap a= :Tabularize /=<CR>
 -- vmap a; :Tabularize /::<CR>
