@@ -1,16 +1,22 @@
-require'nvim-treesitter.configs'.setup {
+local present, treesitter_configs = pcall(require, 'nvim-treesitter.configs')
+
+if not present then
+    print("could not load treesitter")
+end
+
+treesitter_configs.setup {
   highlight = {
     enable = true,
     disable = {},
     -- disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
-    additional_vim_regex_highlighting = {'org'},
+    -- additional_vim_regex_highlighting = {'org'},
   },
   indent = {
     enable = false,
     disable = {},
   },
   ensure_installed = {
-     "tsx",
+     -- "tsx",
      "toml",
      "fish",
      "php",
@@ -21,13 +27,22 @@ require'nvim-treesitter.configs'.setup {
      "vim",
      "lua",
      "org",
-     --"latex",
+     "latex",
      "bash",
      "rust",
      "haskell",
      "go",
      "query",
      "markdown",
+     "lua",
+     "make",
+     "regex",
+     "toml",
+     "help",
+     "gitignore",
+     "c",
+     "css",
+     "cpp",
   },
   playground = {
     enable = true,
@@ -46,5 +61,24 @@ require'nvim-treesitter.configs'.setup {
       goto_node = '<cr>',
       show_help = '?',
     },
+  },
+  refactor = {
+      highlight_definitions = {
+          enable = true,
+          clear_on_cursor_move = true,
+      },
+      highlight_current_scope = {
+          enable = false,
+      },
+  },
+  autotag = {
+      enable = true,
+  },
+  textobjects = {
+      select = {
+          keymaps = {
+              ["af"] = "@function.outer"
+          }
+      }
   }
 }
