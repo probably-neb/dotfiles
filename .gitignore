@@ -14,3 +14,5 @@ rclone/*
 qutebrowser/autoconfig.yml
 nvim/plugin
 
+qutebrowser/bookmarks
+qutebrowser/qsettings/QtProject.conf
