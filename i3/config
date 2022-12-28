@@ -209,16 +209,16 @@ bindsym XF86MonBrightnessUp exec xbacklight +5 && notify-send "Brightness - $(xb
 bindsym XF86MonBrightnessDown exec xbacklight -5 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 
 # change focus
-# bindsym $mod+j focus down
-# bindsym $mod+k focus up
-# bindsym $mod+h focus left
-# bindsym $mod+l focus right
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+h focus left
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # move focused window
 # bindsym $mod+Shift+j move left
@@ -233,10 +233,12 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+# mod + s(plit)hift h(orizantal)
+bindsym $mod+Shift+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+# mod + s(plit)hift v(eritcal)
+bindsym $mod+Shift+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -321,7 +323,7 @@ set $ws10 "10:Ⅹ"
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
 # you can get from xrandr command
 #workspace $ws1 output VGA-0
-#workspace $ws2 output VGA-0
+workspace $ws2 output secondary primary
 #workspace $ws3 output HDMI-0
 #workspace $ws4 output HDMI-0
 #workspace $ws5 output HDMI-0
@@ -631,7 +633,7 @@ client.background       $base07
 
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
-bindsym $mod+d exec rofi -modi drun -show drun \
+bindsym $mod+o exec rofi -modi drun -show drun \
 		-config ~/.config/rofi/rofidmenu.rasi
 
 #bindsym F9 exec rofi -modi drun -show drun \
