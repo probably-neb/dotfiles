@@ -29,53 +29,51 @@ cmp.setup({
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
 		-- ["<C-Enter>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-		["<C-Space>"] = cmp.mapping({
+		["<TAB>"] = cmp.mapping({
 			c = if_cmp_visible_do(cmp.complete_common_string),
 			i = if_cmp_visible_do(cmp.confirm, { select = true }),
 		}),
-		["<TAB>"] = if_cmp_visible_do(function()
-			if cmp.visible() then
-				-- auto complete first snippet option
-				cmp.complete({
-					-- limit completion options to snippets
-					config = { sources = { { name = "luasnips" } } },
-				})
-				-- unconditionally take the first one or whatever we're on now
-				cmp.confirm({ select = true })
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			else
-				fallback()
-			end
-		end),
-		["<C-n>"] = {
-			i = function()
-				if cmp.visible() then
-					cmp.select_next_item()
-				elseif luasnip.choice_active() then
-					luasnip.change_choice(1)
-				else
-					fallback()
-				end
-			end,
-			c = if_cmp_visible_do(cmp.select_next_item),
-		},
-		["<C-p>"] = {
-			i = function()
-				if cmp.visible() then
-					cmp.select_prev_item()
-				elseif luasnip.choice_active() then
-					luasnip.change_choice(-1)
-				else
-					fallback()
-				end
-			end,
-			c = if_cmp_visible_do(cmp.select_prev_item),
-		},
+		["<C-n>"] = cmp.mapping(if_cmp_visible_do(cmp.select_next_item), {"i","c"}),
+		["<C-p>"] = cmp.mapping(if_cmp_visible_do(cmp.select_prev_item), {"i","c"}),
 		["<C-e>"] = cmp.mapping({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
+        ["<C-l>"] = function(fallback)
+            if luasnip.choice_active() then
+                luasnip.change_choice(1)
+            else
+                fallback()
+            end
+        end,
+        ["<C-y>"] = if_cmp_visible_do(
+				cmp.complete({
+					-- limit completion options to snippets
+					config = { sources = { { name = "luasnips" } } },
+				})),
+		["<C-j>"] = function(fallback)
+			if cmp.visible() then
+				cmp.complete({
+					-- limit completion options to snippets
+					config = { sources = { { name = "luasnips" } } },
+				})
+				-- auto complete first snippet option
+				-- unconditionally take the first one or whatever we're on now
+				cmp.confirm({ select = true })
+            end
+			if luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			else
+				fallback()
+			end
+		end,
+        ["<C-k>"] = function(fallback)
+            if luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end,
 		-- complete but only snippets
 	},
 	-- double {{}} for group index sorting
