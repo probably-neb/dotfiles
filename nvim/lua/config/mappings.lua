@@ -13,28 +13,37 @@ vim.g.maplocalleader = vim.g.neb.leader
 
 iset("<Up>", "<Esc>")
 -- " spell correction
-iset("<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
-iset("<C-k>", "<C-x><C-k>")
+iset("<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
+-- iset("<C-k>", "<C-x><C-k>")
 -- " newlines w/o insert mode
 nset("<C-Enter>", "moO<Esc>`o")
-nset("<Enter>","moo<Esc>`o")
+nset("<Enter>", "moo<Esc>`o")
 -- " visual up down with wrapped lines
-nset("j","gj")
-nset("gj","j")
-nset("k","gk")
-nset("gk","k")
-nset("<Leader>tc",":VimtexCompile<CR>")
+nset("j", "gj")
+nset("gj", "j")
+nset("k", "gk")
+nset("gk", "k")
+nset("<Leader>tc", ":VimtexCompile<CR>")
 
 -- move left and right buffers with  h l
-nset("<Leader>l",":bn<CR>")
-nset("<Leader>h",":bp<CR>")
+nset("<Leader>l", ":bn<CR>")
+nset("<Leader>h", ":bp<CR>")
 
 -- credit @folke
 -- slap myself on the wrist for bad habits
-for _, key in ipairs({ "h", "j", "k", "l" }) do
-	local count = 0
+local hjkl = { "h", "j", "k", "l" }
+local counts = {}
+for _, key in ipairs(hjkl) do
+	counts[key] = 0
+end
+local opposites = { h = "l", l = "h", k = "j", j = "k" }
+for _, key in ipairs(hjkl) do
 	vim.keymap.set("n", key, function()
-		if count >= 10 then
+        local count = 0
+        for _, other_key in ipairs(hjkl) do
+            count = count + counts[other_key]
+        end
+		if count >= 5 then
 			-- id = vim.notify("Hold it Cowboy!", vim.log.levels.WARN, {
 			--   icon = "🤠",
 			--   replace = id,
@@ -44,12 +53,15 @@ for _, key in ipairs({ "h", "j", "k", "l" }) do
 			-- })
 			print("tut tut...")
 		else
-			count = count + 1
+			counts[key] = counts[key] + 1
+            if counts[opposites[key]] ~= 0 then
+                counts[opposites[key]] = counts[opposites[key]] - 1
+            end
 			vim.defer_fn(function()
-				if count ~= 0 then
-					count = count - 1
+				if counts[key] ~= 0 then
+					counts[key] = counts[key] - 1
 				end
-			end, 10000)
+			end, 5000)
 			return key
 		end
 	end, { expr = true })
