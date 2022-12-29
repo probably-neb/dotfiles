@@ -1,67 +1,78 @@
 vim.g.mapleader = vim.g.neb.leader
 vim.g.maplocalleader = vim.g.neb.leader
--- syntax enable
 
 -- general
-vim.o.grepprg = "rg --vimgrep"
+vim.opt.grepprg = "rg --vimgrep"
 -- ?
-vim.o.ruler = true
+vim.opt.ruler = true
+vim.opt.signcolumn = "no"
 -- sync with system clipboard
-vim.o.clipboard = "unnamedplus"
-vim.o.spelllang = "en_us"
-vim.o.shada = true
-vim.o.wrap = true
-vim.o.updatetime = 200
-vim.o.conceallevel = 3
-vim.o.completeopt = "menu,menuone,noselect"
+vim.opt.clipboard = "unnamedplus"
+vim.opt.spelllang = "en_us"
+-- vim.opt.shada = true
+vim.opt.wrap = true
+vim.opt.updatetime = 50
+vim.opt.conceallevel = 3
+vim.opt.completeopt = "menu,menuone,noselect"
 -- set t_Co=256
 -- let &t_ut=''
 
--- undo 
-vim.o.undofile = true
-vim.o.undolevels = 10000
--- fix py 
--- if has('nvim') && !empty($CONDA_PREFIX)
--- let g:python3_host_prog = '/home/neb/anaconda3/envs/cp-knowledge-graph/bin/python'
-vim.g.python_host_prog = '/usr/bin/python'
-vim.g.python3_host_prog = '/usr/bin/python3'
+-- undofile over shada
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undofile = true
+vim.opt.undolevels = 10000
+local path = require("plenary.path"):new(vim.fn.stdpath("data") .. "/undodir")
+if not path:is_dir() then
+	path:mkdir()
+end
+vim.opt.undodir = tostring(path)
+
+-- fix py
+vim.g.python_host_prog = "/usr/bin/python"
+vim.g.python3_host_prog = "/usr/bin/python3"
+
 -- colors
-vim.o.termguicolors = true
-vim.o.syntax = true
+vim.opt.termguicolors = true
+vim.opt.colorcolumn = "80" 
+-- vim.opt.syntax = true
 vim.g.rainbow_active = 1
 
 -- indents
-vim.o.smartindent = true
-vim.o.autoindent = true
-vim.o.smarttab = true
-vim.o.breakindent = true
-vim.o.tabstop = vim.g.neb.indent
-vim.o.shiftwidth = vim.g.neb.indent
-vim.o.expandtab = true
-vim.o.shiftround = true
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+vim.opt.smarttab = true
+vim.opt.breakindent = true
+vim.opt.tabstop = vim.g.neb.indent
+vim.opt.softtabstop = vim.g.neb.indent
+vim.opt.shiftwidth = vim.g.neb.indent
+vim.opt.expandtab = true
+vim.opt.shiftround = true
 
 -- case
-vim.o.ignorecase = true
-vim.o.smartcase = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- search
-vim.o.incsearch = true
-vim.o.nohlsearch = true
+vim.opt.incsearch = true
+vim.opt.hlsearch = false
+-- vim.opt.nohlsearch = true
 
 -- incremental substitution
-vim.o.inccommand = "nosplit"
+vim.opt.inccommand = "nosplit"
 
 -- line numbers
-vim.o.relativenumber = true
-vim.o.number = true
+vim.opt.relativenumber = true
+vim.opt.number = true
 
 -- movement
-vim.o.scrolloff = 10
-vim.o.mouse = "a"
+vim.opt.scrolloff = 8
+vim.opt.scroll = 10
+vim.opt.mouse = "a"
 
 -- modelines
-vim.o.modeline = true
-vim.o.modelines = 2
+vim.opt.modeline = true
+vim.opt.modelines = 2
 
 -- markdown code block syntax highlighting
 local fences = {

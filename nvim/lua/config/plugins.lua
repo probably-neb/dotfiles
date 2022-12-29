@@ -75,9 +75,11 @@ return require("packer").startup(function(use)
 				show_trailing_blankline_indent = false,
 			})
 
-			local color = vim.g.colors.base02
-			vim.cmd("highlight IndentBlanklineChar guifg=" .. color .. " gui=nocombine")
-			vim.cmd("highlight IndentBlanklineSpaceChar guifg=" .. color .. " gui=nocombine")
+            if vim.g.colors_name == "base16" then
+                local color = vim.g.colors.base02
+                vim.cmd("highlight IndentBlanklineChar guifg=" .. color .. " gui=nocombine")
+                vim.cmd("highlight IndentBlanklineSpaceChar guifg=" .. color .. " gui=nocombine")
+            end
 		end,
 	})
 
@@ -102,6 +104,8 @@ return require("packer").startup(function(use)
 	-- use 'zbirenbaum/copilot-cmp'
 
 	use("nvim-lua/plenary.nvim")
+
+    use ("mbbill/undotree")
 
 	use("glepnir/lspsaga.nvim")
 
@@ -166,6 +170,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+    -- colorschems
 	use({
 		"morhetz/gruvbox",
 		config = function()
@@ -173,6 +178,7 @@ return require("packer").startup(function(use)
 		end,
 		opt = true,
 	})
+    use('folke/tokyonight.nvim')
 
 	use({ "dag/vim-fish", ft = { "fish" } })
 

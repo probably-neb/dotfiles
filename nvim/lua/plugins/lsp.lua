@@ -65,7 +65,7 @@ local on_attach = function(client, bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-	vim.keymap.set({ "v", "n" }, "K", vim.lsp.buf.hover, opts)
+	vim.keymap.set({ "v", "n" }, "<C-h>", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 	vim.keymap.set({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, opts)
 	vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
@@ -134,12 +134,12 @@ rt.setup({
 		on_attach = function(client, bufnr)
 			on_attach(client, bufnr)
 			-- rebind lsp.hover() to rust-tools Hover actions
-			vim.keymap.set({ "v", "n" }, "K", rt.hover_actions.hover_actions, { buffer = bufnr })
+			vim.keymap.set({ "v", "n" }, "<C-h>", rt.hover_actions.hover_actions, { buffer = bufnr })
 			-- rebind lsp.code_actions() to rust-tools Code action groups
 			vim.keymap.set({ "v", "n" }, "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
 		end,
 		flags = {
-			debounce_text_changes = 150,
+			debounce_text_changes = 100,
 		},
 		-- disable rust-analyzer in standalone rust files
 		standalone = false,
