@@ -1,6 +1,6 @@
 local nvim_lsp = require("lspconfig")
 local dopts = { noremap = true, silent = true }
-local utils = require('neb.plugins.lsp.utils')
+local format = require("neb.plugins.lsp.format")
 
 -- initialize lsp_status
 local lsp_status = require('lsp-status')
@@ -40,13 +40,12 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<C-b>", vim.lsp.buf.references, opts)
 	vim.keymap.set("n", "<space>=", function()
 		-- vim.lsp.buf.format {async = true}
-		utils.format()
-		print("poop")
+		format.format()
 	end, { noremap = true, buffer = bufnr })
 
-    vim.api.nvim_create_user_command("Format", function(_bs)
-        utils.format()
-    end, {})
+	vim.api.nvim_create_user_command("Format", function(_bs)
+		format.format()
+	end, {})
 
     lsp_status.on_attach(client)
 end
