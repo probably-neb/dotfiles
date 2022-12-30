@@ -18,27 +18,9 @@ return require("packer").startup(function(use)
 
 		{ "jayp0521/mason-null-ls.nvim" },
 		{ "jose-elias-alvarez/null-ls.nvim" },
-		{ "williamboman/mason-lspconfig.nvim" },
-		{
+        { "williamboman/mason-lspconfig.nvim" },
+        {
 			"williamboman/mason.nvim",
-			config = function()
-				require("mason").setup({
-					providers = {
-						"mason.providers.client",
-						"mason.providers.registry-api",
-					},
-					log_level = vim.log.levels.DEBUG,
-				})
-				require("mason-lspconfig").setup()
-				require("null-ls").setup({
-					debug = true,
-				})
-				require("mason-null-ls").setup({
-					ensure_installed = { "stylua", "jq", "prettier" },
-					automatic_setup = true,
-				})
-				require("mason-null-ls").setup_handlers()
-			end,
 		},
 	})
 
@@ -201,6 +183,9 @@ return require("packer").startup(function(use)
 		{
 			"folke/tokyonight.nvim",
 		},
+        {
+            "folke/neodev.nvim"
+        }
 	})
 
 	-- @ThePrimeagen appreciation corner

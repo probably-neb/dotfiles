@@ -1,3 +1,8 @@
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+require("neodev").setup({
+	-- add any options here, or leave empty to use the default settings
+})
+
 local nvim_lsp = require("lspconfig")
 local dopts = { noremap = true, silent = true }
 local format = require("neb.plugins.lsp.format")
@@ -99,9 +104,9 @@ setup("sumneko_lua", {
 -- setup null-ls
 -- null-ls will handle whether it should attach based on it's registered sources
 -- right?
-require("null-ls").setup({
-	on_attach = on_attach,
-})
+-- this should (most importantly) set `on_attach` for null-ls sources
+setup("null-ls")
+
 local rt = require("rust-tools")
 rt.setup({
 	server = {
