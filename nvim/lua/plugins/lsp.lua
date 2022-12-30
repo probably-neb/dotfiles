@@ -1,7 +1,15 @@
 local nvim_lsp = require("lspconfig")
-
 local dopts = { noremap = true, silent = true }
 local utils = require('plugins.lsp.utils')
+
+-- initialize lsp_status
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
+lsp_status.config({
+    -- diagnostics = false,
+    current_function = false,
+    status_symbol = "lsp:",
+})
 
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -35,18 +43,17 @@ local on_attach = function(client, bufnr)
 		utils.format()
 		print("poop")
 	end, { noremap = true, buffer = bufnr })
-end
 
-require("null-ls").setup({
-	on_attach = on_attach,
-})
     vim.api.nvim_create_user_command("Format", function(_bs)
         utils.format()
     end, {})
 
--- mason <-> lspconfig names 'https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md'
+    lsp_status.on_attach(client)
+end
+
 local protocol_capabilities = vim.lsp.protocol.make_client_capabilities()
 local capabilities = require("cmp_nvim_lsp").default_capabilities(protocol_capabilities)
+vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 local flags = { debounce_text_changes = 50 }
 
 local function setup(server, opts)
@@ -57,20 +64,10 @@ local function setup(server, opts)
 	nvim_lsp[server].setup(opts)
 end
 
-local no_special_config_servers = { "clangd", "hls" }
-for _, server in pairs(no_special_config_servers) do
-	setup(server)
-end
-
-setup("pyright", {
-	single_file_support = true,
-})
-
-nvim_lsp.gopls.setup({
-	-- cmd = {'gopls'},
-	-- for postfix snippets and analyzers
-	on_attach = on_attach,
-	capabilities = capabilities,
+setup('hls')
+setup('clangd', {handlers = lsp_status.extensions.clangd.setup()})
+setup('pyright', {single_file_support = true})
+setup('gopls', {
 	settings = {
 		gopls = {
 			experimentalPostfixCompletions = true,
@@ -82,7 +79,31 @@ nvim_lsp.gopls.setup({
 		},
 	},
 })
+setup('sumneko_lua', {
+	settings = {
+		Lua = {
+			runtime = {
+				version = "LuaJIT",
+			},
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
+})
 
+-- setup null-ls
+-- null-ls will handle whether it should attach based on it's registered sources
+-- right?
+require("null-ls").setup({
+	on_attach = on_attach,
+})
 local rt = require("rust-tools")
 rt.setup({
 	server = {
@@ -94,9 +115,7 @@ rt.setup({
 			-- rebind lsp.code_actions() to rust-tools Code action groups
 			vim.keymap.set({ "v", "n" }, "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
 		end,
-		flags = {
-			debounce_text_changes = 100,
-		},
+		flags = flags,
 		-- disable rust-analyzer in standalone rust files
 		standalone = false,
 		settings = {
@@ -126,27 +145,9 @@ rt.setup({
 	},
 })
 
-nvim_lsp.sumneko_lua.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		Lua = {
-			runtime = {
-				version = "LuaJIT",
-			},
-			diagnostics = {
-				globals = { "vim" },
-			},
-			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true),
-			},
-			telemetry = {
-				enable = false,
-			},
-		},
-	},
-})
+-- mason <-> lspconfig names 'https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md'
 
+-- global diagnostic settings
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	underline = false,
 	-- This sets the spacing and the prefix, obviously.
@@ -158,3 +159,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	update_in_insert = true,
 })
 
+vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, dopts)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, dopts)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, dopts)
+vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, dopts)
