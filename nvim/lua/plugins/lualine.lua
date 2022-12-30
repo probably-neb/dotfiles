@@ -1,5 +1,5 @@
 local status, lualine = pcall(require, "lualine")
-if (not status) then return end
+if not status then return end
 
 local colors = vim.g.colors
 
@@ -50,7 +50,7 @@ local base16 = setup({
 lualine.setup {
   options = {
     icons_enabled = true,
-    theme = base16,
+    theme = 'auto',
     section_separators = {'', ''},
     component_separators = {'', ''},
     disabled_filetypes = {}
@@ -70,18 +70,12 @@ lualine.setup {
       -- 'filetype'
     -- },
     lualine_x = {'location'},
-    -- lualine_y = {'progress'},
-    lualine_y = {"os.date('%a, %b %d %Y')"},
-    lualine_z = {{"os.date('%_I:%M')", color='MiniStatusLineModeCommand'}}
+    lualine_y = {'branch'},
+    -- lualine_y = {"os.date('%a, %b %d %Y')"},
+    lualine_z = {{"os.date('%b %d %_I:%M')", color='MiniStatusLineModeCommand'}}
   },
   inactive_sections = {
     lualine_a = {},
-    --lualine_b = {},
-    lualine_c = {{
-      'filename',
-      file_status = true, -- displays file status (readonly status, modified status)
-      path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
-    }},
     lualine_x = {'location'},
     lualine_y = {"require('lsp-status').status()"},
     lualine_z = {"os.date('%a')"}
