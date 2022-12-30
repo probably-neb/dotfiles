@@ -1,55 +1,8 @@
 local nvim_lsp = require("lspconfig")
 
 local dopts = { noremap = true, silent = true }
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, dopts)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, dopts)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, dopts)
-vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, dopts)
+local utils = require('plugins.lsp.utils')
 
-local format = function(bufnr)
-	if bufnr == nil then
-		bufnr = 0
-	end
-	local null_ls_available = false
-	local other_client_names = {}
-	for _, client in ipairs(vim.lsp.get_active_clients()) do
-		if client.server_capabilities.documentFormattingProvider then
-			if client.name == "null-ls" then
-				null_ls_available = true
-			else
-				table.insert(other_client_names, client.name)
-			end
-		end
-	end
-	local other_clients_found = false
-	local other_clients_list = ""
-	if next(other_client_names) ~= nil then
-		other_clients_list = table.concat(other_client_names, ", ")
-		other_clients_found = true
-	end
-
-	local filter = nil
-	if null_ls_available then
-		filter = function(client)
-			return client.name == "null-ls"
-		end
-		if other_clients_found then
-			print("formatting using null-ls instead of:", other_clients_list)
-		end
-	else
-		if other_clients_found then
-			print("formatting using:", other_clients_list)
-		end
-	end
-	print(vim.lsp.buf.format({
-		filter = filter,
-		async = true,
-		bufnr = bufnr,
-	}))
-end
-vim.api.nvim_create_user_command("Format", function(_bs)
-	format(0)
-end, {})
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
 	local function buf_set_option(...)
@@ -79,7 +32,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<C-b>", vim.lsp.buf.references, opts)
 	vim.keymap.set("n", "<space>=", function()
 		-- vim.lsp.buf.format {async = true}
-		format()
+		utils.format()
 		print("poop")
 	end, { noremap = true, buffer = bufnr })
 end
@@ -87,6 +40,9 @@ end
 require("null-ls").setup({
 	on_attach = on_attach,
 })
+    vim.api.nvim_create_user_command("Format", function(_bs)
+        utils.format()
+    end, {})
 
 -- mason <-> lspconfig names 'https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md'
 local protocol_capabilities = vim.lsp.protocol.make_client_capabilities()
