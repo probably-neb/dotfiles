@@ -1,5 +1,5 @@
 if vim.g.loaded_telescope ~= nil then
-  local opts = { noremap = true }
+  local opts = { noremap = true, silent = false}
   local req = ':lua require("telescope.builtin").'
 
   local map = function(pre, key, finder)
