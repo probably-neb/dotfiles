@@ -9,8 +9,9 @@ local vmap = map('v')
 local xmap = map('x')
 local cmap = map('c')
 
-vim.g.mapleader = vim.g.neb.leader
-vim.g.maplocalleader = vim.g.neb.leader
+local neb = require('neb')
+vim.g.mapleader = neb.settings.leader
+vim.g.maplocalleader = neb.settings.leader
 
 -- quickly exit insert mode
 imap("<Up>", "<Esc>")

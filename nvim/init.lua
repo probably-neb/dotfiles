@@ -2,16 +2,13 @@
 
 -- nebvim
 
--- some global settings I'd like applied everywhere
-vim.g.neb = { leader = ' ', indent = 4 }
-
 -- blazingly
 require('impatient')
 
-require('config.options')
-require('config.mappings')
+require('neb.config.options')
+require('neb.config.mappings')
 
-require('config.packer')
+require('neb.config.packer')
 
 vim.cmd [[ colorscheme base16 ]]
 vim.cmd [[ colorscheme tokyonight ]]

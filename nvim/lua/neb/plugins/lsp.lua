@@ -1,6 +1,6 @@
 local nvim_lsp = require("lspconfig")
 local dopts = { noremap = true, silent = true }
-local utils = require('plugins.lsp.utils')
+local utils = require('neb.plugins.lsp.utils')
 
 -- initialize lsp_status
 local lsp_status = require('lsp-status')

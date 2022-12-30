@@ -1,5 +1,6 @@
-vim.g.mapleader = vim.g.neb.leader
-vim.g.maplocalleader = vim.g.neb.leader
+local neb = require('neb')
+vim.g.mapleader = neb.settings.leader
+vim.g.maplocalleader = neb.settings.leader
 
 -- general
 vim.opt.grepprg = "rg --vimgrep"
@@ -43,9 +44,9 @@ vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.smarttab = true
 vim.opt.breakindent = true
-vim.opt.tabstop = vim.g.neb.indent
-vim.opt.softtabstop = vim.g.neb.indent
-vim.opt.shiftwidth = vim.g.neb.indent
+vim.opt.tabstop = neb.settings.indent
+vim.opt.softtabstop = neb.settings.indent
+vim.opt.shiftwidth = neb.settings.indent
 vim.opt.expandtab = true
 vim.opt.shiftround = true
 

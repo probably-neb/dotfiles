@@ -3,7 +3,7 @@ local luasnip = require("luasnip")
 local snip_leader = "<leader><leader>"
 local ft_func = require("luasnip.extras.filetype_functions").from_filetype
 local snippets_dir = "~/.config/nvim/luasnippets"
-local this_file_path = "~/.config/nvim/lua/plugins/luasnips.lua"
+local this_file_path = "~/.config/nvim/lua/neb/plugins/luasnips.lua"
 local Path = require("plenary.path")
 local template_path = snippets_dir .. '/.template.lua'
 

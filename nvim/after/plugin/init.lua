@@ -1,6 +1,6 @@
 -- source all plugin configuration files
 -- creidt: https://github.com/rayfaddis/dotfiles/blob/main/config/nvim/init.lua
-local plugin_dir = vim.fn.stdpath('config') .. '/lua/plugins'
+local plugin_dir = vim.fn.stdpath('config') .. '/lua/neb/plugins'
 for _, file in ipairs(vim.fn.readdir(plugin_dir, [[ v:val =~ '\.lua$' ]])) do
     local file = plugin_dir .. '/' .. file
     if vim.fn.filereadable(file) then
