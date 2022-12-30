@@ -205,10 +205,13 @@ return require("packer").startup(function(use)
 
 	-- @ThePrimeagen appreciation corner
 	use({
-		"ThePrimeagen/vim-be-good",
-		opt = true,
-	}, {
-		"ThePrimeagen/harpoon",
+		{
+			"ThePrimeagen/vim-be-good",
+			opt = true,
+		},
+		{
+			"ThePrimeagen/harpoon",
+		},
 	})
 
 	-- this is why I am organizing right now
