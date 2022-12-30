@@ -34,7 +34,7 @@ vim.g.python3_host_prog = "/usr/bin/python3"
 
 -- colors
 vim.opt.termguicolors = true
-vim.opt.colorcolumn = "80" 
+-- vim.opt.colorcolumn = "80" 
 -- vim.opt.syntax = true
 vim.g.rainbow_active = 1
 
