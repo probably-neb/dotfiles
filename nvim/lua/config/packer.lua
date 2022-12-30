@@ -47,7 +47,7 @@ return require("packer").startup(function(use)
 	})
 
 	use("neovim/nvim-lspconfig")
-	use("nvim-lua/lsp-status.nvim")
+    use("nvim-lua/lsp-status.nvim")
 	use("mfussenegger/nvim-dap")
 	-- -- cmp stuff
 	use({
@@ -75,13 +75,18 @@ return require("packer").startup(function(use)
 				show_trailing_blankline_indent = false,
 			})
 
-            if vim.g.colors_name == "base16" then
-                local color = vim.g.colors.base02
-                vim.cmd("highlight IndentBlanklineChar guifg=" .. color .. " gui=nocombine")
-                vim.cmd("highlight IndentBlanklineSpaceChar guifg=" .. color .. " gui=nocombine")
-            end
+			if vim.g.colors_name == "base16" then
+				local color = vim.g.colors.base02
+				vim.cmd("highlight IndentBlanklineChar guifg=" .. color .. " gui=nocombine")
+				vim.cmd("highlight IndentBlanklineSpaceChar guifg=" .. color .. " gui=nocombine")
+			end
 		end,
 	})
+
+    use {
+        "nvim-lualine/lualine.nvim",
+        requires = { "kyazdani42/nvim-web-devicons"},
+    }
 
 	use({
 		"chipsenkbeil/distant.nvim",
@@ -105,7 +110,7 @@ return require("packer").startup(function(use)
 
 	use("nvim-lua/plenary.nvim")
 
-    use ("mbbill/undotree")
+	use("mbbill/undotree")
 
 	use("glepnir/lspsaga.nvim")
 
@@ -155,22 +160,22 @@ return require("packer").startup(function(use)
 			require("Comment").setup()
 			local api = require("Comment.api")
 			-- additional comment bindings (definitely not taken from vs****)
-            -- visual mode linewise
-            local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
+			-- visual mode linewise
+			local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
 			vim.keymap.set("x", "<C-/>", function()
 				vim.api.nvim_feedkeys(esc, "nx", false)
 				api.toggle.linewise(vim.fn.visualmode())
 			end)
-            -- visual mode blockwise
+			-- visual mode blockwise
 			vim.keymap.set("x", "<C-\\>", function()
 				vim.api.nvim_feedkeys(esc, "nx", false)
 				api.toggle.blockwise(vim.fn.visualmode())
 			end)
-            vim.keymap.set("n", "<C-/>", api.toggle.linewise.current, { silent = false })
+			vim.keymap.set("n", "<C-/>", api.toggle.linewise.current, { silent = false })
 		end,
 	})
 
-    -- colorschems
+	-- colorschems
 	use({
 		"morhetz/gruvbox",
 		config = function()
@@ -178,9 +183,11 @@ return require("packer").startup(function(use)
 		end,
 		opt = true,
 	})
-    use('folke/tokyonight.nvim')
+	use("folke/tokyonight.nvim")
 
+    -- filetype specific plugins
 	use({ "dag/vim-fish", ft = { "fish" } })
+    use 'fladson/vim-kitty'
 
 	-- use {'simrat39/rust-tools.nvim', ft = {'rs'}}
 	use({ "simrat39/rust-tools.nvim" })
