@@ -18,3 +18,4 @@ nvim/.luarc.json
 nvim/TODO.yaml
 qutebrowser/bookmarks
 qutebrowser/qsettings/QtProject.conf
+projects.yaml
