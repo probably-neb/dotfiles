@@ -80,7 +80,6 @@ vim.api.nvim_create_user_command("LuaSnipsEdit", function()
 	for path, _ in pairs(path_set) do
 		table.insert(paths, path)
 	end
-	P(paths)
 	local chosen_path = nil
 	if #path_set == 1 then
 		print("Only 1 choice")

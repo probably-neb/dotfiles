@@ -3,12 +3,12 @@ local dopts = { noremap = true, silent = true }
 local format = require("neb.plugins.lsp.format")
 
 -- initialize lsp_status
-local lsp_status = require('lsp-status')
+local lsp_status = require("lsp-status")
 lsp_status.register_progress()
 lsp_status.config({
-    -- diagnostics = false,
-    current_function = false,
-    status_symbol = "lsp:",
+	-- diagnostics = false,
+	current_function = false,
+	status_symbol = "lsp:",
 })
 
 -- after the language server attaches to the current buffer
@@ -47,12 +47,12 @@ local on_attach = function(client, bufnr)
 		format.format()
 	end, {})
 
-    lsp_status.on_attach(client)
+	lsp_status.on_attach(client)
 end
 
 local protocol_capabilities = vim.lsp.protocol.make_client_capabilities()
 local capabilities = require("cmp_nvim_lsp").default_capabilities(protocol_capabilities)
-vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
+vim.tbl_extend("keep", capabilities, lsp_status.capabilities)
 local flags = { debounce_text_changes = 50 }
 
 local function setup(server, opts)
@@ -63,10 +63,10 @@ local function setup(server, opts)
 	nvim_lsp[server].setup(opts)
 end
 
-setup('hls')
-setup('clangd', {handlers = lsp_status.extensions.clangd.setup()})
-setup('pyright', {single_file_support = true})
-setup('gopls', {
+setup("hls")
+setup("clangd", { handlers = lsp_status.extensions.clangd.setup() })
+setup("pyright", { single_file_support = true })
+setup("gopls", {
 	settings = {
 		gopls = {
 			experimentalPostfixCompletions = true,
@@ -78,7 +78,7 @@ setup('gopls', {
 		},
 	},
 })
-setup('sumneko_lua', {
+setup("sumneko_lua", {
 	settings = {
 		Lua = {
 			runtime = {
@@ -96,7 +96,6 @@ setup('sumneko_lua', {
 		},
 	},
 })
-
 -- setup null-ls
 -- null-ls will handle whether it should attach based on it's registered sources
 -- right?
