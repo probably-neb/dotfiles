@@ -23,9 +23,10 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
 vim.opt.undolevels = 10000
-local path = require("plenary.path"):new(vim.fn.stdpath("data") .. "/undodir")
-if not path:is_dir() then
-	path:mkdir()
+local path = vim.fn.stdpath("data") .. "/undodir"
+if not vim.loop.fs_stat(path) then
+	-- path:mkdir()
+    print(path)
 end
 vim.opt.undodir = tostring(path)
 
