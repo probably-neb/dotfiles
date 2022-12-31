@@ -1,0 +1,88 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.053  000.053: --- NVIM STARTING ---
+000.660  000.607: event init
+001.021  000.361: early init
+001.235  000.214: locale set
+001.404  000.169: init first window
+002.521  001.117: inits 1
+002.570  000.049: window checked
+002.579  000.009: parsing arguments
+004.385  000.275  000.275: require('vim.shared')
+004.819  000.152  000.152: require('vim._meta')
+004.826  000.429  000.277: require('vim._editor')
+004.831  000.802  000.098: require('vim._init_packages')
+004.836  001.455: init lua interpreter
+004.950  000.114: expanding arguments
+005.143  000.193: inits 2
+006.119  000.976: init highlight
+006.125  000.006: waiting for UI
+011.093  004.968: done waiting for UI
+011.180  000.086: init screen for UI
+011.666  000.487: init default mappings
+011.730  000.063: init default autocommands
+018.960  000.227  000.227: sourcing /usr/share/nvim/runtime/ftplugin.vim
+020.115  000.141  000.141: sourcing /usr/share/nvim/runtime/indent.vim
+020.451  000.041  000.041: sourcing /usr/share/nvim/archlinux.vim
+020.467  000.137  000.096: sourcing /etc/xdg/nvim/sysinit.vim
+025.349  000.144  000.144: require('neb')
+031.346  001.605  001.605: require('plenary.bit')
+032.378  001.018  001.018: require('plenary.functional')
+032.506  000.086  000.086: require('ffi')
+032.588  006.151  003.442: require('plenary.path')
+032.912  000.267  000.267: require('vim.inspect')
+034.262  013.578  007.016: require('neb.config.options')
+034.940  000.031  000.031: require('vim.keymap')
+035.997  001.713  001.682: require('neb.config.mappings')
+042.676  001.473  001.473: require('packer.util')
+042.834  006.110  004.637: require('packer')
+044.433  001.587  001.587: require('packer.log')
+047.553  001.127  001.127: require('packer.async')
+049.741  000.906  000.906: require('packer.result')
+049.765  002.197  001.291: require('packer.jobs')
+049.793  005.255  001.931: require('packer.plugin_utils')
+051.359  001.514  001.514: require('packer.snapshot')
+052.561  016.542  002.076: require('neb.config.packer')
+052.808  000.224  000.224: require('neb.config.commands')
+059.609  004.577  004.577: sourcing /home/neb/.config/nvim/colors/base16.lua
+066.878  001.618  001.618: require('tokyonight.treesitter')
+066.902  003.477  001.859: require('tokyonight.util')
+071.552  001.191  001.191: require('tokyonight.colors')
+071.565  004.656  003.464: require('tokyonight.theme')
+072.975  001.403  001.403: require('tokyonight.config')
+072.991  010.658  001.122: require('tokyonight')
+078.617  000.027  000.027: require('vim.F')
+078.815  005.313  005.286: require('vim.diagnostic')
+084.429  000.957  000.957: require('vim.treesitter.language')
+084.479  003.381  002.424: require('vim.treesitter.query')
+086.599  002.111  002.111: require('vim.treesitter.languagetree')
+086.735  007.242  001.751: require('vim.treesitter')
+088.363  001.619  001.619: require('vim.treesitter.highlighter')
+093.038  030.810  005.978: sourcing /home/neb/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.lua
+093.074  072.512  005.068: sourcing /home/neb/.config/nvim/init.lua
+093.133  008.387: sourcing vimrc file(s)
+095.176  000.076  000.076: sourcing /home/neb/.local/share/nvim/site/pack/packer/start/LuaSnip/ftdetect/snippets.vim
+097.191  000.150  000.150: sourcing /home/neb/.local/share/nvim/site/pack/packer/start/vimtex/ftdetect/cls.vim
+097.363  000.077  000.077: sourcing /home/neb/.local/share/nvim/site/pack/packer/start/vimtex/ftdetect/tex.vim
+097.537  000.070  000.070: sourcing /home/neb/.local/share/nvim/site/pack/packer/start/vimtex/ftdetect/tikz.vim
+098.075  000.049  000.049: sourcing /usr/share/vim/vimfiles/ftdetect/PKGBUILD.vim
+098.183  000.038  000.038: sourcing /usr/share/vim/vimfiles/ftdetect/SRCINFO.vim
+099.766  005.325  004.866: sourcing /usr/share/nvim/runtime/filetype.lua
+099.923  000.053  000.053: sourcing /usr/share/nvim/runtime/filetype.vim
+101.379  000.305  000.305: sourcing /usr/share/nvim/runtime/syntax/synload.vim
+101.856  001.566  001.261: sourcing /usr/share/nvim/runtime/syntax/syntax.vim
+102.032  001.955: inits 3
+118.503  016.471: reading ShaDa
+119.063  000.559: opening buffers
+119.073  000.010: BufEnter autocommands
+119.080  000.007: editing files in windows
+119.093  000.013: VimEnter autocommands
+119.099  000.006: UIEnter autocommands
+120.717  000.769  000.769: sourcing /usr/share/nvim/runtime/autoload/provider/clipboard.vim
+120.752  000.884: before starting main loop
+122.193  001.441: first screen update
+122.202  000.009: --- NVIM STARTED ---
