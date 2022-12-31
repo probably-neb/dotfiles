@@ -5,6 +5,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		event = "BufReadPre",
+		-- enabled = false,
 		config = function()
 			-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
 			require("neodev").setup({
@@ -28,12 +29,12 @@ return {
 
 			-- after the language server attaches to the current buffer
 			local on_attach = function(client, bufnr)
-				local function buf_set_option(...)
-					vim.api.nvim_buf_set_option(bufnr, ...)
-				end
+				-- local function buf_set_option(...)
+				-- 	vim.api.nvim_buf_set_option(bufnr, ...)
+				-- end
 
 				-- Enable completion triggered by <c-x><c-o>
-				buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+				-- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 				-- Mappings.
 
@@ -70,11 +71,9 @@ return {
 			vim.tbl_extend("keep", capabilities, lsp_status.capabilities)
 			local flags = { debounce_text_changes = 50 }
 
+			local options = { on_attach = on_attach, capabilities = capabilities, flags = flags }
 			local function setup(server, opts)
-				opts = opts or {}
-				opts.on_attach = opts.on_attach or on_attach
-				opts.capabilities = opts.capabilities or capabilities
-				opts.flags = opts.flags or flags
+				opts = vim.tbl_deep_extend("force", {}, options, opts or {})
 				nvim_lsp[server].setup(opts)
 			end
 
@@ -115,8 +114,9 @@ return {
 			-- null-ls will handle whether it should attach based on it's registered sources
 			-- right?
 			-- this should (most importantly) set `on_attach` for null-ls sources
-			require("null-ls")
-			setup("null-ls")
+			-- require("null-ls")
+			-- setup("null-ls")
+			require("neb.config.plugins.null_ls").setup(options)
 
 			local rt = require("rust-tools")
 			rt.setup({

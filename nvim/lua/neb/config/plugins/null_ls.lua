@@ -1,7 +1,10 @@
 local M = { "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "jayp0521/mason-null-ls.nvim" },
-    config = function()
-        local null_ls = require("null-ls")
+    lazy = true,
+}
+
+function M.setup(opts)
+ local null_ls = require("null-ls")
 
         null_ls.setup({
             debounce = 150,
@@ -26,6 +29,7 @@ local M = { "jose-elias-alvarez/null-ls.nvim",
                 -- null_ls.builtins.formatting.black,
                 -- null_ls.builtins.diagnostics.flake8,
             },
+            on_attach = opts.on_attach
         })
         -- mason-null-ls adds the NullLsInstall & NullLsRemove commands
         require("mason-null-ls").setup({
@@ -33,10 +37,8 @@ local M = { "jose-elias-alvarez/null-ls.nvim",
             automatic_setup = true,
         })
         ---@diagnostic disable-next-line: missing-parameter
-        require("mason-null-ls").setup_handlers()
-
-    end
-}
+        require("mason-null-ls").setup_handlers()   
+end
 
 -- credit @folke
 function M.has_formatter(ft)
