@@ -1,3 +1,0 @@
-set background=light
-let g:gruvbox_contrast_light= 'hard'
-colorscheme gruvbox
