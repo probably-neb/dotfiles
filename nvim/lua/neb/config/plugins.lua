@@ -25,7 +25,8 @@ local plugins = {
 	-- utilities
 	{
 		"windwp/nvim-autopairs",
-        event = "VeryLazy",
+        -- enabled = false,
+        event = "BufReadPost",
 		config = function()
 			local autopairs = require("nvim-autopairs")
 			autopairs.setup()
@@ -33,7 +34,8 @@ local plugins = {
 	},
 	{
 		"kylechui/nvim-surround",
-        event="VeryLazy",
+        -- enabled = false,
+        event="BufReadPost",
 		config = function()
 			require("nvim-surround").setup()
 		end,
@@ -41,12 +43,14 @@ local plugins = {
 	{
 		-- god this plugin is fucking amazing
 		"wellle/targets.vim",
-        event="VeryLazy",
+        -- BufReadPost so that it is not loaded before Dashboard
+        -- because it redraws the screen
+        event="BufReadPost",
 	},
 	{
 		"numToStr/Comment.nvim",
         -- TODO: move binds to `keys` load event
-        event="VeryLazy",
+        event="BufReadPost",
 		config = function()
 			require("Comment").setup()
 			local api = require("Comment.api")
@@ -69,21 +73,24 @@ local plugins = {
 	{ "BurntSushi/ripgrep" },
 
 	-- asthetics
-	{
-		"nvim-lualine/lualine.nvim",
-        event="VeryLazy",
-		dependencies = { "kyazdani42/nvim-web-devicons" },
-	},
+	-- {
+	-- 	"nvim-lualine/lualine.nvim",
+ --        config = true,
+ --        -- BufReadPost so that it is not loaded before Dashboard
+ --        -- because it redraws the screen
+ --        event="BufReadPost",
+	-- 	dependencies = { "kyazdani42/nvim-web-devicons" },
+	-- },
 	{
 		"morhetz/gruvbox",
 		config = function()
 			vim.g.gruvbox_contrast_light = "hard"
 		end,
-		lazy = true,
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-        event = "BufReadPre",
+        event = "BufReadPost",
+        -- enabled = false,
 		config = function()
 			vim.opt.list = true
 			-- vim.opt.listchars:append "space:⋅"
