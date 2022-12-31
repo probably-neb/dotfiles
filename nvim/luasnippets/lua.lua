@@ -35,9 +35,24 @@ end
 
 local func_node = function()
 	return {
-		t("function("),
-		i(1),
-		t(")"),
+        c(1,{
+            sn(nil, fmt(
+                "function({})",
+                i(1)
+            )),
+            sn(nil, fmt(
+                "function {}{}({})",
+                {
+                    c(1,{
+                        t"M.",
+                        t"",
+                        sn(nil, {i(1),t"."})
+                    }),
+                    i(2),
+                    i(3),
+                }
+            ))
+        }),
 		c(2, {
 			sn(nil, { t(" "), res(1, "body"), t(" ") }),
 			sn(nil, { t({ "", "\t" }), res(1, "body"), t({ "", "" }) }),
@@ -68,7 +83,7 @@ local last_item_in_lua_path = function(node)
 	req_path = vim.fn.substitute(req_path, "')", "", "")
 	local path = req_path
 	local no_regex = true
-	local modules = vim.split(path, ".", no_regex)
+	local modules = vim.split(path, ".", {plain = true})
 	local last_item = modules[#modules] or ""
 	last_item = vim.fn.substitute(last_item, "-", "_", "g")
 	return last_item
