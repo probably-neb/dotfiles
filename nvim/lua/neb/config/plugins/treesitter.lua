@@ -40,6 +40,7 @@ end},
     event = "BufReadPost",
     config = function()
 local treesitter_configs = require("nvim-treesitter.configs")
+require('nvim-treesitter-textobjects')
 
 treesitter_configs.setup({
 	highlight = {
