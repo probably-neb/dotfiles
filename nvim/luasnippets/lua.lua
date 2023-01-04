@@ -183,39 +183,39 @@ local snippets = {
         if no namespace has a function of that name defaults to
         `|.func(var)` where | is the cursor position
     ]]
-	postfix({ match_pattern = "[%w%.%_]+$", trig = "%.([%w%_]+)", regTrig = true }, {
-		d(1, function(_, parent)
-			local var_name = parent.env.POSTFIX_MATCH
-			local fn_name = parent.captures[1] or ""
-			local prefix = ""
-			for _, global in ipairs({
-				"string",
-				"table",--[[ , 'vim.fn' ]]
-				"vim",
-			}) do
-				local global_call = global .. "[" .. "'" .. fn_name .. "'" .. "]"
-				local fnbody = "return type(" .. global_call .. ') == "function"'
-				-- this calls the function returned by loadstring which returns if the type of global['fn_name'] is a function
-				if assert(loadstring(fnbody))() then
-					prefix = global
-				end
-			end
-			if prefix == "" then
-				-- index 2 because when prefix
-				-- is found there is
-				-- no jump point for it
-				prefix = i(2)
-			else
-				prefix = t(prefix)
-			end
-			return sn(nil, {
-				prefix,
-				t("." .. fn_name .. "(" .. var_name),
-				i(1),
-				t(")"),
-			})
-		end),
-	}),
+	-- postfix({ match_pattern = "[%w%.%_]+$", trig = "%.([%w%_]+)", regTrig = true }, {
+	-- 	d(1, function(_, parent)
+	-- 		local var_name = parent.env.POSTFIX_MATCH
+	-- 		local fn_name = parent.captures[1] or ""
+	-- 		local prefix = ""
+	-- 		for _, global in ipairs({
+	-- 			"string",
+	-- 			"table",--[[ , 'vim.fn' ]]
+	-- 			"vim",
+	-- 		}) do
+	-- 			local global_call = global .. "[" .. "'" .. fn_name .. "'" .. "]"
+	-- 			local fnbody = "return type(" .. global_call .. ') == "function"'
+	-- 			-- this calls the function returned by loadstring which returns if the type of global['fn_name'] is a function
+	-- 			if assert(loadstring(fnbody))() then
+	-- 				prefix = global
+	-- 			end
+	-- 		end
+	-- 		if prefix == "" then
+	-- 			-- index 2 because when prefix
+	-- 			-- is found there is
+	-- 			-- no jump point for it
+	-- 			prefix = i(2)
+	-- 		else
+	-- 			prefix = t(prefix)
+	-- 		end
+	-- 		return sn(nil, {
+	-- 			prefix,
+	-- 			t("." .. fn_name .. "(" .. var_name),
+	-- 			i(1),
+	-- 			t(")"),
+	-- 		})
+	-- 	end),
+	-- }),
 }
 
 local add_snippet = function(snip)
