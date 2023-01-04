@@ -6,9 +6,19 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local M = {}
+
 require('lazy').setup('neb.config.plugins', {
     install = {colorscheme = {"tokyonight"}},
     defaults = {
         lazy = true,
     }
 })
+
+function M.is_plugin_loaded(plugin_name)
+    local plugin = require('lazy.core.config').plugins[plugin_name]
+    -- returns nil when plugin doesn't exits, otherwise true/false
+    return (plugin and plugin._.loaded) and true
+end
+
+return M
