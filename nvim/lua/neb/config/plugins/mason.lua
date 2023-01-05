@@ -3,7 +3,12 @@ return {
 	{
 		"williamboman/mason.nvim",
 		cmd = "Mason",
-		dependencies = { { "williamboman/mason-lspconfig.nvim", config = true } },
+		dependencies = { { "williamboman/mason-lspconfig.nvim", config = { ensure_installed = {
+            "rust_analyzer",
+            "pyright",
+            "sumneko_lua",
+            "clangd",
+        }} } },
 		config = function()
 			require("mason").setup({
 				providers = {

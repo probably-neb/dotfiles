@@ -33,7 +33,7 @@ function M.setup(opts)
         })
         -- mason-null-ls adds the NullLsInstall & NullLsRemove commands
         require("mason-null-ls").setup({
-            ensure_installed = { "jq" },
+            ensure_installed = { "jq", "stylua", "prettierd", "markdownlint"},
             automatic_setup = true,
         })
         ---@diagnostic disable-next-line: missing-parameter
