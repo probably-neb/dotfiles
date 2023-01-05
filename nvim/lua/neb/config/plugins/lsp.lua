@@ -80,6 +80,7 @@ return {
 			setup("hls")
 			setup("clangd", { handlers = lsp_status.extensions.clangd.setup() })
 			setup("pyright", { single_file_support = true })
+            setup("pylsp", {single_file_support = true})
 			setup("gopls", {
 				settings = {
 					gopls = {
