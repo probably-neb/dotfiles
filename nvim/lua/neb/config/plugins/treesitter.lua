@@ -76,7 +76,7 @@ treesitter_configs.setup({
 		"regex",
 		"toml",
 		"help",
-		"gitignore",
+		-- "gitignore",
 		"c",
 		"css",
 		"cpp",
