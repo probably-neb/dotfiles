@@ -6,6 +6,7 @@ return {
 		dependencies = { { "williamboman/mason-lspconfig.nvim", config = { ensure_installed = {
             "rust_analyzer",
             "pyright",
+            "pylsp",
             "sumneko_lua",
             "clangd",
         }} } },
