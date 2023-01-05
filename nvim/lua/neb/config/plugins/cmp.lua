@@ -1,6 +1,3 @@
----@diagnostic disable: undefined-global
----@diagnostic disable: undefined_variable
-
 -- cmp stuff
 return {
 	"hrsh7th/nvim-cmp",
@@ -13,7 +10,7 @@ return {
 		"hrsh7th/cmp-nvim-lua",
 		"saadparwaiz1/cmp_luasnip",
 		"uga-rosa/cmp-dictionary",
-		{ "mtoohey31/cmp-fish", ft = "fish" },
+		-- { "mtoohey31/cmp-fish", ft = "fish" },
 	},
 	config = function()
 		-- Setup nvim-cmp.
