@@ -68,11 +68,13 @@ alias lolwave="sparkwave | lolcat -F '0.198' -p 3"
 
 
 # Changing "ls" to "exa"
-alias ls='exa -a --color=always --group-directories-first --no-user' # my preferred listing
-alias ld='exa -aD --color=always --group-directories-first --no-user'  # only directories
-alias ll='exa -al --color=always --group-directories-first --no-user'  # long format
-alias lt='exa -aTL 3 --color=always --group-directories-first --no-user' # tree listing
-alias l.='exa -a | egrep "^\."'
+if type -q "exa"
+    alias ls='exa -a --color=always --group-directories-first --no-user' # my preferred listing
+    alias ld='exa -aD --color=always --group-directories-first --no-user'  # only directories
+    alias ll='exa -al --color=always --group-directories-first --no-user'  # long format
+    alias lt='exa -aTL 3 --color=always --group-directories-first --no-user' # tree listing
+    alias l.='exa -a | egrep "^\."'
+end
 
 # wrap rm to move to trash
 function trash
