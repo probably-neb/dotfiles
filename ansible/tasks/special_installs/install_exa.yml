@@ -1,0 +1,12 @@
+- name: Install exa on ubuntu < 20.10
+  include_tasks: exa_manual_install_if_out_of_date.yml
+  register: result
+  when:
+    - ansible_facts['distribution'] == "Ubuntu"
+    - ansible_facts['distribution_version'] is version('20.10', '<')
+
+- name: Install exa normally
+  package:
+    name: exa 
+    state: present
+  when: result is skipped

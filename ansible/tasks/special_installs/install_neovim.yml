@@ -1,0 +1,6 @@
+- name: add unstable neovim ppa if on ubuntu
+  apt_repository:
+    repo: ppa:neovim-ppa/unstable
+- name: Install Neovim with package manager
+  package:
+    name: neovim

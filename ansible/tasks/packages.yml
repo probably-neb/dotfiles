@@ -1,0 +1,6 @@
+# vim: ft=yaml.ansible
+- name: Install Neovim
+  include_tasks: special_installs/install_neovim.yml
+
+- name: Install exa
+  include_tasks: special_installs/install_exa.yml

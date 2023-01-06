@@ -1,0 +1,9 @@
+# vim: ft=yaml.ansible
+- name: Baby's First PlayBook
+  hosts: localhost
+  # pre_tasks:
+  #   - name: Debug Facts
+  #     debug:
+  #       var: ansible_facts
+  tasks:
+    - include_tasks: tasks/packages.yml

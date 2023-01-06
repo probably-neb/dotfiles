@@ -1,0 +1,26 @@
+- name: get latest release tag
+  # https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8?permalink_comment_id=4184757#gistcomment-4184757
+  uri:
+    url: https://api.github.com/repos/ogham/exa/releases/latest
+    return_content: true
+    body_format: json
+  register: exa_releases_request
+
+- name: set latest exa_version variable
+  set_fact:
+    latest_exa_release: "{{exa_releases_request.json.tag_name}}"
+
+- name: try and get exa version if installed
+  command: exa --version
+  register: get_installed_exa_version
+  ignore_errors: true
+
+- name: set installed exa_version variable
+  set_fact:
+    installed_exa_release: "{{get_installed_exa_version.stdout_lines[1].replace(' [+git]', '')}}"
+  when: get_installed_exa_version is not failed
+
+- name: manually install if exa out of date
+  include_tasks: exa_manual_install.yml
+  when: installed_exa_release is undefined or installed_exa_release is version(latest_exa_release, '<')
+
