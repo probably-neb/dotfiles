@@ -1,0 +1,38 @@
+- name: make temp dir for exa download
+  tempfile:
+    state: directory
+    suffix: exa
+  register: exa_tmp_dir
+
+- name: download and unpzip exa from github
+  unarchive:
+    remote_src: true
+    src: "https://github.com/ogham/exa/releases/download/{{latest_exa_release}}/exa-linux-x86_64-{{latest_exa_release}}.zip"
+    dest: "{{ exa_tmp_dir.path }}"
+
+- name: copy exa bin to /usr/local/bin/
+  copy:
+    remote_src: true
+    src: "{{ exa_tmp_dir.path }}/bin/exa"
+    dest: /usr/local/bin
+    mode: 0755
+  become: true
+
+- name: move exa man pages to man1
+  copy:
+    remote_src: true
+    src: "{{ exa_tmp_dir.path }}/man/exa.1"
+    dest: /usr/share/man/man1
+  become: true
+
+- name: move exa_colors man pages to man5
+  copy:
+    remote_src: true
+    src: "{{ exa_tmp_dir.path }}/man/exa_colors.5"
+    dest: /usr/share/man/man5
+  become: true
+
+- name: remove temp dir
+  file:
+    path: "{{exa_tmp_dir}}"
+    state: absent

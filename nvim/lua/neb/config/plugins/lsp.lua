@@ -77,6 +77,7 @@ return {
 				nvim_lsp[server].setup(opts)
 			end
 
+            setup("ansiblels")
 			setup("hls")
 			setup("clangd", { handlers = lsp_status.extensions.clangd.setup() })
 			setup("pyright", { single_file_support = true })
