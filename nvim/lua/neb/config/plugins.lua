@@ -114,7 +114,8 @@ local plugins = {
 		"dag/vim-fish",
 		ft = { "fish" },
 	},
-	{ "simrat39/rust-tools.nvim" , ft = 'rust'},
+	-- { "simrat39/rust-tools.nvim" , ft = 'rust'},
+	{ "kdarkhan/rust-tools.nvim"},
 	-- {
 	--     "lervag/vimtex",
 	--     config = function()
@@ -131,15 +132,11 @@ local plugins = {
 	},
 
 	-- @folke appreciation corner
-	-- {
-	-- 	"folke/todo-comments.nvim",
-	-- 	dependencies = "nvim-lua/plenary.nvim",
-	-- 	config = function()
-	-- 		require("todo-comments").setup({
-	-- 			signs = false,
-	-- 		})
-	-- 	end,
-	-- },
+	{
+		"folke/todo-comments.nvim",
+		dependencies = "nvim-lua/plenary.nvim",
+		config = {signs = false},
+	},
 	{
 		"folke/tokyonight.nvim",
         lazy = false,
