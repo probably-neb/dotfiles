@@ -77,11 +77,11 @@ return {
 				nvim_lsp[server].setup(opts)
 			end
 
-            setup("ansiblels")
+			setup("ansiblels")
 			setup("hls")
 			setup("clangd", { handlers = lsp_status.extensions.clangd.setup() })
 			setup("pyright", { single_file_support = true })
-            setup("pylsp", {single_file_support = true})
+			setup("pylsp", { single_file_support = true })
 			setup("gopls", {
 				settings = {
 					gopls = {
@@ -105,6 +105,7 @@ return {
 						},
 						workspace = {
 							library = vim.api.nvim_get_runtime_file("", true),
+                            checkThirdParty = false,
 						},
 						telemetry = {
 							enable = false,
@@ -135,6 +136,8 @@ return {
 							rt.code_action_group.code_action_group,
 							{ buffer = bufnr }
 						)
+                        rt.inlay_hints.disable()
+
 					end,
 					flags = flags,
 					-- disable rust-analyzer in standalone rust files
