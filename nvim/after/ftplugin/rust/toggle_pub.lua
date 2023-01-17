@@ -27,4 +27,10 @@ end
 ---- Toggle selection (linewise)
 vim.keymap.set("x", "<leader>p", toggle_pub_v, { silent = false })
 vim.keymap.set("n", "<Leader>p", toggle_pub_n, { silent = false })
+require("which-key").register({
+    p = {toggle_pub_n, "Toggle Pub in normal mode"},
+}, {prefix="<leader>", mode ="n"})
+require("which-key").register({
+    p = {toggle_pub_v, "Toggle Pub in visual mode", {mode ="x"}},
+}, {prefix="<leader>", mode ="x"})
 -- vim.keymap.set("v", "<Leader>p", toggle_pub_v, { silent = false })
