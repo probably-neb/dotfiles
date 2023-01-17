@@ -17,6 +17,10 @@ my-programs:
   my-scripts: ~/dotfiles/scripts/
   binaries: ~/.local/bin
 
+yay/pacman:
+  - list files owned by package: yay -Fl <package>
+  - find owner of file: yay -Qo <package>
+
 huawei-wmi:
   is: controls battery charge thresholds on lappytop
   tags: battery
