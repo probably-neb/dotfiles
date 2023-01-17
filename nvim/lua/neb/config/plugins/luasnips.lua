@@ -10,6 +10,7 @@ local this_file_path = "~/.config/nvim/lua/neb/config/plugins/luasnips.lua"
 local Path = require("plenary.path")
 local template_path = snippets_dir .. '/.template.lua'
 
+
 -- config
 luasnip.config.set_config({
 	-- remember snippets for jumping back into them
@@ -65,6 +66,7 @@ vim.api.nvim_create_user_command("LuaSnipsNewFromPath", function()
 	end)
 end, { desc = "Create a new snippets based on the filepath" })
 
+-- TODO: save prev file when editing in global var and create command to return to that file
 -- create command to edit snippets
 vim.api.nvim_create_user_command("LuaSnipsEdit", function()
 	local ft = ft_func()[1]

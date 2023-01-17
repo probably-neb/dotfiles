@@ -57,10 +57,10 @@ return {
 						fallback()
 					end
 				end,
-				["<C-y>"] = if_cmp_visible_do(cmp.complete({
-					-- limit completion options to snippets
-					config = { sources = { { name = "luasnips" } } },
-				})),
+				-- ["<C-y>"] = if_cmp_visible_do(cmp.complete({
+				-- 	-- limit completion options to copilot
+				-- 	config = { sources = { { name = "copilot" } } },
+				-- })),
 				["<C-j>"] = function(fallback)
 					if cmp.visible() then
 						cmp.complete({
@@ -88,26 +88,30 @@ return {
 			},
 			-- double {{}} for group index sorting
 			sources = {
+				{ name = "copilot" },
 				{ name = "nvim_lsp_signature_help" },
 				{ name = "luasnip" },
 				{ name = "nvim_lua" },
 				{ name = "nvim_lsp" },
 				{ name = "buffer", keyword_length = 5 },
-				-- name = "copilot",
 				{ name = "path" },
 				{ name = "dictionary", keyword_length = 5 },
 				{ name = "fish" },
 			},
+
 			completion = {
 				keyword_length = 3,
 			},
+
 			experimental = {
 				native_menu = false,
 				ghost_text = true,
 			},
+
 			formatting = {
 				format = function(entry, vim_item)
 					vim_item.menu = ({
+						copilot = "[]",
 						buffer = "[buf]",
 						nvim_lsp = "[lsp]",
 						nvim_lua = "[lua]",
@@ -116,12 +120,13 @@ return {
 						dictionary = "[dict]",
 						nvim_lsp_signature_help = "[lsp sig]",
 						cmdline = "[cmd]",
-                        crates = "[crates]",
+						crates = "[crates]",
 					})[entry.source.name]
 					return vim_item
 				end,
 			},
 		})
+		cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
 
 		require("cmp_dictionary").setup({
 			dic = {
@@ -143,5 +148,9 @@ return {
 				{ name = "cmdline" },
 			},
 		})
+
+        -- this is a dirty way to make sure copilot_cmp is loaded after
+        -- see it's configuration to know why it is loaded after
+		-- require("copilot_cmp")
 	end,
 }

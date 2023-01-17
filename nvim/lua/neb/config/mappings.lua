@@ -16,13 +16,13 @@ vim.g.maplocalleader = neb.settings.leader
 -- quickly exit insert mode
 imap("<Up>", "<Esc>")
 
--- " spell correction
+-- spell correction
 imap("<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
 
 -- iset("<C-k>", "<C-x><C-k>")
 -- " newlines w/o insert mode
-nmap("<C-Enter>", "moO<Esc>`o")
-nmap("<Enter>", "moo<Esc>`o")
+-- nmap("<C-Enter>", "moO<Esc>`o")
+-- nmap("<Enter>", "moo<Esc>`o")
 
 -- " visual up down with wrapped lines
 nmap("j", "gj")
@@ -39,7 +39,7 @@ vmap("K", ":m '<-2<CR>gv=gv")
 -- credit @ThePrimeagen
 nmap("J", "mzJ`z")
 
--- don't automatically comment or anything on `o`
+-- hitting o while in commented line doesn't automatically insert comment
 nmap("o", "o<esc>S")
 
 -- keep cursor centered on scroll
@@ -57,6 +57,7 @@ nmap("N", "Nzzzv")
 xmap("<Leader>p", '"_dp')
 
 -- this is embarrassing :(
+-- and doesn't work?
 nmap("q:",":q")
 
 -- move left and right buffers with  h l

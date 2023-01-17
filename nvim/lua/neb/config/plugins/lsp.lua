@@ -15,7 +15,6 @@ return {
 			-- mason must be loaded so sources installed with it can be found
 			require("mason")
 			local nvim_lsp = require("lspconfig")
-			local dopts = { noremap = true, silent = true }
 			local format = require("neb.config.plugins.lsp.format")
 
 			-- initialize lsp_status
@@ -29,17 +28,9 @@ return {
 
 			-- after the language server attaches to the current buffer
 			local on_attach = function(client, bufnr)
-				-- local function buf_set_option(...)
-				-- 	vim.api.nvim_buf_set_option(bufnr, ...)
-				-- end
-
-				-- Enable completion triggered by <c-x><c-o>
-				-- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-
 				-- Mappings.
 
-				local opts = { noremap = true, silent = true, buffer = bufnr }
-				-- See `:help vim.lsp.*` for documentation on any of the below functions
+				local opts = { noremap = true, silent = false, buffer = bufnr }
 				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 				vim.keymap.set({ "v", "n" }, "<C-h>", vim.lsp.buf.hover, opts)
@@ -52,7 +43,7 @@ return {
 				end, opts)
 				vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
 				vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-				vim.keymap.set({ "n", "v" }, "<space>a", vim.lsp.buf.code_action, opts)
+				vim.keymap.set({ "n", "v", "i"}, "<C-g>", vim.lsp.buf.code_action, opts)
 				vim.keymap.set("n", "<C-b>", vim.lsp.buf.references, opts)
 				vim.keymap.set("n", "<space>=", function()
 					-- vim.lsp.buf.format {async = true}
@@ -60,7 +51,7 @@ return {
 				end, { noremap = true, buffer = bufnr })
 
 				vim.api.nvim_create_user_command("Format", function(_bs)
-					format.format()
+                    vim.lsp.buf.format { async = true}
 				end, {})
 
 				lsp_status.on_attach(client)
@@ -77,35 +68,41 @@ return {
 				nvim_lsp[server].setup(opts)
 			end
 
+            local ft = vim.bo.filetype
 			setup("ansiblels")
-			setup("hls")
+            if ft == "haskell" then
+                setup("hls")
+            end
 			setup("clangd", { handlers = lsp_status.extensions.clangd.setup() })
-			setup("pyright", { single_file_support = true })
+			-- setup("pyright", { single_file_support = true })
 			setup("pylsp", { single_file_support = true })
-			setup("gopls", {
-				settings = {
-					gopls = {
-						experimentalPostfixCompletions = true,
-						analyses = {
-							unusedparams = true,
-							shadow = true,
-						},
-						staticcheck = true,
-					},
-				},
-			})
+            if ft == "go" then
+                setup("gopls", {
+                    settings = {
+                        gopls = {
+                            experimentalPostfixCompletions = true,
+                            analyses = {
+                                unusedparams = true,
+                                shadow = true,
+                            },
+                            staticcheck = true,
+                        },
+                    },
+                })
+            end
 			setup("sumneko_lua", {
 				settings = {
 					Lua = {
 						runtime = {
 							version = "LuaJIT",
+                            path = vim.split(package.path, ";"),
 						},
 						diagnostics = {
 							globals = { "vim" },
 						},
 						workspace = {
 							library = vim.api.nvim_get_runtime_file("", true),
-                            checkThirdParty = false,
+							checkThirdParty = false,
 						},
 						telemetry = {
 							enable = false,
@@ -113,61 +110,12 @@ return {
 					},
 				},
 			})
-			-- setup null-ls
-			-- null-ls will handle whether it should attach based on it's registered sources
-			-- right?
+
+			-- null-ls will handle whether it should attach based on it's registered sources.. right?
 			-- this should (most importantly) set `on_attach` for null-ls sources
-			-- require("null-ls")
-			-- setup("null-ls")
 			require("neb.config.plugins.null_ls").setup(options)
 
-			local rt = require("rust-tools")
-			rt.setup({
-				server = {
-					capabilities = capabilities,
-					on_attach = function(client, bufnr)
-						on_attach(client, bufnr)
-						-- rebind lsp.hover() to rust-tools Hover actions
-						vim.keymap.set({ "v", "n" }, "<C-h>", rt.hover_actions.hover_actions, { buffer = bufnr })
-						-- rebind lsp.code_actions() to rust-tools Code action groups
-						vim.keymap.set(
-							{ "v", "n" },
-							"<Leader>a",
-							rt.code_action_group.code_action_group,
-							{ buffer = bufnr }
-						)
-                        rt.inlay_hints.disable()
-
-					end,
-					flags = flags,
-					-- disable rust-analyzer in standalone rust files
-					standalone = false,
-					settings = {
-						["rust-analyzer"] = {
-							checkOnSave = {
-								allFeatures = true,
-								overrideCommand = {
-									"cargo",
-									"clippy",
-									"--workspace",
-									"--message-format=json",
-									"--all-targets",
-									"--all-features",
-									"--",
-									"-A",
-									"clippy::needless_return",
-								},
-							},
-							completion = {
-								-- enable completion of private items from the current workspace
-								privateEditable = {
-									enable = true,
-								},
-							},
-						},
-					},
-				},
-			})
+            require("neb.config.plugins.rust-tools").setup(options)
 
 			vim.diagnostic.config({
 				virtual_text = true,

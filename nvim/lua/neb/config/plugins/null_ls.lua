@@ -10,7 +10,9 @@ function M.setup(opts)
             debounce = 150,
             save_after_format = false,
             sources = {
-                null_ls.builtins.formatting.prettierd,
+                null_ls.builtins.formatting.prettierd.with({
+                    extra_filetypes = {"toml"}
+            }),
                 null_ls.builtins.formatting.stylua,
                 null_ls.builtins.formatting.fish_indent,
                 -- null_ls.builtins.formatting.fixjson.with({ filetypes = { "jsonc" } }),

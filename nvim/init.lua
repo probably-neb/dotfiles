@@ -15,6 +15,3 @@ require('neb.config.commands')
 -- vim.cmd [[ colorscheme tokyonight ]]
 
 -- autocmd Bufread,BufNewFile *.h set filetype=c 
--- TODO: intro screen not showing. Shows with `nvim --noplugin`
--- bandaid solution:
--- vim.cmd [[ exec ":intro" ]]

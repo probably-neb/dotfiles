@@ -1,11 +1,10 @@
 local plugins = {
-
 	-- { "mfussenegger/nvim-dap" },
 
 	-- tools
 	{
 		"chipsenkbeil/distant.nvim",
-        cmd = "Distant",
+		cmd = "Distant",
 		config = function()
 			require("distant").setup({
 				-- Applies Chip's personal settings to every machine you connect to
@@ -20,13 +19,13 @@ local plugins = {
 			})
 		end,
 	},
-	{ "mbbill/undotree", cmd="UndotreeToggle"},
+	{ "mbbill/undotree", cmd = "UndotreeToggle" },
 
 	-- utilities
 	{
 		"windwp/nvim-autopairs",
-        -- enabled = false,
-        event = "BufReadPost",
+		-- enabled = false,
+		event = "BufReadPost",
 		config = function()
 			local autopairs = require("nvim-autopairs")
 			autopairs.setup()
@@ -34,8 +33,8 @@ local plugins = {
 	},
 	{
 		"kylechui/nvim-surround",
-        -- enabled = false,
-        event="BufReadPost",
+		-- enabled = false,
+		event = "BufReadPost",
 		config = function()
 			require("nvim-surround").setup()
 		end,
@@ -43,14 +42,14 @@ local plugins = {
 	{
 		-- god this plugin is fucking amazing
 		"wellle/targets.vim",
-        -- BufReadPost so that it is not loaded before Dashboard
-        -- because it redraws the screen
-        event="BufReadPost",
+		-- BufReadPost so that it is not loaded before Dashboard
+		-- because it redraws the screen
+		event = "BufReadPost",
 	},
 	{
 		"numToStr/Comment.nvim",
-        -- TODO: move binds to `keys` load event
-        event="BufReadPost",
+		-- TODO: move binds to `keys` load event
+		event = "BufReadPost",
 		config = function()
 			require("Comment").setup()
 			local api = require("Comment.api")
@@ -75,10 +74,10 @@ local plugins = {
 	-- asthetics
 	-- {
 	-- 	"nvim-lualine/lualine.nvim",
- --        config = true,
- --        -- BufReadPost so that it is not loaded before Dashboard
- --        -- because it redraws the screen
- --        event="BufReadPost",
+	--        config = true,
+	--        -- BufReadPost so that it is not loaded before Dashboard
+	--        -- because it redraws the screen
+	--        event="BufReadPost",
 	-- 	dependencies = { "kyazdani42/nvim-web-devicons" },
 	-- },
 	{
@@ -89,13 +88,13 @@ local plugins = {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-        event = "BufReadPost",
-        -- enabled = false,
+		event = "BufReadPost",
+		-- enabled = false,
 		config = function()
 			vim.opt.list = true
 			-- vim.opt.listchars:append "space:⋅"
 			require("indent_blankline").setup({
-                -- char = "▏",
+				-- char = "▏",
 				space_char_blankline = " ",
 				show_trailing_blankline_indent = false,
 			})
@@ -114,8 +113,6 @@ local plugins = {
 		"dag/vim-fish",
 		ft = { "fish" },
 	},
-	-- { "simrat39/rust-tools.nvim" , ft = 'rust'},
-	{ "kdarkhan/rust-tools.nvim"},
 	-- {
 	--     "lervag/vimtex",
 	--     config = function()
@@ -134,31 +131,42 @@ local plugins = {
 	-- @folke appreciation corner
 	{
 		"folke/todo-comments.nvim",
+		cmd = { "TodoTelescope", "TodoLocList", "TodoQuickFix", "TodoTrouble" },
 		dependencies = "nvim-lua/plenary.nvim",
-		config = {signs = false},
+		config = true,
+		opts = { signs = false },
 	},
 	{
 		"folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            vim.cmd [[ colorscheme tokyonight]]
-        end
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd([[ colorscheme tokyonight]])
+		end,
 	},
 	{
 		"folke/neodev.nvim",
-        ft = 'lua'
+		ft = "lua",
+	},
+	{
+		"folke/which-key.nvim",
+        event = "InsertEnter",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+			require("which-key").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
 	},
 
 	-- @ThePrimeagen appreciation corner
-
 	{
 		"ThePrimeagen/vim-be-good",
 		cmd = "VimBeGood",
 	},
-	-- {
-	-- 	"ThePrimeagen/harpoon",
-	-- },
 }
 
 return plugins

@@ -12,7 +12,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.spelllang = "en_us"
 -- vim.opt.shada = true
 vim.opt.wrap = true
-vim.opt.updatetime = 50
+vim.opt.updatetime = 1000
 vim.opt.conceallevel = 3
 vim.opt.completeopt = "menu,menuone,noselect"
 -- set t_Co=256
@@ -49,7 +49,7 @@ vim.opt.tabstop = neb.settings.indent
 vim.opt.softtabstop = neb.settings.indent
 vim.opt.shiftwidth = neb.settings.indent
 vim.opt.expandtab = true
-vim.opt.shiftround = true
+-- vim.opt.shiftround = true
 
 -- case
 vim.opt.ignorecase = true
