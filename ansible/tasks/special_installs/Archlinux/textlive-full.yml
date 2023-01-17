@@ -1,0 +1,37 @@
+# https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=texlive-full
+- name: make temp dir
+  tempfile:
+    suffix: texlive-full
+  register: tmpdir
+
+- name: Get Package Build
+  git:
+    repo: 'https://aur.archlinux.org/texlive-full.git'
+    clone: no
+    dest: "{{ tmpdir.path }}"
+
+- name: set mirror to salt lake city if timezone is pst
+  set_fact:
+    mirror: 'tug.ctan.org/CTAN/systems/texlive/tlnet/'
+  when: ansible_facts.date_time.tz == "PST"
+
+- name: set mirror to uchicago if timezone is pst
+  set_fact:
+    # WARN: this link is techincally http it has to work with rsync though
+    mirror: 'bay.uchicago.edu/CTAN/systems/texlive/tlnet/'
+  when: ansible_facts.date_time.tz == "CST"
+
+- name: replace texlive-full mirror dest
+  lineinfile:
+    path: "{{tmpdir.path}}/textlive-full/PKGBUILD"
+    search_string: _mirror=
+    line: "_mirror='{{mirror}}'"
+  when: mirror is defined
+
+- name: run mkpkg on texlive-full PKGBUILD
+  shell:
+    chdir: "{{tempdir.path}}"
+    cmd: <
+      makepkg
+      --syncdeps
+      --install
