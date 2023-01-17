@@ -1,25 +1,25 @@
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
-# Scheme name: rusty
-# Scheme author: Ben Kunkle
+# Scheme name: Nord
+# Scheme author: arcticicestudio
 # Template author: theova
 # Commentary: Tinted Theming: (https://github.com/tinted-theming)
 
-base00 = "#27221f"
-base01 = "#392f29"
-base02 = "#3b3632"
-base03 = "#726853"
-base04 = "#bd8965"
-base05 = "#c89876"
-base06 = "#c26d30"
-base07 = "#726853"
-base08 = "#d4644c"
-base09 = "#a2c2b6"
-base0A = "#74a390"
-base0B = "#ffc45d"
-base0C = "#d4644c"
-base0D = "#95a6b8"
-base0E = "#e76f1a"
-base0F = "#fee1af"
+base00 = "#2E3440"
+base01 = "#3B4252"
+base02 = "#434C5E"
+base03 = "#4C566A"
+base04 = "#D8DEE9"
+base05 = "#E5E9F0"
+base06 = "#ECEFF4"
+base07 = "#8FBCBB"
+base08 = "#BF616A"
+base09 = "#D08770"
+base0A = "#EBCB8B"
+base0B = "#A3BE8C"
+base0C = "#88C0D0"
+base0D = "#81A1C1"
+base0E = "#B48EAD"
+base0F = "#5E81AC"
 
 # set qutebrowser colors
 

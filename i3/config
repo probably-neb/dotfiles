@@ -487,27 +487,27 @@ for_window [class="urxvt"] border pixel 1
 ######################################
 # BASE16 COLORS
 # <<<<<<<<<<
-## Base16 rusty
-# Author: Ben Kunkle
+## Base16 Nord
+# Author: arcticicestudio
 #
 # You can use these variables anywhere in the i3 configuration file.
 
-set $base00 #27221f
-set $base01 #392f29
-set $base02 #3b3632
-set $base03 #726853
-set $base04 #bd8965
-set $base05 #c89876
-set $base06 #c26d30
-set $base07 #726853
-set $base08 #d4644c
-set $base09 #a2c2b6
-set $base0A #74a390
-set $base0B #ffc45d
-set $base0C #d4644c
-set $base0D #95a6b8
-set $base0E #e76f1a
-set $base0F #fee1af
+set $base00 #2E3440
+set $base01 #3B4252
+set $base02 #434C5E
+set $base03 #4C566A
+set $base04 #D8DEE9
+set $base05 #E5E9F0
+set $base06 #ECEFF4
+set $base07 #8FBCBB
+set $base08 #BF616A
+set $base09 #D08770
+set $base0A #EBCB8B
+set $base0B #A3BE8C
+set $base0C #88C0D0
+set $base0D #81A1C1
+set $base0E #B48EAD
+set $base0F #5E81AC
 
 # Basic bar configuration using the Base16 variables.
 bar {

@@ -3,24 +3,24 @@
 -- based on
 -- base16-vim (https://github.com/chriskempson/base16-vim)
 -- by Chris Kempson (https://github.com/chriskempson)
--- rusty scheme by Ben Kunkle
+-- Nord scheme by arcticicestudio
 
-local base00 = "#27221f"
-local base01 = "#392f29"
-local base02 = "#3b3632"
-local base03 = "#726853"
-local base04 = "#bd8965"
-local base05 = "#c89876"
-local base06 = "#c26d30"
-local base07 = "#726853"
-local base08 = "#d4644c"
-local base09 = "#a2c2b6"
-local base0A = "#74a390"
-local base0B = "#ffc45d"
-local base0C = "#d4644c"
-local base0D = "#95a6b8"
-local base0E = "#e76f1a"
-local base0F = "#fee1af"
+local base00 = "#2E3440"
+local base01 = "#3B4252"
+local base02 = "#434C5E"
+local base03 = "#4C566A"
+local base04 = "#D8DEE9"
+local base05 = "#E5E9F0"
+local base06 = "#ECEFF4"
+local base07 = "#8FBCBB"
+local base08 = "#BF616A"
+local base09 = "#D08770"
+local base0A = "#EBCB8B"
+local base0B = "#A3BE8C"
+local base0C = "#88C0D0"
+local base0D = "#81A1C1"
+local base0E = "#B48EAD"
+local base0F = "#5E81AC"
 
 vim.g.colors = {
    base00 = base00,
@@ -62,7 +62,7 @@ vim.cmd [[
   highlight clear
   syntax reset
 ]]
-vim.g.colors_name = "base16-october"
+vim.g.colors_name = "base16-nord"
 
 -- Vim editor colors                    fg bg ctermfg ctermbg attr basesp
 vim.api.nvim_set_hl(0, 'Normal', { fg = base05, bg = base00, ctermfg = cterm05, ctermbg = cterm00 })
