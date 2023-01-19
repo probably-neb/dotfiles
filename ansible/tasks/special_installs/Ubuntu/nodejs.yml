@@ -1,0 +1,10 @@
+# TODO: make task in parent dir that includes these if nodejs out of date
+# or from apt repositories (and removes old nodej(u)s(t) in case)
+- name: set node version to 19
+  set_fact:
+    nodejs_version: 19
+
+- name: run setup curl and bash script
+  # TODO: use ansible native commands for each piped part
+  shell: "curl -fsSL https://deb.nodesource.com/setup_{{nodejs_version}}.x | sudo -E bash - && sudo apt-get install -y nodejs"
+  become: true

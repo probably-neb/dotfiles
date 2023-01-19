@@ -1,4 +1,3 @@
-# vim: ft=yaml.ansible
 - name: Baby's First PlayBook
   hosts: localhost
   # pre_tasks:
@@ -7,3 +6,9 @@
   #       var: ansible_facts
   tasks:
     - include_tasks: tasks/packages.yml
+   # TODO: fish shell install
+   # TODO: neovim setup
+   # TODO: browser setup
+   # TODO: kitty setup
+   # TODO: git setup + gen ssh keys w/ gh cli
+   # TODO: dotfiles/myconfig

@@ -1,6 +1,19 @@
-# vim: ft=yaml.ansible
+- name: packages I always want
+  package:
+    pkg:
+      - git
+      - curl
+      - htop
+      - wget
+      - ssh
+      - ripgrep
+      - neofetch
+
 - name: Install Neovim
   include_tasks: special_installs/install_neovim.yml
 
 - name: Install exa
   include_tasks: special_installs/install_exa.yml
+
+- name: install nodejs
+  include_tasks: "special_installs/{{ ansible_facts['distribution'] }}/nodejs.yml"
