@@ -254,5 +254,4 @@ for _, char in ipairs({ "+", "-", "or" }) do
 		})
 	end))
 end
-
 return snippets
