@@ -70,6 +70,7 @@ alias lolwave="sparkwave | lolcat -F '0.198' -p 3"
 # Changing "ls" to "exa"
 if type -q "exa"
     alias ls='exa -a --color=always --group-directories-first --no-user' # my preferred listing
+    alias lsn='exa -a --color=never --group-directories-first --no-user' # my preferred listing with no color
     alias ld='exa -aD --color=always --group-directories-first --no-user'  # only directories
     alias ll='exa -al --color=always --group-directories-first --no-user'  # long format
     alias lt='exa -aTL 3 --color=always --group-directories-first --no-user' # tree listing
