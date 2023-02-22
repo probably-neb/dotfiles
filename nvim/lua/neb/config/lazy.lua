@@ -12,6 +12,10 @@ require('lazy').setup('neb.config.plugins', {
     install = {colorscheme = {"tokyonight"}},
     defaults = {
         lazy = true,
+    },
+    dev = {
+        path = "~/code/exploring/",
+        fallback = true,
     }
 })
 

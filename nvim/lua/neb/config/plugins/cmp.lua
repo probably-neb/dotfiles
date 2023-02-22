@@ -10,6 +10,7 @@ return {
 		"hrsh7th/cmp-nvim-lua",
 		"saadparwaiz1/cmp_luasnip",
 		"uga-rosa/cmp-dictionary",
+		"zbirenbaum/copilot-cmp",
 		-- { "mtoohey31/cmp-fish", ft = "fish" },
 	},
 	config = function()
@@ -89,6 +90,7 @@ return {
 			-- double {{}} for group index sorting
 			sources = {
 				{ name = "copilot" },
+				{ name = "otter" }, -- quarto
 				{ name = "nvim_lsp_signature_help" },
 				{ name = "luasnip" },
 				{ name = "nvim_lua" },
@@ -149,8 +151,10 @@ return {
 			},
 		})
 
-        -- this is a dirty way to make sure copilot_cmp is loaded after
-        -- see it's configuration to know why it is loaded after
+		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+		-- this is a dirty way to make sure copilot_cmp is loaded after
+		-- see it's configuration to know why it is loaded after
 		-- require("copilot_cmp")
 	end,
 }

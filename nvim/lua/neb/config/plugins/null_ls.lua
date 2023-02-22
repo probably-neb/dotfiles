@@ -28,7 +28,7 @@ function M.setup(opts)
                 -- }),
                 -- null_ls.builtins.code_actions.gitsigns,
                 -- null_ls.builtins.formatting.isort,
-                -- null_ls.builtins.formatting.black,
+                null_ls.builtins.formatting.black,
                 -- null_ls.builtins.diagnostics.flake8,
             },
             on_attach = opts.on_attach

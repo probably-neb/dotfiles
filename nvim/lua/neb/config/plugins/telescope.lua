@@ -52,7 +52,7 @@ return {
 			end
 			require("which-key").register({
 				name = "Telescope",
-				f = { builtin("find_files"), "find_files" },
+				e = { builtin("find_files"), "find_files" },
 				s = { builtin("lsp_workspace_symbols"), "lsp_workspace_symbols" },
 				g = { builtin("live_grep"), "live_grep" },
 				b = { builtin("buffers"), "buffers" },
@@ -93,7 +93,7 @@ return {
 				},
 			})
 			require("telescope").load_extension("file_browser")
-			vim.keymap.set("n", telescope_leader .. "e", require("telescope").extensions.file_browser.file_browser)
+			vim.keymap.set("n", telescope_leader .. "b", require("telescope").extensions.file_browser.file_browser)
 		end,
 	},
 }

@@ -43,7 +43,7 @@ return {
 				end, opts)
 				vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
 				vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-				vim.keymap.set({ "n", "v", "i"}, "<C-g>", vim.lsp.buf.code_action, opts)
+				vim.keymap.set({ "n", "v", "i" }, "<C-g>", vim.lsp.buf.code_action, opts)
 				vim.keymap.set("n", "<C-b>", vim.lsp.buf.references, opts)
 				vim.keymap.set("n", "<space>=", function()
 					-- vim.lsp.buf.format {async = true}
@@ -51,7 +51,7 @@ return {
 				end, { noremap = true, buffer = bufnr })
 
 				vim.api.nvim_create_user_command("Format", function(_bs)
-                    vim.lsp.buf.format { async = true}
+					vim.lsp.buf.format({ async = true })
 				end, {})
 
 				lsp_status.on_attach(client)
@@ -63,62 +63,70 @@ return {
 			local flags = { debounce_text_changes = 50 }
 
 			local options = { on_attach = on_attach, capabilities = capabilities, flags = flags }
+
 			local function setup(server, opts)
 				opts = vim.tbl_deep_extend("force", {}, options, opts or {})
 				nvim_lsp[server].setup(opts)
 			end
 
-            local ft = vim.bo.filetype
-			setup("ansiblels")
-            if ft == "haskell" then
-                setup("hls")
+            local function setup_fn(server, opts)
+                return function() setup(server,opts) end
             end
-			setup("clangd", { handlers = lsp_status.extensions.clangd.setup() })
-			-- setup("pyright", { single_file_support = true })
-			setup("pylsp", { single_file_support = true })
-            if ft == "go" then
-                setup("gopls", {
-                    settings = {
-                        gopls = {
-                            experimentalPostfixCompletions = true,
-                            analyses = {
-                                unusedparams = true,
-                                shadow = true,
-                            },
-                            staticcheck = true,
-                        },
-                    },
-                })
-            end
-			setup("sumneko_lua", {
-				settings = {
-					Lua = {
-						runtime = {
-							version = "LuaJIT",
-                            path = vim.split(package.path, ";"),
-						},
-						diagnostics = {
-							globals = { "vim" },
-						},
-						workspace = {
-							library = vim.api.nvim_get_runtime_file("", true),
-							checkThirdParty = false,
-						},
-						telemetry = {
-							enable = false,
+
+			local ft = vim.bo.filetype
+
+            -- TODO: make another function that sets
+            -- up this table for me given server names and 
+            -- opts then passes it to mason-lspconfig
+			require("mason-lspconfig").setup_handlers({
+				-- the default handler
+				setup,
+				["clangd"] = setup_fn("clangd", { handlers = lsp_status.extensions.clangd.setup() }),
+				["pylsp"] = setup_fn("pylsp", { single_file_support = true }),
+                ["pyright"] = function()  end, -- disable pyright
+				["gopls"] = setup_fn("gopls", {
+					settings = {
+						gopls = {
+							experimentalPostfixCompletions = true,
+							analyses = {
+								unusedparams = true,
+								shadow = true,
+							},
+							staticcheck = true,
 						},
 					},
-				},
+				}),
+				["sumneko_lua"] = setup("sumneko_lua", {
+					settings = {
+						Lua = {
+							runtime = {
+								version = "LuaJIT",
+								path = vim.split(package.path, ";"),
+							},
+							diagnostics = {
+								globals = { "vim" },
+							},
+							workspace = {
+								library = vim.api.nvim_get_runtime_file("", true),
+								checkThirdParty = false,
+							},
+							telemetry = {
+								enable = false,
+							},
+						},
+					},
+				}),
 			})
-
+			-- setup("pyright", { single_file_support = true })
 			-- null-ls will handle whether it should attach based on it's registered sources.. right?
 			-- this should (most importantly) set `on_attach` for null-ls sources
 			require("neb.config.plugins.null_ls").setup(options)
 
-            require("neb.config.plugins.rust-tools").setup(options)
+			require("neb.config.plugins.rust-tools").setup(options)
 
 			vim.diagnostic.config({
 				virtual_text = true,
+                underline = false,
 				signs = true,
 				update_in_insert = false,
 				severity_sort = true,

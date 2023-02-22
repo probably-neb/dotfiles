@@ -30,7 +30,8 @@ return {
 	},
 	{
 		"windwp/nvim-ts-autotag",
-		ft = { "html", "xml", "javascript", "typescript", "php", "markdown" },
+        -- local filetypes
+        ft = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript', 'xml', 'php', 'markdown', 'glimmer','handlebars','hbs' },
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				autotag = {
@@ -89,7 +90,11 @@ return {
 					-- "gitignore",
 					"c",
 					"css",
+                    "scss",
 					"cpp",
+                    "javascript",
+                    "typescript",
+                    "svelte",
 				},
 				refactor = {
 					highlight_definitions = {

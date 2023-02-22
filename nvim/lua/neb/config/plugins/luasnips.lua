@@ -2,16 +2,22 @@ return {
 	"L3MON4D3/LuaSnip",
 	version = "v1.*",
 	event = "InsertEnter",
+	cmd = {
+		"LuaSnipsEdit",
+		"LuaSnipsReload",
+		"LuaSnipsNewFromPath",
+		"LuaSnipsListAvailable",
+	},
 	config = function()
 		local luasnip = require("luasnip")
 
 		local snip_leader = "<leader><leader>"
 		local ft_func = require("luasnip.extras.filetype_functions").from_filetype
-		local snippets_dir = "~/.config/nvim/luasnippets"
-		local this_file_path = "~/.config/nvim/lua/neb/config/plugins/luasnips.lua"
+        local HOME = vim.loop.os_homedir()
+		local snippets_dir = HOME .. "/.config/nvim/luasnippets"
+		local this_file_path = HOME .. "/.config/nvim/lua/neb/config/plugins/luasnips.lua"
 		local Path = require("plenary.path")
-		local template_path = snippets_dir .. "/.template.lua"
-
+		local template_path = Path:new(snippets_dir .. "/.template.lua")
 		-- TODO: make an autocmd that copies templates
 		-- into buffer when new file opened in snippets dir
 
@@ -36,11 +42,11 @@ return {
 
 		local edit_snippet_file = function(path)
 			local p = Path:new(path)
-			if not p:is_file() then
-				local template = Path:new(template_path)
-				template:copy({ destination = p, override = false })
+			if not p:exists() then
+				local ok = template_path:copy({ destination = p, override = false })
+				print("copying template to " .. path)
 			end
-			vim.cmd("edit " .. path)
+			-- vim.cmd("edit " .. path)
 		end
 
 		local split_current_file_path = function()
@@ -127,5 +133,31 @@ return {
 
 		-- load all lua snippets
 		require("luasnip.loaders.from_lua").load({ paths = snippets_dir })
+	end,
+	enable_autosnippets = function()
+		-- taken from config.lua in luasnips source
+		-- autocmd InsertCharPre * lua Luasnip_just_inserted = true
+		-- autocmd TextChangedI,TextChangedP * lua if Luasnip_just_inserted then require("luasnip").expand_auto() Luasnip_just_inserted=nil end
+		local luasnip = require("luasnip")
+		local session = require("luasnip.session")
+		session.config.enable_autosnippets = true
+
+		vim.api.nvim_create_autocmd({ "InsertCharPre" }, {
+			group = "luasnip",
+			pattern = "*",
+			callback = function()
+				session.just_inserted = true
+			end,
+		})
+		vim.api.nvim_create_autocmd({ "TextChangedI", "TextChangedP" }, {
+			group = "luasnip",
+			pattern = "*",
+			callback = function()
+				if session.just_inserted then
+					luasnip.expand_auto()
+					session.just_inserted = false
+				end
+			end,
+		})
 	end,
 }

@@ -1,21 +1,20 @@
 -- TODO: swap this and re-goto? (f) (',' <-> ';')
 return {
 	"ThePrimeagen/harpoon",
-	event = "BufReadPost",
+	event = "BufRead",
 	config = function()
 		local pre = ","
 
-		-- local map = function(bind, cmd, sub)
-		-- 	if not sub then
-		-- 		sub = "ui"
-		-- 	end
-		-- 	vim.api.nvim_set_keymap(
-		-- 		"n",
-		-- 		pre .. bind,
-		-- 		"<Cmd>lua require('harpoon." .. sub .. "')." .. cmd .. "<CR>",
-		-- 		{ noremap = true, silent = false }
-		-- 	)
-		-- end
+        -- IDEA: use autocmd to mark files as they are opened
+        -- already marked files __shouldn't__ change position
+        -- what is the space complexity of this algorithm?
+        local autopoon = vim.api.nvim_create_augroup('poon',{clear=true})
+        vim.api.nvim_create_autocmd({'BufReadPost'},{
+            pattern = "*",
+            group = autopoon,
+            callback = function() require('harpoon.mark').add_file() end
+        })
+
 
 		local poon = function(cmd, sub)
             sub = sub or "ui"

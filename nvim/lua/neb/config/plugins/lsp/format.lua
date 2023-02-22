@@ -35,11 +35,15 @@ M.format = function(bufnr)
 			print("formatting using:", other_clients_list)
 		end
 	end
-	print(vim.lsp.buf.format({
-		filter = filter,
-		async = true,
-		bufnr = bufnr,
-	}))
+    if null_ls_available or other_clients_found then
+        print(vim.lsp.buf.format({
+            filter = filter,
+            async = true,
+            bufnr = bufnr,
+        }))
+    else
+        print("no formatting providers found")
+    end
 end
 
 return M
