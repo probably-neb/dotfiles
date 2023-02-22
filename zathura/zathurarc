@@ -1,13 +1,16 @@
-set recolor "true"
+/* normal is 40 */
+set scroll-step 280
 
-set highlight-color "#E1E3E4"
-set highlight-active-color "#E1E3E4"
-set highlight-fg "#181a1c"
-set recolor-darkcolor "#E1E3E4"
-set recolor-lightcolor "#2b2d3a"
-set default-bg "#2b2d3a"
-set default-fg "#2b2d3a "
+/* set recolor "true" */
 
+/* set highlight-color "#E1E3E4" */
+/* set highlight-active-color "#E1E3E4" */
+/* set highlight-fg "#181a1c" */
+/* set recolor-darkcolor "#E1E3E4" */
+/* set recolor-lightcolor "#2b2d3a" */
+/* set default-bg "#2b2d3a" */
+/* set default-fg "#2b2d3a " */
+/**/
   /* primary: */
   /*   background: 2b2d3a */
   /*   foreground: e1e3e4 */
