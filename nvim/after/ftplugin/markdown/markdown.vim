@@ -1,5 +1,5 @@
 set spell spelllang=en_us
-set conceallevel=1
+set conceallevel=0
 
 function! SwapCheckBox()
    let line = line('.')
