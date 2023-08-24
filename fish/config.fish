@@ -1,8 +1,6 @@
 set -U fish_greeting (fortune)
 # set fish_greeting (checkupdates || true && yay -Qua)
 
-set TERM "xterm-256color"
-
 #keybindings
 set -g fish_key_bindings fish_vi_key_bindings
 
@@ -18,7 +16,7 @@ set -Ux bear 'ʕ·ᴥ·ʔ'
 set -gx charge_control_thresholds '/sys/devices/platform/huawei-wmi/charge_control_thresholds'
 
 #preferences
-set -Ux BROWSER brave
+set -gx BROWSER firefox
 set -gx EDITOR nvim
 
 abbr --add wp 'cd ~/Pictures/wallpapers/'
@@ -29,6 +27,7 @@ abbr --add mvdo 'mv ~/Documents/'
 abbr --add v 'nvim'
 abbr --add cerrcodes 'sqlite3 ~/Documents/csc/errcodes.sqlite'
 abbr --add scpvim 'nvim scp://$unix1/'
+abbr --add scripts '~/dotfiles/scripts/'
 
 alias lg='lazygit'
 alias t='kitty @ launch --cwd=current --type=tab'
@@ -44,6 +43,8 @@ alias rigpgrep='rg'
 alias clone='clone-in-kitty'
 
 alias hx='helix'
+
+zoxide init fish | source
 
 
 # function spaces_to_underlines 
@@ -83,6 +84,12 @@ function trash
   mv $argv /tmp/trash/
 end
 
+# make executable file
+function mkx
+    touch $argv
+    chmod +x $argv
+    echo $argv
+end
 
 # Functions needed for !! and !$
 function __history_previous_command
