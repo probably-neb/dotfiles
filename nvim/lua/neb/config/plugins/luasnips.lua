@@ -120,10 +120,14 @@ return {
 		-- and keybind
 		vim.keymap.set("n", snip_leader .. "e", "<cmd>LuaSnipsEdit<cr>", { silent = false })
 
+        local load_snippets = function()
+            require("luasnip.loaders.from_lua").load({ paths = snippets_dir })
+        end
 		local reload_snippets = function()
-			local current_file_path = this_file_path
-			print("reloading luasnips config at:", current_file_path)
-			vim.fn.execute("source " .. current_file_path)
+			-- local current_file_path = this_file_path
+			-- print("reloading luasnips config at:", current_file_path)
+			-- vim.fn.execute("source " .. current_file_path)
+            load_snippets()
 		end
 
 		-- create command to reload snippets
@@ -132,7 +136,7 @@ return {
 		vim.api.nvim_create_user_command("LuaSnipsReload", reload_snippets, { desc = "reload luasnips snippets" })
 
 		-- load all lua snippets
-		require("luasnip.loaders.from_lua").load({ paths = snippets_dir })
+        load_snippets()
 	end,
 	enable_autosnippets = function()
 		-- taken from config.lua in luasnips source

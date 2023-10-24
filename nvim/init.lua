@@ -13,6 +13,6 @@ require('neb.config.lazy')
 require('neb.config.commands')
 
 -- vim.cmd [[ colorscheme tokyonight ]]
-vim.cmd [[ colorscheme base16 ]]
+vim.cmd [[ colorscheme gruvbox ]]
 
 -- autocmd Bufread,BufNewFile *.h set filetype=c 

@@ -30,8 +30,25 @@ return {
 	},
 	{
 		"windwp/nvim-ts-autotag",
-        -- local filetypes
-        ft = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript', 'xml', 'php', 'markdown', 'glimmer','handlebars','hbs' },
+		-- local filetypes
+		ft = {
+			"html",
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+			"svelte",
+			"vue",
+			"tsx",
+			"jsx",
+			"rescript",
+			"xml",
+			"php",
+			"markdown",
+			"glimmer",
+			"handlebars",
+			"hbs",
+		},
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				autotag = {
@@ -44,13 +61,13 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		dependencies = {
-			-- "nvim-treesitter/nvim-treesitter-context",
-			"nvim-treesitter/nvim-treesitter-refactor",
+            {dir="~/code/tree-sitter-templ", ft = "templ", dev = true},
+			"nvim-treesitter-textobjects",
+			"IndianBoy42/tree-sitter-just",
 		},
 		event = "BufReadPost",
 		config = function()
 			local treesitter_configs = require("nvim-treesitter.configs")
-			require("nvim-treesitter-textobjects")
 
 			treesitter_configs.setup({
 				highlight = {
@@ -61,6 +78,7 @@ return {
 				},
 				indent = {
 					enable = true,
+					disable = { "python" },
 				},
 				context_commentstring = { enable = true, enable_autocmd = false },
 				ensure_installed = {
@@ -90,38 +108,12 @@ return {
 					-- "gitignore",
 					"c",
 					"css",
-                    "scss",
+					"scss",
 					"cpp",
-                    "javascript",
-                    "typescript",
-                    "svelte",
+					"javascript",
+					"typescript",
+					"svelte",
 				},
-				refactor = {
-					highlight_definitions = {
-						enable = true,
-						clear_on_cursor_move = false,
-					},
-					highlight_current_scope = {
-						enable = false,
-					},
-				},
-			})
-		end,
-	},
-	{
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		-- TODO: class that generates these bindings or just stores them and can return the
-		-- keys for setting lazy load keys
-		config = function()
-			local treesitter_configs = require("nvim-treesitter.configs")
-
-			vim.keymap.set("n", "]f", "<nop>")
-			vim.keymap.set("n", "[f", "<nop>")
-
-			vim.keymap.set("x", "ib", "<nop>")
-			vim.keymap.set("x", "ab", "<nop>")
-
-			treesitter_configs.setup({
 				textobjects = {
 					select = {
 						enable = true,
@@ -138,10 +130,10 @@ return {
 					swap = {
 						enable = true,
 						swap_next = {
-							["<leader>sk"] = "@parameter.inner",
+							["<leader>sn"] = "@parameter.inner",
 						},
 						swap_previous = {
-							["<leader>sj"] = "@parameter.inner",
+							["<leader>sp"] = "@parameter.inner",
 						},
 					},
 					-- TODO: block goto's
@@ -167,5 +159,20 @@ return {
 				},
 			})
 		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		config = function()
+			vim.keymap.set("n", "]f", "<nop>")
+			vim.keymap.set("n", "[f", "<nop>")
+
+			vim.keymap.set("x", "ib", "<nop>")
+			vim.keymap.set("x", "ab", "<nop>")
+		end,
+	},
+	{
+		"IndianBoy42/tree-sitter-just",
+		build = ":TSUpdate",
+		config = true,
 	},
 }

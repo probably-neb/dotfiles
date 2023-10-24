@@ -23,18 +23,10 @@ return {
 					["rust-analyzer"] = {
 						checkOnSave = {
 							allFeatures = true,
-							overrideCommand = {
-								"cargo",
-								"clippy",
-								"--workspace",
-								"--message-format=json",
-								"--all-targets",
-								"--all-features",
-								"--",
-								"-A",
-								"clippy::needless_return",
-							},
 						},
+                        cargo = {
+                            autoreload = true,
+                        },
 						completion = {
 							-- enable completion of private items from the current workspace
 							privateEditable = {

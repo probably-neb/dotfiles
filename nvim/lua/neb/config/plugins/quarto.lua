@@ -19,5 +19,6 @@ return {
 				},
 			},
 		})
+        require("luasnip").filetype_extend("markdown", {"qmd"})
 	end,
 }
