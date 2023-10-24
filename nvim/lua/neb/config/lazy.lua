@@ -14,7 +14,7 @@ require('lazy').setup('neb.config.plugins', {
         lazy = true,
     },
     dev = {
-        path = "~/code/exploring/",
+        path = "~/code/",
         fallback = true,
     }
 })

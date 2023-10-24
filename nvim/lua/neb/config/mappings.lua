@@ -16,6 +16,10 @@ vim.g.maplocalleader = neb.settings.leader
 -- quickly exit insert mode
 imap("<Up>", "<Esc>")
 
+-- I don't have an 8 key anymore...
+-- imap("\\x", "*");
+-- imap("\\9", "8");
+
 -- spell correction
 imap("<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
 
@@ -40,7 +44,7 @@ vmap("K", ":m '<-2<CR>gv=gv")
 nmap("J", "mzJ`z")
 
 -- hitting o while in commented line doesn't automatically insert comment
-nmap("o", "o<esc>S")
+nmap("o", 'o<esc>"_S')
 
 -- keep cursor centered on scroll
 -- credit @ThePrimeagen
@@ -56,47 +60,18 @@ nmap("N", "Nzzzv")
 -- credit @ThePrimeagen
 xmap("<Leader>p", '"_dp')
 
--- this is embarrassing :(
--- and doesn't work?
-nmap("q:",":q")
-
--- move left and right buffers with  h l
--- nmap("<Leader>l", ":bn<CR>")
--- nmap("<Leader>h", ":bp<CR>")
-
+-- move ldur tabs with <leader>hjkl
+nmap("<Leader>h", "<C-w>h")
+nmap("<Leader>j", "<C-w>j")
+nmap("<Leader>k", "<C-w>k")
+nmap("<Leader>l", "<C-w>l")
+-- note to self: HJKL move windows around
+nmap("<Leader>H", "<C-w>H")
+nmap("<Leader>J", "<C-w>J")
+nmap("<Leader>K", "<C-w>K")
+nmap("<Leader>L", "<C-w>L")
 -- slap myself on the wrist for bad habits
 -- credit @folke
-
-local hjkl = { "h", "j", "k", "l" }
-local counts = {}
-
-for _, key in ipairs(hjkl) do
-	counts[key] = 0
-end
-
-local opposites = { h = "l", l = "h", k = "j", j = "k" }
-for _, key in ipairs(hjkl) do
-	vim.keymap.set("n", key, function()
-		local count = 0
-		for _, other_key in ipairs(hjkl) do
-			count = count + counts[other_key]
-		end
-		if count >= 5 then
-			print("tut tut...")
-		else
-			counts[key] = counts[key] + 1
-			if counts[opposites[key]] ~= 0 then
-				counts[opposites[key]] = counts[opposites[key]] - 1
-			end
-			vim.defer_fn(function()
-				if counts[key] ~= 0 then
-					counts[key] = counts[key] - 1
-				end
-			end, 5000)
-			return key
-		end
-	end, { expr = true })
-end
 
 -- xmap("@",execute_macro_over_visual_range)
 -- local execute_macro_over_visual_range = function()

@@ -28,6 +28,7 @@ return {
 		end
 
 		local luasnip = require("luasnip")
+        local ns = function(func) return cmp.mapping(func, {'i','s'}) end
 		cmp.setup({
 
 			snippet = {
@@ -40,7 +41,7 @@ return {
 				["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 				["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
 				-- ["<C-Enter>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-				["<TAB>"] = cmp.mapping({
+				["<C-k>"] = cmp.mapping({
 					c = if_cmp_visible_do(cmp.complete_common_string),
 					i = if_cmp_visible_do(cmp.confirm, { select = true }),
 				}),
@@ -51,18 +52,14 @@ return {
 					c = cmp.mapping.close(),
 				}),
 				-- TODO: move luasnips bindings to luasnips rc
-				["<C-l>"] = function(fallback)
+				["<C-l>"] = ns(function(fallback)
 					if luasnip.choice_active() then
 						luasnip.change_choice(1)
 					else
 						fallback()
 					end
-				end,
-				-- ["<C-y>"] = if_cmp_visible_do(cmp.complete({
-				-- 	-- limit completion options to copilot
-				-- 	config = { sources = { { name = "copilot" } } },
-				-- })),
-				["<C-j>"] = function(fallback)
+				end),
+				["<C-j>"] = ns(function(fallback)
 					if cmp.visible() then
 						cmp.complete({
 							-- limit completion options to snippets
@@ -77,14 +74,14 @@ return {
 					else
 						fallback()
 					end
-				end,
-				["<C-k>"] = function(fallback)
+				end),
+				["<C-h>"] = ns(function(fallback)
 					if luasnip.jumpable(-1) then
 						luasnip.jump(-1)
 					else
 						fallback()
 					end
-				end,
+				end),
 				-- complete but only snippets
 			},
 			-- double {{}} for group index sorting
@@ -102,8 +99,11 @@ return {
 			},
 
 			completion = {
-				keyword_length = 3,
+				keyword_length = 0,
 			},
+            performance = {
+                debounce = 300,
+            },
 
 			experimental = {
 				native_menu = false,
@@ -128,7 +128,6 @@ return {
 				end,
 			},
 		})
-		cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
 
 		require("cmp_dictionary").setup({
 			dic = {
@@ -153,8 +152,5 @@ return {
 
 		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-		-- this is a dirty way to make sure copilot_cmp is loaded after
-		-- see it's configuration to know why it is loaded after
-		-- require("copilot_cmp")
 	end,
 }

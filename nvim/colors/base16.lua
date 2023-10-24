@@ -3,24 +3,24 @@
 -- based on
 -- base16-vim (https://github.com/chriskempson/base16-vim)
 -- by Chris Kempson (https://github.com/chriskempson)
--- Nord scheme by arcticicestudio
+-- Gruvbox dark, medium scheme by Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 
-local base00 = "#2E3440"
-local base01 = "#3B4252"
-local base02 = "#434C5E"
-local base03 = "#4C566A"
-local base04 = "#D8DEE9"
-local base05 = "#E5E9F0"
-local base06 = "#ECEFF4"
-local base07 = "#8FBCBB"
-local base08 = "#BF616A"
-local base09 = "#D08770"
-local base0A = "#EBCB8B"
-local base0B = "#A3BE8C"
-local base0C = "#88C0D0"
-local base0D = "#81A1C1"
-local base0E = "#B48EAD"
-local base0F = "#5E81AC"
+local base00 = "#282828"
+local base01 = "#3c3836"
+local base02 = "#504945"
+local base03 = "#665c54"
+local base04 = "#bdae93"
+local base05 = "#d5c4a1"
+local base06 = "#ebdbb2"
+local base07 = "#fbf1c7"
+local base08 = "#fb4934"
+local base09 = "#fe8019"
+local base0A = "#fabd2f"
+local base0B = "#b8bb26"
+local base0C = "#8ec07c"
+local base0D = "#83a598"
+local base0E = "#d3869b"
+local base0F = "#d65d0e"
 
 vim.g.colors = {
    base00 = base00,
@@ -62,7 +62,7 @@ vim.cmd [[
   highlight clear
   syntax reset
 ]]
-vim.g.colors_name = "base16-nord"
+vim.g.colors_name = "base16-gruvbox-dark-medium"
 
 -- Vim editor colors                    fg bg ctermfg ctermbg attr basesp
 vim.api.nvim_set_hl(0, 'Normal', { fg = base05, bg = base00, ctermfg = cterm05, ctermbg = cterm00 })
