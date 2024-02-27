@@ -1,9 +1,15 @@
 #!/bin/bash
 
 selection=$(hacksaw -f "-i %i -g %g")
-imgpath="/home/neb/Pictures/$(date "+%Y-%m-%d-%T")-screenshot.png"
+imgpath="/home/neb/Pictures/screenshots/$(date "+%Y-%m-%d-%T")-screenshot.png"
 if [[ $1 ]]; then
     imgpath=$1
 fi
-shotgun $selection - | tee $imgpath | xclip -t 'image/png' -selection clipboard
-echo $imgpath
+tmpimg=$(mktemp --suffix=.png)
+shotgun $selection $tmpimg
+xclip -t 'image/png' -selection clipboard $tmpimg
+if [ "$imgpath" == '-' ]; then
+    cat $tmpimg
+else
+    mv $tmpimg $imgpath
+fi
