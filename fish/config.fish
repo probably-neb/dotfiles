@@ -43,6 +43,10 @@ alias rigpgrep='rg'
 alias clone='clone-in-kitty'
 
 alias hx='helix'
+alias cat='bat'
+
+alias tmux-killunatached='tmux list-sessions | grep -v attached | awk \'BEGIN{FS=":"}{print $1}\' | xargs -n 1 tmux kill-session -t || echo No sessions to kill'
+
 
 zoxide init fish | source
 
@@ -70,7 +74,16 @@ alias lolwave="sparkwave | lolcat -F '0.198' -p 3"
 
 # Changing "ls" to "exa"
 if type -q "exa"
-    alias ls='exa -a --color=always --group-directories-first --no-user' # my preferred listing
+    #color only if output is tty
+    function ls
+        if test -t 1
+            exa -a --color=always --group-directories-first --no-user $argv
+        else
+            exa --color=never $argv
+        end
+    end
+        
+    # alias ls='if test -t 1; exa -a --color=always --group-directories-first --no-user; else; exa --color=never; end;' 
     alias lsn='exa -a --color=never --group-directories-first --no-user' # my preferred listing with no color
     alias ld='exa -aD --color=always --group-directories-first --no-user'  # only directories
     alias ll='exa -al --color=always --group-directories-first --no-user'  # long format
@@ -145,3 +158,6 @@ bind '.' __history_previous_command
 #   cbonsai -p
 #   set -gx printed_bonsai "pleasenoprintagain"
 # end
+
+fish_ssh_agent
+rtx activate fish | source
