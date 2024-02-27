@@ -1,0 +1,35 @@
+# Maintainer: Your Name <youremail@domain.com>
+pkgname=roc
+_pkgname=roc # GitHub repository name if different from pkgname
+pkgver=nightly
+pkgrel=1
+pkgdesc="Roc programming language"
+arch=('x86_64')
+platform='linux'
+url="https://github.com/roc-lang/${_pkgname}"
+license=('UPL') # Change this according to the project's license
+depends=( ) # Add dependencies here
+makedepends=( 'tar' ) # or any other build dependencies
+pkg_tar=roc_nightly-linux_x86_64-latest.tar.gz
+source=("https://github.com/roc-lang/roc/releases/download/nightly/${pkg_tar}")
+sha256sums=('SKIP') # Use 'SKIP' for VCS sources
+
+# pkgver() {
+#   cd "${srcdir}/${_pkgname}"
+#   # Use the git tag to determine the version
+#   git describe --tags | sed 's/-/./g'
+# }
+
+# build() {
+#   cd "${srcdir}/${_pkgname}"
+#   # Add commands to build the project, if any
+# }
+
+package() {
+  roc_dir=$(tar -tf ${pkg_tar} | awk -F/ '{print $1}' | uniq)
+  tar -xf roc_nightly-linux_x86_64-latest.tar.gz
+  install -Dm755 "${srcdir}/${roc_dir}/${pkgname}" "${pkgdir}/usr/bin/${pkgname}"
+}
+
+# If the project requires post-installation commands, you can use a .install file with this PKGBUILD
+# Refer to Arch Wiki for creating .install scripts
