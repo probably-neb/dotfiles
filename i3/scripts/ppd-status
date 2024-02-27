@@ -7,5 +7,25 @@
 
 # script to show current power profile
 
-current_profile=$(/usr/bin/powerprofilesctl get)
-echo "$current_profile"
+status=$(powerprofilesctl get)
+
+icon=""
+color="#717171"
+
+if [ "$status" = "performance" ]; then
+    icon="󰓅"
+    color="#ffff00"
+elif [ "$status" = "balanced" ]; then
+    icon=""
+    color="#717171"
+elif [ "$status" = "power-saver" ]; then
+    icon=""
+    color="#407437"
+fi
+
+# long text
+echo $icon
+# short text
+echo $icon
+# color
+echo $color

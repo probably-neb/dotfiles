@@ -70,16 +70,16 @@ bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
 # switch to workspace
-bindsym $mod+1    workspace  $ws1
-bindsym $mod+2    workspace  $ws2
-bindsym $mod+3    workspace  $ws3
-bindsym $mod+4    workspace  $ws4
-bindsym $mod+5    workspace  $ws5
-bindsym $mod+6    workspace  $ws6
-bindsym $mod+7    workspace  $ws7
-bindsym $mod+8    workspace  $ws8
-bindsym $mod+9    workspace  $ws9
-bindsym $mod+0    workspace  $ws10
+# bindsym $mod+1    workspace  $ws1
+# bindsym $mod+2    workspace  $ws2
+# bindsym $mod+3    workspace  $ws3
+# bindsym $mod+4    workspace  $ws4
+# bindsym $mod+5    workspace  $ws5
+# bindsym $mod+6    workspace  $ws6
+# bindsym $mod+7    workspace  $ws7
+# bindsym $mod+8    workspace  $ws8
+# bindsym $mod+9    workspace  $ws9
+# bindsym $mod+0    workspace  $ws10
 
 # switch to workspace with numpad keys
 bindcode $mod+87 workspace 1
@@ -106,16 +106,16 @@ bindcode $mod+Mod2+81 workspace $ws9
 bindcode $mod+Mod2+90 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1    move container to workspace  $ws1
-bindsym $mod+Shift+2    move container to workspace  $ws2
-bindsym $mod+Shift+3    move container to workspace  $ws3
-bindsym $mod+Shift+4    move container to workspace  $ws4
-bindsym $mod+Shift+5    move container to workspace  $ws5
-bindsym $mod+Shift+6    move container to workspace  $ws6
-bindsym $mod+Shift+7    move container to workspace  $ws7
-bindsym $mod+Shift+8    move container to workspace  $ws8
-bindsym $mod+Shift+9    move container to workspace  $ws9
-bindsym $mod+Shift+0    move container to workspace  $ws10
+# bindsym $mod+Shift+1    move container to workspace  $ws1
+# bindsym $mod+Shift+2    move container to workspace  $ws2
+# bindsym $mod+Shift+3    move container to workspace  $ws3
+# bindsym $mod+Shift+4    move container to workspace  $ws4
+# bindsym $mod+Shift+5    move container to workspace  $ws5
+# bindsym $mod+Shift+6    move container to workspace  $ws6
+# bindsym $mod+Shift+7    move container to workspace  $ws7
+# bindsym $mod+Shift+8    move container to workspace  $ws8
+# bindsym $mod+Shift+9    move container to workspace  $ws9
+# bindsym $mod+Shift+0    move container to workspace  $ws10
 
 # move focused container to workspace with numpad keys
 bindcode $mod+Shift+Mod2+87 	move container to workspace  $ws1
@@ -141,6 +141,53 @@ bindcode $mod+Shift+80 	 move container to workspace  $ws8
 bindcode $mod+Shift+81 	 move container to workspace  $ws9
 bindcode $mod+Shift+90 	 move container to workspace  $ws10
 
+# i3-workspace-groups
+
+set $exec_i3_groups exec --no-startup-id i3-workspace-groups
+
+# Switch active workspace group
+bindsym $mod+g exec --no-startup-id i3-switch-active-workspace-group
+
+# Assign workspace to a group
+bindsym $mod+Shift+g exec --no-startup-id i3-assign-workspace-to-group
+
+# Select workspace to focus on
+bindsym $mod+w exec --no-startup-id i3-focus-on-workspace
+
+# Move the focused container to another workspace
+bindsym $mod+Shift+w exec --no-startup-id i3-move-to-workspace
+
+# Rename/renumber workspace. Uses Super+Alt+n
+bindsym Mod1+Mod4+n exec --no-startup-id i3-rename-workspace
+
+bindsym $mod+1 $exec_i3_groups workspace-number 1
+bindsym $mod+2 $exec_i3_groups workspace-number 2
+bindsym $mod+3 $exec_i3_groups workspace-number 3
+bindsym $mod+4 $exec_i3_groups workspace-number 4
+bindsym $mod+5 $exec_i3_groups workspace-number 5
+bindsym $mod+6 $exec_i3_groups workspace-number 6
+bindsym $mod+7 $exec_i3_groups workspace-number 7
+bindsym $mod+8 $exec_i3_groups workspace-number 8
+bindsym $mod+9 $exec_i3_groups workspace-number 9
+bindsym $mod+0 $exec_i3_groups workspace-number 10
+
+bindsym $mod+Shift+1 $exec_i3_groups move-to-number 1
+bindsym $mod+Shift+2 $exec_i3_groups move-to-number 2
+bindsym $mod+Shift+3 $exec_i3_groups move-to-number 3
+bindsym $mod+Shift+4 $exec_i3_groups move-to-number 4
+bindsym $mod+Shift+5 $exec_i3_groups move-to-number 5
+bindsym $mod+Shift+6 $exec_i3_groups move-to-number 6
+bindsym $mod+Shift+7 $exec_i3_groups move-to-number 7
+bindsym $mod+Shift+8 $exec_i3_groups move-to-number 8
+bindsym $mod+Shift+9 $exec_i3_groups move-to-number 9
+bindsym $mod+Shift+0 $exec_i3_groups move-to-number 10
+
+# Switch to previous/next workspace (in all groups).
+bindsym $mod+p workspace prev
+bindsym $mod+n workspace next
+
+
+bindsym $mod+d move workspace to output next
 # resize window (you can also use the mouse for that):
 #mode "resize" {
 # These bindings trigger as soon as you enter the resize mode
@@ -172,14 +219,8 @@ bindcode $mod+Shift+90 	 move container to workspace  $ws10
 
 ## App shortcuts
 # Kitty
-bindsym $mod+Return exec kitty
-# bindsym $mod+Shift+Return exec kitty --class "stray kitty" --title "stray kitty"
-# firefox
-bindsym $mod+w exec /usr/bin/qutebrowser
-# bitwarden
-# bindsym $mod+b exec /usr/bin/bitwarden-desktop
+bindsym $mod+t exec kitty
 
-bindsym $mod+g exec /usr/bin/gimp
 # kill focused window
 bindsym $mod+q kill
 
@@ -245,7 +286,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
+# bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -281,7 +322,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Redirect sound to headphones
 # bindsym $mod+p exec /usr/local/bin/switch-audio-port
-bindsym $mod+p exec xcolor | xclip -sel clip
+# bindsym $mod+p exec xcolor | xclip -sel clip
 
 # screenshot
 bindsym $mod+s exec ~/dotfiles/scripts/screenshot.sh
@@ -486,27 +527,27 @@ for_window [class="urxvt"] border pixel 1
 ######################################
 # BASE16 COLORS
 # <<<<<<<<<<
-## Base16 Nord
-# Author: arcticicestudio
+## Base16 Gruvbox dark, medium
+# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 #
 # You can use these variables anywhere in the i3 configuration file.
 
-set $base00 #2E3440
-set $base01 #3B4252
-set $base02 #434C5E
-set $base03 #4C566A
-set $base04 #D8DEE9
-set $base05 #E5E9F0
-set $base06 #ECEFF4
-set $base07 #8FBCBB
-set $base08 #BF616A
-set $base09 #D08770
-set $base0A #EBCB8B
-set $base0B #A3BE8C
-set $base0C #88C0D0
-set $base0D #81A1C1
-set $base0E #B48EAD
-set $base0F #5E81AC
+set $base00 #282828
+set $base01 #3c3836
+set $base02 #504945
+set $base03 #665c54
+set $base04 #bdae93
+set $base05 #d5c4a1
+set $base06 #ebdbb2
+set $base07 #fbf1c7
+set $base08 #fb4934
+set $base09 #fe8019
+set $base0A #fabd2f
+set $base0B #b8bb26
+set $base0C #8ec07c
+set $base0D #83a598
+set $base0E #d3869b
+set $base0F #d65d0e
 
 # Basic bar configuration using the Base16 variables.
 bar {
