@@ -14,7 +14,7 @@ vim.g.mapleader = neb.settings.leader
 vim.g.maplocalleader = neb.settings.leader
 
 -- quickly exit insert mode
-imap("<Up>", "<Esc>")
+-- imap("ii", "<Esc>")
 
 -- I don't have an 8 key anymore...
 -- imap("\\x", "*");

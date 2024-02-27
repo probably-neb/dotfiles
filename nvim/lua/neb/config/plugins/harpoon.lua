@@ -5,23 +5,17 @@ return {
     event = "BufRead",
     keys = { pre },
     config = function()
-        -- local autopoon = vim.api.nvim_create_augroup("poon", { clear = true })
-        local poon = function(sub, cmd, args)
-            return {
-                function()
-                    require("harpoon." .. sub)[cmd](args)
-                end,
-                cmd .. "(" .. (args or "") .. ")",
-            }
-        end
+        require('harpoon').setup({
+            mark_branch = true
+        })
 
         require("which-key").register({
-            m = poon("mark", "add_file"),
-            v = poon("ui", "toggle_quick_menu"),
-            a = poon("ui", "nav_file", 4),
-            s = poon("ui", "nav_file", 3),
-            d = poon("ui", "nav_file", 2),
-            f = poon("ui", "nav_file", 1),
-            }, { prefix = pre, silent = false })
+            m = {function() require("harpoon.mark").add_file() end, "add_file()"},
+            v = {function() require("harpoon.ui").toggle_quick_menu() end, "toggle_quick_menu()"},
+            a = {function() require("harpoon.ui").nav_file(4) end, "nav_file(4)"},
+            s = {function() require("harpoon.ui").nav_file(3) end, "nav_file(3)"},
+            d = {function() require("harpoon.ui").nav_file(2) end, "nav_file(2)"},
+            f = {function() require("harpoon.ui").nav_file(1) end, "nav_file(1)"},
+        }, { prefix = pre, silent = false })
     end,
 }
