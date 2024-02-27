@@ -20,6 +20,10 @@ vim.g.maplocalleader = neb.settings.leader
 -- imap("\\x", "*");
 -- imap("\\9", "8");
 
+-- I don't have an 8 key anymore...
+-- imap("\\x", "*");
+-- imap("\\9", "8");
+
 -- spell correction
 imap("<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
 

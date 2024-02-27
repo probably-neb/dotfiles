@@ -55,4 +55,3 @@
   "vim-be-good": { "branch": "master", "commit": "c290810728a4f75e334b07dc0f3a4cdea908d351" },
   "vimtex": { "branch": "master", "commit": "03c83443108a6984bf90100f6d00ec270b84a339" },
   "which-key.nvim": { "branch": "main", "commit": "7ccf476ebe0445a741b64e36c78a682c1c6118b7" }
-}
