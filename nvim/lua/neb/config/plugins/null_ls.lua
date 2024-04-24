@@ -1,3 +1,4 @@
+-- TODO: replace with none-ls.nvim
 local M = { "jose-elias-alvarez/null-ls.nvim", dependencies = { "jayp0521/mason-null-ls.nvim" }, lazy = true }
 local neb = require("neb")
 
