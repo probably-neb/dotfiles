@@ -61,9 +61,9 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		dependencies = {
-            {dir="~/code/tree-sitter-templ", ft = "templ", dev = true},
 			"nvim-treesitter-textobjects",
-			"IndianBoy42/tree-sitter-just",
+   --          {dir="~/code/tree-sitter-templ", ft = { "templ" }, lazy= true, dev = true},
+			-- {"IndianBoy42/tree-sitter-just", ft= {"just"}, lazy = true},
 		},
 		event = "BufReadPost",
 		config = function()
@@ -173,6 +173,8 @@ return {
 	{
 		"IndianBoy42/tree-sitter-just",
 		build = ":TSUpdate",
+        ft = {"just"},
+        lazy = true,
 		config = true,
 	},
 }
