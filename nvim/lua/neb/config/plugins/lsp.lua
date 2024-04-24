@@ -15,7 +15,7 @@ local SERVER_OPTS = {
                     unusedparams = true,
                     shadow = true,
                 },
-                templateExtensions = { ".templ" },
+                -- templateExtensions = { ".templ" },
                 staticcheck = true,
             },
         },
@@ -54,6 +54,7 @@ local SERVER_OPTS = {
         end,
     },
     disable = {
+        templ = true,
         rust_analyzer = true, -- only disabled for mason-lspconfig automagic setup (using rust-tools instead)
         pyright = true,
         clangd = true,
@@ -89,37 +90,66 @@ return {
                 status_symbol = "lsp:",
             })
 
+            local wk = require("which-key")
+
             -- after the language server attaches to the current buffer
             local on_attach = function(client, bufnr)
                 -- Mappings.
 
-                -- TODO: use client info for smarter mappings
                 local opts = { noremap = true, silent = false, buffer = bufnr }
-                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-                vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-                vim.keymap.set({ "v", "n" }, "<space>i", vim.lsp.buf.hover, opts)
-                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-                vim.keymap.set({ "n", "i" }, "<C-y>", vim.lsp.buf.signature_help, opts)
-                vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-                vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-                vim.keymap.set("n", "<space>wl", function()
-                    print(vim.inspect(vim.lsp.buf.list_workspace_folders))
-                end, opts)
-                vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-                vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-                vim.keymap.set({ "n", "v", "i" }, "<C-g>", vim.lsp.buf.code_action, opts)
-                vim.keymap.set("n", "<C-b>", vim.lsp.buf.references, opts)
-                vim.keymap.set("n", "<space>=", function()
-                    -- vim.lsp.buf.format {async = true}
-                    format.format()
-                    end, { noremap = true, buffer = bufnr })
+
+                wk.register({
+                    name = "LSP",
+                    g = {
+                        name = "GOTO",
+                        D = {vim.lsp.buf.declaration, "Declaration"},
+                        d = {vim.lsp.buf.definition, "Definition"},
+                        i = {vim.lsp.buf.implementation, "Implementation"},
+                    },
+                    ["<leader>"] = {
+                        w = {
+                            name = "Workspace",
+                            a = {vim.lsp.buf.add_workspace_folder, "Add Folder"},
+                            r = {vim.lsp.buf.remove_workspace_folder, "Remove Folder"},
+                            l = {function() print(vim.inspect(vim.lsp.buf.list_workspace_folders)) end, "List Folders"}
+                        },
+                        ['='] = { function() format.format() end, "Format"},
+                        i = {vim.lsp.buf.hover, "Hover", mode = {"n", "v"}},
+                        D = {vim.lsp.buf.type_definition, "Type Definition"},
+                        rn = {name="rename", vim.lsp.buf.rename, "Rename"},
+                        ["<leader>r"] = { "<cmd>LspRestart<cr>", "Restart LSP" },
+                    },
+                    ["<C-h>"] = {vim.lsp.buf.signature_help, "Signature Help", mode={"i", "n"}},
+                    ["<C-g>"] = {vim.lsp.buf.code_action, "Code Action", mode = {"n", "v", "i"}},
+                    ["<C-b>"] = {vim.lsp.buf.references, "References"},
+                }, opts)
+                -- TODO: use client info for smarter mappings
+
+                -- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+                -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+                -- vim.keymap.set({ "v", "n" }, "<space>i", vim.lsp.buf.hover, opts)
+                -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+                -- vim.keymap.set({ "n", "i" }, "<C-h>", vim.lsp.buf.signature_help, opts)
+                -- vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
+                -- vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
+                -- vim.keymap.set("n", "<space>wl", function()
+                --     print(vim.inspect(vim.lsp.buf.list_workspace_folders))
+                -- end, opts)
+                -- vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+                -- vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+                -- vim.keymap.set({ "n", "v", "i" }, "<C-g>", vim.lsp.buf.code_action, opts)
+                -- vim.keymap.set("n", "<C-b>", vim.lsp.buf.references, opts)
+                -- vim.keymap.set("n", "<space>=", function()
+                --     -- vim.lsp.buf.format {async = true}
+                --     format.format()
+                --     end, { noremap = true, buffer = bufnr })
 
                 vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_bs)
                     vim.lsp.buf.format({ async = true })
                 end, {})
 
                 lsp_status.on_attach(client)
-                vim.keymap.set("n", "<leader><leader>r", "<cmd>LspRestart<cr>", opts)
+                -- vim.keymap.set("n", "<leader><leader>r", "<cmd>LspRestart<cr>", opts)
             end
 
             local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -138,6 +168,7 @@ return {
                 if type(opts.__onload) == "function" then
                     opts = opts.__onload(opts)
                 end
+                opts = vim.tbl_extend("keep", opts, options)
 
                 if nvim_lsp[server] == nil or nvim_lsp[server].setup == nil then
                     print("no lspconfig for " .. server)
@@ -160,7 +191,7 @@ return {
 
             require("neb.config.plugins.rust-tools").setup(options)
 
-            nvim_lsp.racket_langserver.setup(options)
+            -- nvim_lsp.racket_langserver.setup(options)
 
             vim.diagnostic.config({
                 virtual_text = true,
@@ -170,10 +201,15 @@ return {
                 severity_sort = true,
             })
 
-            vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-            vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-            vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
+            wk.register({
+                ["<leader>"] = {
+                        name = "Diagnostics",
+                        e = {vim.diagnostic.open_float, "Show Diagnostics"},
+                        q = {vim.diagnostic.setloclist, "Quickfix"},
+                },
+                ["[d"] = {vim.diagnostic.goto_prev, "Previous Diagnostic"},
+                ["]d"] = {vim.diagnostic.goto_next, "Next Diagnostic"},
+            })
         end,
     },
 }
