@@ -60,15 +60,6 @@ zoxide init fish | source
 # 	end
 # end
 
-function mvmk -d "mv files and create non existing directories"
-	set -l dest $argv[-1]
-	mkdir $dest
-	echo 'Created Directory '$dest
-	for i in $argv[1..-1]
-		mv $i $argv
-	end
-end
-		
 alias lolwave="sparkwave | lolcat -F '0.198' -p 3"
 
 
