@@ -6,7 +6,7 @@ vim.g.maplocalleader = neb.settings.leader
 vim.opt.grepprg = "rg --vimgrep"
 -- ?
 vim.opt.ruler = true
-vim.opt.signcolumn = "no"
+vim.opt.signcolumn = "number"
 -- sync with system clipboard
 vim.opt.clipboard = "unnamedplus"
 vim.opt.spelllang = "en_us"
