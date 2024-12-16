@@ -152,14 +152,14 @@ local plugins = {
 		config = true,
 		opts = { signs = false, keywords = { IDEA = { color = "hint" } } },
 	},
-	{
-		"folke/tokyonight.nvim",
-		-- lazy = false,
-		-- priority = 1000,
-		config = function()
-			vim.cmd([[ colorscheme tokyonight]])
-		end,
-	},
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = true,
+	-- 	-- priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd([[ colorscheme tokyonight]])
+	-- 	end,
+	-- },
 	{
 		"folke/neodev.nvim",
 		ft = "lua",
