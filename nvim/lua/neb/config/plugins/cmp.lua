@@ -86,13 +86,13 @@ return {
 			},
 			-- double {{}} for group index sorting
 			sources = {
-				{ name = "copilot" },
-				{ name = "otter" }, -- quarto
-				{ name = "nvim_lsp_signature_help" },
+				{ name = "codeium" },
 				{ name = "luasnip" },
-				{ name = "nvim_lua" },
 				{ name = "nvim_lsp" },
+				{ name = "nvim_lua" },
+				{ name = "nvim_lsp_signature_help" },
 				{ name = "buffer", keyword_length = 5 },
+				{ name = "otter" }, -- quarto
 				{ name = "path" },
 				{ name = "dictionary", keyword_length = 5 },
 				{ name = "fish" },
@@ -102,12 +102,12 @@ return {
 				keyword_length = 0,
 			},
             performance = {
-                debounce = 300,
+                debounce = 100,
             },
 
 			experimental = {
 				native_menu = false,
-				ghost_text = true,
+				ghost_text = {hlgroup = "Comment"},
 			},
 
 			formatting = {
@@ -136,7 +136,7 @@ return {
 		})
 
 		-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-		cmp.setup.cmdline("/", {
+		cmp.setup.cmdline({"/", "?"}, {
 			sources = {
 				{ name = "buffer" },
 			},
