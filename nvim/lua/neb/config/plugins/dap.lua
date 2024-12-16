@@ -1,4 +1,5 @@
-local RUST_LLDB_COMMANDS_PATH = "/home/neb/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/etc/lldb_commands"
+local RUST_LLDB_COMMANDS_PATH =
+	"/home/neb/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/etc/lldb_commands"
 local ADAPTERS = {
 	lldb = {
 		type = "executable",
@@ -7,20 +8,21 @@ local ADAPTERS = {
 	},
 	rust_lldb = {
 		type = "executable",
-		command = "/usr/bin/lldb-vscode --source " .. RUST_LLDB_COMMANDS_PATH,
+		command = "/usr/bin/lldb-vscode",
+		args = { "--source", RUST_LLDB_COMMANDS_PATH },
 		name = "rust-lldb",
 	},
-    gdb = {
-        type = "executable",
-        command = "/usr/bin/gdb",
-        name = "gdb",
-    }
+	gdb = {
+		type = "executable",
+		command = "/usr/bin/gdb",
+		name = "gdb",
+	},
 }
 
 local CONFIGS = {
 	rustLLDB = {
 		name = "Launch lldb",
-		type = "rust-lldb",
+		type = "rust_lldb",
 		request = "launch",
 		program = function()
 			return vim.fn.input({ prompt = "Path to executable: ", default = vim.fn.getcwd() .. "/", key = "file" })
@@ -63,6 +65,7 @@ local CONFIGS = {
 		runInTerminal = false,
 	},
 }
+
 local DAP_PREFIX = "<leader>d"
 
 local DAP_IDK_FIGURE_OUT_LATER = {
@@ -252,75 +255,85 @@ local M = {
 		vim.fn.sign_define("DapStopped", DAP.stopped)
 
 		-- ui.util.notify = notify_handler
-
-		local wk = require("which-key")
-		wk.register({
-			b = {
+		require("which-key").add({
+			{ DAP_PREFIX, group = "DAP" },
+			{
+				DAP_PREFIX .. "b",
 				function()
 					dap.toggle_breakpoint()
 				end,
-				"Toggle breakpoint",
+				desc = "Toggle breakpoint",
 			},
-			r = {
-                name = "Run",
-				e = {
+			{
+				{ DAP_PREFIX .. "r", group = "Run" },
+				{
+					DAP_PREFIX .. "re",
 					function()
 						dap.repl_open()
 					end,
-					"Open Dat READ-EVAL-PRINT-LOOP",
+					desc = "Open Dat READ-EVAL-PRINT-LOOP",
 				},
-				l = {
+				{
+					DAP_PREFIX .. "rl",
 					function()
 						dap.run_last()
 					end,
-					"Run Last",
+					desc = "Run Last",
 				},
-				c = {
+				{
+					DAP_PREFIX .. "rc",
 					function()
 						dap.run_to_cursor()
 					end,
-                    "Run To Cursor"
+					desc = "Run To Cursor",
 				},
 			},
-			c = {
+			{
+				DAP_PREFIX .. "c",
 				function()
 					dap.continue()
 				end,
-				"Continue",
+				desc = "Continue",
 			},
-			n = {
+			{
+				DAP_PREFIX .. "n",
 				function()
 					dap.step_over()
 				end,
-				"Step over",
+				desc = "Step over",
 			},
-			s = {
+			{
+				DAP_PREFIX .. "s",
 				function()
 					dap.step_into()
 				end,
-				"Step into",
+				desc = "Step into",
 			},
-			o = {
+			{
+				DAP_PREFIX .. "o",
 				function()
 					dap.step_out()
 				end,
-				"Step out",
+				desc = "Step out",
 			},
-			q = {
+			{
+				DAP_PREFIX .. "q",
 				function()
 					dap.terminate()
-                    ui.close()
+					ui.close()
 				end,
-				"Terminate",
+				desc = "Terminate",
 			},
-			x = {
+			{
+				DAP_PREFIX .. "x",
 				function()
 					ui.eval()
 				end,
-				"Execute Expression",
+				desc = "Execute Expression",
 				mode = { "v", "n", "x" },
 			},
-		}, { prefix = DAP_PREFIX, noremap = true })
+			noremap = true,
+		})
 	end,
 }
 
