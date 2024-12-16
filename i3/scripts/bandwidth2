@@ -7,10 +7,10 @@
 
 iface="${BLOCK_INSTANCE}"
 iface="${IFACE:-$iface}"
-dt="${DT:-3}"
+dt="${DT:-1}"
 unit="${UNIT:-MB}"
 LABEL="${LABEL:-<span font='FontAwesome'> </span>}" # down arrow up arrow
-printf_command="${PRINTF_COMMAND:-"printf \"${LABEL}%1.0f/%1.0f %s/s\\n\", rx, wx, unit;"}"
+printf_command="${PRINTF_COMMAND:-"printf \"${LABEL} ↓%6.3f ↑%6.3f %s/s\\n\", rx, wx, unit;"}"
 
 function default_interface {
     ip route | awk '/^default via/ {print $5; exit}'
@@ -80,6 +80,8 @@ if [ -z "$init_line" ]; then
     echo Interface not found in /proc/net/dev: "$iface"
     exit 1
 fi
+
+echo $init_line >&2
 
 init_received=$(awk '{print $2}' <<< $init_line)
 init_sent=$(awk '{print $10}' <<< $init_line)

@@ -18,6 +18,9 @@
 # config starts here: #
 #######################
 
+# Set screenlayout to side by side for nebtower
+exec --no-startup-id ~/.screenlayout/triple-threat.sh
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -189,37 +192,37 @@ bindsym $mod+n workspace next
 
 bindsym $mod+d move workspace to output next
 # resize window (you can also use the mouse for that):
-#mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
-# Pressing left will shrink the window's width.
-# Pressing right will grow the window's width.
-# Pressing up will shrink the window's height.
-# Pressing down will grow the window's height.
-#        bindsym j resize shrink width 10 px or 10 ppt
-#        bindsym k resize grow height 10 px or 10 ppt
-#        bindsym l resize shrink height 10 px or 10 ppt
-#        bindsym ntilde resize grow width 10 px or 10 ppt
+mode "resize" {
+ # These bindings trigger as soon as you enter the resize mode
+ # Pressing left will shrink the window's width.
+ # Pressing right will grow the window's width.
+ # Pressing up will shrink the window's height.
+ # Pressing down will grow the window's height.
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize shrink height 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
-# same bindings, but for the arrow keys
-#	bindsym Left resize shrink width 10 px or 10 ppt
-#        bindsym Down resize grow height 10 px or 10 ppt
-#        bindsym Up resize shrink height 10 px or 10 ppt
-#        bindsym Right resize grow width 10 px or 10 ppt
+ # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
 # back to normal: Enter or Escape
-#	bindsym Return mode "default"
-#        bindsym Escape mode "default"
-#}
+       bindsym Return mode "default"
+       bindsym Escape mode "default"
+}
 
-#bindsym $mod+r mode "resize"
+bindsym $mod+r mode "resize"
 
 ######################################
 # keybindings for different actions: #
 ######################################
 
 ## App shortcuts
-# Kitty
-bindsym $mod+t exec kitty
+# Kitty (x) -> ghostty
+bindsym $mod+t exec ghostty
 
 # kill focused window
 bindsym $mod+q kill
@@ -238,6 +241,8 @@ bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to update i3)
 bindsym $mod+Shift+r restart
+
+bindsym $mod+Shift+d exec ~/dotfiles/scripts/toggle_second_monitor.sh
 
 # keybinding in fancy rofi (automated):
 bindsym F1 exec ~/.config/i3/scripts/keyhint-2
@@ -285,7 +290,7 @@ bindsym $mod+Shift+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
+# bindsym $mod+ layout stacking
 # bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -349,22 +354,22 @@ bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 # set $ws8 "8"
 # set $ws9 "9"
 # set $ws10 "10"
-set $ws1 "1:Ⅰ"
-set $ws2 "2:Ⅱ"
-set $ws3 "3:Ⅲ"
-set $ws4 "4:Ⅳ"
-set $ws5 "5:Ⅴ"
-set $ws6 "6:Ⅵ"
-set $ws7 "7:Ⅶ"
-set $ws8 "8:Ⅷ"
-set $ws9 "9:Ⅸ"
-set $ws10 "10:Ⅹ"
+# set $ws1 "1:Ⅰ"
+# set $ws2 "2:Ⅱ"
+# set $ws3 "3:Ⅲ"
+# set $ws4 "4:Ⅳ"
+# set $ws5 "5:Ⅴ"
+# set $ws6 "6:Ⅵ"
+# set $ws7 "7:Ⅶ"
+# set $ws8 "8:Ⅷ"
+# set $ws9 "9:Ⅸ"
+# set $ws10 "10:Ⅹ"
 
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
 # you can get from xrandr command
 #workspace $ws1 output VGA-0
-workspace $ws2 output secondary primary
+# workspace $ws2 output secondary primary
 #workspace $ws3 output HDMI-0
 #workspace $ws4 output HDMI-0
 #workspace $ws5 output HDMI-0
