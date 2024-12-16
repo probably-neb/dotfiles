@@ -49,7 +49,7 @@ alias tmux-killunatached='tmux list-sessions | grep -v attached | awk \'BEGIN{FS
 
 
 zoxide init fish | source
-
+mise activate fish | source
 
 # function spaces_to_underlines 
 # 	for arg in $argv
@@ -151,7 +151,5 @@ bind '.' __history_previous_command
 # end
 
 fish_ssh_agent
-rtx activate fish | source
-
 # sst
 fish_add_path /home/neb/.sst/bin
