@@ -4,17 +4,17 @@ return {
 	-- dev = true,
 	-- will be loaded by the first plugin that needs it
 	lazy = true,
-	config = function()
+    init = function()
 		vim.o.timeout = true
 		vim.o.timeoutlen = 300
-		require("which-key").setup({
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		})
-	end,
+    end,
+    opts = {
+        icons = {
+            mappings = false,
+        }
+    },
     modes = function(opts)
-        mappings = {}
+        local mappings = {}
         for mode,mapping in pairs(opts) do
             mapping.mode = mode
             table.insert(mappings,mapping)
