@@ -26,7 +26,29 @@ local events = require("luasnip.util.events")
 local add_snippet = function(snip)
 	table.insert(snippets, snip)
 end
+local ts_utils = require('nvim-treesitter.ts_utils')
 -- }}}
+
+ls.filetype_extend('typescriptreact', {'typescript'})
+
+
+local get_function_name = function()
+  local node = ts_utils.get_node_at_cursor().parent
+  while node do
+    if node:type() == "call_expression" then
+      local func_name = ""
+      for child in node:iter_children() do
+        if child:type() == "member_expression" or child:type() == "identifier" then
+          func_name = vim.treesitter.get_node_text(child, 0)
+          break
+        end
+      end
+      return func_name
+    end
+    node = node:parent()
+  end
+  return ""
+end
 
 local snippets = {
 	s(
@@ -44,13 +66,25 @@ local snippets = {
 	),
 	s(
 		"ec",
-		fmt(
-			[[export const {} = {}]],
-			{
-				i(1),
-				i(2),
-			}
-		)
+		fmt([[export const {} = {}]], {
+			i(1),
+			i(2),
+		})
 	),
+	s(".catchpromise", {
+		t({ "", ".catch((e): Awaited<ReturnType<typeof " }),
+        i(1),
+		--[[ f(function()
+			return get_function_name()
+		end), ]]
+		t({ ">> => {", "\tconsole.error('uncaught error in " }),
+        r(1),
+		--[[ f(function()
+			return get_function_name()
+		end), ]]
+		t({ "', e);" }),
+		c(2, {t("", {"\treturn {", "\t\tok: false,", "\t\treason: 'internal-server-error'"}), i(2)}),
+		t({ ",", "\t};", "});" }),
+	}),
 }
 return snippets
