@@ -5,3 +5,10 @@
     )
     (code_fence_content) @r
 )
+
+(fenced_code_block
+    (_ 
+       (language) @_lang (#eq? @_lang "python")
+    )
+    (code_fence_content) @python
+)
