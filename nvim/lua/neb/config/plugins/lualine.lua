@@ -3,7 +3,7 @@ return {
 	-- BufReadPost so that it is not loaded before Dashboard
 	-- because it redraws the screen
 	event = "BufReadPost",
-	dependencies = { "kyazdani42/nvim-web-devicons" },
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
         local lualine = require('lualine')
 
