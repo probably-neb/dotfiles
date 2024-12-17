@@ -10,7 +10,7 @@ return {
 		"hrsh7th/cmp-nvim-lua",
 		"saadparwaiz1/cmp_luasnip",
 		"uga-rosa/cmp-dictionary",
-		"zbirenbaum/copilot-cmp",
+		-- "zbirenbaum/copilot-cmp",
 		-- { "mtoohey31/cmp-fish", ft = "fish" },
 	},
 	config = function()
@@ -86,7 +86,7 @@ return {
 			},
 			-- double {{}} for group index sorting
 			sources = {
-				{ name = "copilot" },
+				-- { name = "copilot" },
 				{ name = "otter" }, -- quarto
 				{ name = "nvim_lsp_signature_help" },
 				{ name = "luasnip" },
@@ -113,7 +113,7 @@ return {
 			formatting = {
 				format = function(entry, vim_item)
 					vim_item.menu = ({
-						copilot = "[]",
+						-- copilot = "[]",
 						buffer = "[buf]",
 						nvim_lsp = "[lsp]",
 						nvim_lua = "[lua]",

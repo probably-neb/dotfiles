@@ -1,8 +1,8 @@
 return {
 	{
 		"zbirenbaum/copilot.lua",
-		-- lazy = true,
-		-- event = "InsertEnter",
+		dependencies = { "zbirenbaum/copilot-cmp" },
+        enabled = false,
 		config = function()
 			require("copilot").setup({
 				panel = { enabled = false },
@@ -18,7 +18,7 @@ return {
 		-- loaded after cmp because I'm not sure Ill keep it 
         -- and this makes it easier to disable
 		"zbirenbaum/copilot-cmp",
-		dependencies = { "zbirenbaum/copilot.lua" },
+        lazy = true,
 		config = function()
 			require("copilot_cmp").setup({
 				method = "getCompletionsCycling",
