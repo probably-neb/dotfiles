@@ -152,3 +152,6 @@ bind '.' __history_previous_command
 
 fish_ssh_agent
 rtx activate fish | source
+
+# sst
+fish_add_path /home/neb/.sst/bin
