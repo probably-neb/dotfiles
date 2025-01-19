@@ -143,44 +143,44 @@ bindcode $mod+Shift+90 	 move container to workspace  $ws10
 
 # i3-workspace-groups
 
-set $exec_i3_groups exec --no-startup-id i3-workspace-groups
+set $exec_i3_groups exec --no-startup-id i3-wg
 
 # Switch active workspace group
-bindsym $mod+g exec --no-startup-id i3-switch-active-workspace-group
+bindsym $mod+g $exec_i3_groups switch-active-workspace-group
 
 # Assign workspace to a group
-bindsym $mod+Shift+g exec --no-startup-id i3-assign-workspace-to-group
+bindsym $mod+Shift+g $exec_i3_groups assign-workspace-to-group
 
 # Select workspace to focus on
-bindsym $mod+w exec --no-startup-id i3-focus-on-workspace
+bindsym $mod+w $exec_i3_groups focus-workspace
 
 # Move the focused container to another workspace
-bindsym $mod+Shift+w exec --no-startup-id i3-move-to-workspace
+bindsym $mod+Shift+w $exec_i3_groups move-active-container-to-workspace
 
 # Rename/renumber workspace. Uses Super+Alt+n
-bindsym Mod1+Mod4+n exec --no-startup-id i3-rename-workspace
+bindsym Mod1+Mod4+n $exec_i3_groups rename-workspace
 
-bindsym $mod+1 $exec_i3_groups workspace-number 1
-bindsym $mod+2 $exec_i3_groups workspace-number 2
-bindsym $mod+3 $exec_i3_groups workspace-number 3
-bindsym $mod+4 $exec_i3_groups workspace-number 4
-bindsym $mod+5 $exec_i3_groups workspace-number 5
-bindsym $mod+6 $exec_i3_groups workspace-number 6
-bindsym $mod+7 $exec_i3_groups workspace-number 7
-bindsym $mod+8 $exec_i3_groups workspace-number 8
-bindsym $mod+9 $exec_i3_groups workspace-number 9
-bindsym $mod+0 $exec_i3_groups workspace-number 10
+bindsym $mod+1 $exec_i3_groups focus-workspace 1
+bindsym $mod+2 $exec_i3_groups focus-workspace 2
+bindsym $mod+3 $exec_i3_groups focus-workspace 3
+bindsym $mod+4 $exec_i3_groups focus-workspace 4
+bindsym $mod+5 $exec_i3_groups focus-workspace 5
+bindsym $mod+6 $exec_i3_groups focus-workspace 6
+bindsym $mod+7 $exec_i3_groups focus-workspace 7
+bindsym $mod+8 $exec_i3_groups focus-workspace 8
+bindsym $mod+9 $exec_i3_groups focus-workspace 9
+bindsym $mod+0 $exec_i3_groups focus-workspace 10
 
-bindsym $mod+Shift+1 $exec_i3_groups move-to-number 1
-bindsym $mod+Shift+2 $exec_i3_groups move-to-number 2
-bindsym $mod+Shift+3 $exec_i3_groups move-to-number 3
-bindsym $mod+Shift+4 $exec_i3_groups move-to-number 4
-bindsym $mod+Shift+5 $exec_i3_groups move-to-number 5
-bindsym $mod+Shift+6 $exec_i3_groups move-to-number 6
-bindsym $mod+Shift+7 $exec_i3_groups move-to-number 7
-bindsym $mod+Shift+8 $exec_i3_groups move-to-number 8
-bindsym $mod+Shift+9 $exec_i3_groups move-to-number 9
-bindsym $mod+Shift+0 $exec_i3_groups move-to-number 10
+bindsym $mod+Shift+1 $exec_i3_groups move-active-container-to-workspace 1
+bindsym $mod+Shift+2 $exec_i3_groups move-active-container-to-workspace 2
+bindsym $mod+Shift+3 $exec_i3_groups move-active-container-to-workspace 3
+bindsym $mod+Shift+4 $exec_i3_groups move-active-container-to-workspace 4
+bindsym $mod+Shift+5 $exec_i3_groups move-active-container-to-workspace 5
+bindsym $mod+Shift+6 $exec_i3_groups move-active-container-to-workspace 6
+bindsym $mod+Shift+7 $exec_i3_groups move-active-container-to-workspace 7
+bindsym $mod+Shift+8 $exec_i3_groups move-active-container-to-workspace 8
+bindsym $mod+Shift+9 $exec_i3_groups move-active-container-to-workspace 9
+bindsym $mod+Shift+0 $exec_i3_groups move-active-container-to-workspace 10
 
 # Switch to previous/next workspace (in all groups).
 bindsym $mod+p workspace prev
