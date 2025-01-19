@@ -17,7 +17,9 @@ return {
 		"ruby",
 		"rust",
 	},
-	keys = {},
+	keys = {
+        refactoring_leader
+    },
 	config = function(opts)
 		require("refactoring").setup(opts)
 		local modes = require("neb.config.plugins.wk").modes
@@ -47,6 +49,14 @@ return {
 				},
 				mode = "x",
 			},
+            i = {
+                f = {
+                    function()
+                        refactoring.refactor("Inline Function")
+                    end,
+                    "Inline Function",
+                }
+            },
 			p = modes({
 				n = {
 					function()
